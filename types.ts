@@ -11,4 +11,12 @@ export interface Vagga {
   verses: Verse[];
 }
 
-export type ViewState = 'home' | 'syair' | 'kontak';
+export interface ParitaItem {
+  id: number;
+  title: string;
+  content: string; // Teks Pali / Mantra / Instruksi Awal
+  translation: string; // Terjemahan / Penjelasan
+  note?: string; // Instruksi tambahan (opsional)
+}
+
+export type ViewState = 'home' | 'syair' | 'parita' | 'kontak';

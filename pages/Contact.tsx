@@ -1,11 +1,12 @@
 import React from 'react';
-import { Mail, Phone, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MessageCircle, Heart, Wallet } from 'lucide-react';
 import { DhammaWheel } from '../components/Icons';
 
 const Contact: React.FC = () => {
   const whatsappNumber = "6281341300100"; // Clean number for API
   const whatsappDisplay = "+62-813-41-300-100";
   const email = "johan.jkt999@gmail.com";
+  const donationNumber = "0813-41-300-100";
 
   return (
     <div className="min-h-screen pt-24 pb-12 px-4 flex items-center justify-center">
@@ -59,8 +60,45 @@ const Contact: React.FC = () => {
 
             </div>
 
+            {/* Donation Section */}
+            <div className="mt-12 bg-slate-800/30 rounded-xl p-6 border border-techno-gold/20 relative overflow-hidden">
+                {/* Glow Effect */}
+                <div className="absolute -top-10 -right-10 w-20 h-20 bg-techno-gold/10 rounded-full blur-xl"></div>
+
+                <div className="flex flex-col items-center justify-center mb-4">
+                    <div className="flex items-center gap-2 text-techno-gold mb-2">
+                        <Heart className="w-5 h-5 fill-current" />
+                        <h3 className="font-techno font-bold text-lg">Donasi Sukarela</h3>
+                    </div>
+                    <p className="text-sm text-slate-400">Jika aplikasi ini bermanfaat, Anda dapat mendukung kami via:</p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                    <div className="bg-slate-900/80 px-6 py-3 rounded-lg border border-slate-600 mb-4 w-full max-w-xs flex items-center justify-between">
+                        <Wallet className="w-5 h-5 text-slate-500" />
+                        <span className="font-mono text-xl text-white tracking-widest font-bold">{donationNumber}</span>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center gap-3 w-full">
+                        <span className="px-3 py-1.5 rounded-md bg-[#EE4D2D]/10 border border-[#EE4D2D]/50 text-[#EE4D2D] text-xs font-bold uppercase tracking-wide shadow-[0_0_10px_rgba(238,77,45,0.1)]">
+                            ShopeePay
+                        </span>
+                        <span className="px-3 py-1.5 rounded-md bg-[#4C3494]/10 border border-[#4C3494]/50 text-[#a88df0] text-xs font-bold uppercase tracking-wide shadow-[0_0_10px_rgba(76,52,148,0.1)]">
+                            OVO
+                        </span>
+                        <span className="px-3 py-1.5 rounded-md bg-[#118EEA]/10 border border-[#118EEA]/50 text-[#118EEA] text-xs font-bold uppercase tracking-wide shadow-[0_0_10px_rgba(17,142,234,0.1)]">
+                            DANA
+                        </span>
+                        <span className="px-3 py-1.5 rounded-md bg-[#00AED6]/10 border border-[#00AED6]/50 text-[#00AED6] text-xs font-bold uppercase tracking-wide shadow-[0_0_10px_rgba(0,174,214,0.1)]">
+                            GoPay
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+             {/* Footer Quote */}
              <div className="mt-12 pt-8 border-t border-white/10">
-                <p className="text-sm text-slate-500 font-mono">
+                <p className="text-lg md:text-xl text-cyan-400 font-bold font-classic drop-shadow-[0_0_15px_rgba(34,211,238,0.6)] leading-relaxed">
                     "Sabbe Satta Bhavantu Sukhitatta"<br/>
                     Semoga Semua Makhluk Berbahagia
                 </p>
