@@ -45,11 +45,11 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
 
           {/* Buddha Image (Techno Style) */}
           <div className="relative w-72 h-72 md:w-96 md:h-96 animate-float transition-transform duration-700 transform hover:scale-105">
-            {/* Glow effect behind the image */}
-            <div className="absolute inset-0 bg-gradient-to-b from-techno-primary/20 to-techno-accent/20 rounded-3xl blur-2xl"></div>
+            {/* Glow effect behind the image - Changed to rounded-full */}
+            <div className="absolute inset-0 bg-gradient-to-b from-techno-primary/20 to-techno-accent/20 rounded-full blur-2xl"></div>
             
-            {/* The Image Wrapper with minimal styling backup */}
-            <div className="w-full h-full rounded-3xl overflow-hidden bg-slate-800 border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+            {/* The Image Wrapper - Changed to rounded-full for circle shape */}
+            <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)]">
               <img 
                 src={imgSrc}
                 alt="Techno Buddha Meditation" 
