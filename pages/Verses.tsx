@@ -65,7 +65,7 @@ const Verses: React.FC = () => {
                       </span>
                     </div>
                     
-                    <p className="font-classic text-lg text-slate-300 italic mb-4 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                    <p className="font-classic text-lg text-cyan-400 font-bold italic mb-4 leading-relaxed drop-shadow-[0_0_8px_rgba(34,211,238,0.3)]">
                       "{verse.pali}"
                     </p>
                     
