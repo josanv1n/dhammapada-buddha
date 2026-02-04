@@ -7,10 +7,11 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView }) => {
-  // Gambar Utama: Patung Buddha Emas yang Estetik (Sumber: Pexels Public)
-  const initialImage = "https://images.pexels.com/photos/3642337/pexels-photo-3642337.jpeg?auto=compress&cs=tinysrgb&w=800";
-  // Gambar Cadangan: Suasana Meditatif (Jika gambar utama gagal)
-  const fallbackImage = "https://images.pexels.com/photos/1036396/pexels-photo-1036396.jpeg?auto=compress&cs=tinysrgb&w=800";
+  // Menggunakan link RAW dari GitHub agar gambar bisa dirender oleh browser secara langsung
+  const initialImage = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+  
+  // Gambar Cadangan (Fallback) jika link GitHub bermasalah
+  const fallbackImage = "https://images.pexels.com/photos/3642337/pexels-photo-3642337.jpeg?auto=compress&cs=tinysrgb&w=800";
   
   const [imgSrc, setImgSrc] = useState(initialImage);
   const [hasError, setHasError] = useState(false);
@@ -19,7 +20,7 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
     if (!hasError) {
       setImgSrc(fallbackImage);
       setHasError(true);
-      console.log("Mengalihkan ke gambar cadangan...");
+      console.log("Gambar utama gagal dimuat, mengalihkan ke gambar cadangan...");
     }
   };
 
