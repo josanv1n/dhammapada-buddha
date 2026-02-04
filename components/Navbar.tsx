@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { ViewState } from '../types';
+import { ViewState, ThemeMode } from '../types';
 import { DhammaWheel } from './Icons';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Palette } from 'lucide-react';
 
 interface NavbarProps {
   currentView: ViewState;
   setView: (view: ViewState) => void;
+  themeMode: ThemeMode;
+  setThemeMode: (mode: ThemeMode) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
+const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThemeMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems: { id: ViewState; label: string }[] = [
@@ -23,6 +25,23 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
     setView(view);
     setIsMenuOpen(false);
   };
+
+  const cycleTheme = () => {
+    if (themeMode === 'pattern') setThemeMode('mono');
+    else if (themeMode === 'mono') setThemeMode('gradient');
+    else setThemeMode('pattern');
+  };
+
+  const getThemeIconColor = () => {
+    switch(themeMode) {
+      case 'mono': return 'text-gray-400';
+      case 'gradient': return 'text-techno-accent';
+      default: return 'text-techno-primary';
+    }
+  };
+
+  // Hanya tampilkan tombol tema jika berada di halaman bacaan (bukan home/kontak)
+  const showThemeButton = ['parita', 'syair', 'lagu'].includes(currentView);
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 glass-panel border-b border-techno-primary/30">
@@ -40,8 +59,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:flex items-center">
+             {/* Desktop Theme Button */}
+             {showThemeButton && (
+                <button 
+                  onClick={cycleTheme}
+                  className={`mr-6 p-2 rounded-full hover:bg-white/10 transition-colors ${getThemeIconColor()}`}
+                  title="Ganti Latar Belakang"
+                >
+                  <Palette className="w-5 h-5" />
+                </button>
+             )}
+
+            <div className="flex items-baseline space-x-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -58,8 +88,20 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          {/* Mobile Menu & Theme Button */}
+          <div className="md:hidden flex items-center gap-2">
+            
+            {/* Mobile Theme Button (Only visible on content pages) */}
+            {showThemeButton && (
+              <button
+                onClick={cycleTheme}
+                className={`p-2 rounded-md hover:bg-white/10 focus:outline-none ${getThemeIconColor()}`}
+                title="Ganti Background"
+              >
+                <Palette className="h-6 w-6" />
+              </button>
+            )}
+
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-techno-primary"

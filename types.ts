@@ -26,3 +26,5 @@ export interface SongItem {
 }
 
 export type ViewState = 'home' | 'syair' | 'parita' | 'lagu' | 'kontak';
+
+export type ThemeMode = 'pattern' | 'mono' | 'gradient';
