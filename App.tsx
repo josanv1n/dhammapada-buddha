@@ -101,7 +101,7 @@ const App: React.FC = () => {
           }
           
           /* KECUALI Navbar: Navbar harus tetap gelap/transparan */
-          nav.glass-panel {
+          nav.glass-panel, .glass-panel.fixed {
             background: rgba(30, 41, 59, 0.95) !important; 
             border-color: rgba(255, 255, 255, 0.1) !important;
           }
@@ -127,6 +127,11 @@ const App: React.FC = () => {
           h2, h3 {
             text-shadow: none !important;
           }
+
+          /* Mobile Bottom Nav Fixes */
+          @media (max-width: 768px) {
+            .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+          }
         `}</style>
       )}
 
@@ -139,7 +144,8 @@ const App: React.FC = () => {
           setThemeMode={setThemeMode}
         />
         
-        <main className={`flex-grow relative ${themeMode === 'default' || themeMode === 'black' ? 'text-white' : 'text-slate-900'}`}>
+        {/* Added pb-20 for mobile bottom navigation spacing */}
+        <main className={`flex-grow relative pb-20 md:pb-0 ${themeMode === 'default' || themeMode === 'black' ? 'text-white' : 'text-slate-900'}`}>
           {renderView()}
         </main>
       </div>
