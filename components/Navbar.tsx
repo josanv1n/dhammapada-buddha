@@ -37,9 +37,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
   ];
 
   // Helper untuk menentukan warna checkmark agar kontras dengan tombol
+  // Menggunakan !important (!text-...) untuk memastikan warna ini menang dari override global di App.tsx
   const getCheckColor = (id: ThemeMode) => {
-    if (['light', 'yellow', 'gray'].includes(id)) return 'text-black';
-    return 'text-white';
+    if (['light', 'yellow', 'gray'].includes(id)) return '!text-black';
+    return '!text-white';
   };
 
   const handleNavClick = (view: ViewState) => {
@@ -114,7 +115,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                  className={`nav-link px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                     currentView === item.id
                       ? 'text-techno-primary bg-techno-primary/10 shadow-[0_0_10px_rgba(6,182,212,0.3)]'
                       : 'text-gray-300 hover:text-white hover:bg-white/5'
@@ -182,7 +183,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`block w-full text-left px-3 py-4 rounded-md text-base font-medium ${
+                className={`nav-link block w-full text-left px-3 py-4 rounded-md text-base font-medium ${
                   currentView === item.id
                     ? 'text-techno-primary bg-techno-primary/10'
                     : 'text-gray-300 hover:text-white hover:bg-white/5'

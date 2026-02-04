@@ -29,7 +29,7 @@ const App: React.FC = () => {
   const renderView = () => {
     switch (currentView) {
       case 'home':
-        return <Home setView={setCurrentView} />;
+        return <Home setView={setCurrentView} themeMode={themeMode} />;
       case 'syair':
         return <Verses />;
       case 'parita':
@@ -39,20 +39,20 @@ const App: React.FC = () => {
       case 'kontak':
         return <Contact />;
       default:
-        return <Home setView={setCurrentView} />;
+        return <Home setView={setCurrentView} themeMode={themeMode} />;
     }
   };
 
   const renderBackground = () => {
-    // Logika Background: Berlaku untuk SEMUA halaman (termasuk Home)
+    // Logika Background: Berlaku untuk SEMUA halaman
     switch (themeMode) {
-      case 'light': return <div className="absolute inset-0 bg-[#ffffff]"></div>;
-      case 'gray': return <div className="absolute inset-0 bg-[#f3f4f6]"></div>;
-      case 'green': return <div className="absolute inset-0 bg-[#ecfccb]"></div>;
-      case 'blue': return <div className="absolute inset-0 bg-[#dbeafe]"></div>;
-      case 'pink': return <div className="absolute inset-0 bg-[#fce7f3]"></div>;
-      case 'black': return <div className="absolute inset-0 bg-[#000000]"></div>;
-      case 'yellow': return <div className="absolute inset-0 bg-[#fef9c3]"></div>;
+      case 'light': return <div className="absolute inset-0 bg-white"></div>;
+      case 'gray': return <div className="absolute inset-0 bg-gray-100"></div>;
+      case 'green': return <div className="absolute inset-0 bg-green-100"></div>;
+      case 'blue': return <div className="absolute inset-0 bg-blue-100"></div>;
+      case 'pink': return <div className="absolute inset-0 bg-pink-100"></div>;
+      case 'black': return <div className="absolute inset-0 bg-black"></div>;
+      case 'yellow': return <div className="absolute inset-0 bg-yellow-100"></div>;
       case 'default':
       default:
         // Background Techno Asli (Biru Tua dengan Orbs)
@@ -72,10 +72,16 @@ const App: React.FC = () => {
   const shouldApplyLightModeStyles = isLightMode();
 
   return (
-    <div className={`min-h-screen font-sans transition-colors duration-500 ${themeMode === 'default' || themeMode === 'black' ? 'bg-techno-dark text-white' : 'text-slate-900'}`}>
+    // Menggunakan relative container utama tanpa background color spesifik agar background fixed di dalamnya terlihat
+    <div className="relative min-h-screen font-sans transition-colors duration-500">
       
-      {/* Style Injection: Memaksa warna teks menjadi gelap jika background terang dipilih, 
-          agar tulisan tetap terbaca di semua halaman */}
+      {/* BACKGROUND LAYER (Z-INDEX 0) */}
+      {/* Ditempatkan sebagai fixed layer paling bawah, tapi di atas body browser */}
+      <div className={`fixed inset-0 z-0 overflow-hidden ${themeMode === 'default' || themeMode === 'black' ? 'bg-techno-dark' : 'bg-transparent'}`}>
+         {renderBackground()}
+      </div>
+
+      {/* Style Injection: Memaksa warna teks menjadi gelap jika background terang dipilih */}
       {shouldApplyLightModeStyles && (
         <style>{`
           /* Override text colors to dark for readability on light backgrounds */
@@ -85,22 +91,28 @@ const App: React.FC = () => {
           .text-slate-400 { color: #475569 !important; }
           .text-gray-300 { color: #334155 !important; }
           .text-gray-400 { color: #475569 !important; }
+          .text-cyan-400 { color: #0891b2 !important; } 
           
           /* Override glass panel background to be lighter on light themes */
           .glass-panel {
-            background: rgba(255, 255, 255, 0.8) !important;
+            background: rgba(255, 255, 255, 0.7) !important;
             border-color: rgba(0,0,0,0.1) !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
           }
-          /* KECUALI Navbar: Navbar harus tetap gelap/transparan sesuai request */
+          
+          /* KECUALI Navbar: Navbar harus tetap gelap/transparan */
           nav.glass-panel {
-            background: rgba(30, 41, 59, 0.9) !important; 
+            background: rgba(30, 41, 59, 0.95) !important; 
             border-color: rgba(255, 255, 255, 0.1) !important;
           }
-          /* Navbar text adjustments to keep it visible on dark navbar */
-          nav .text-slate-900 { color: white !important; }
-          nav button { color: white !important; }
           
+          /* Navbar text adjustments: Hanya target elemen navigasi, bukan tombol palette */
+          nav .text-slate-900,
+          nav .nav-link { color: white !important; }
+          
+          /* Pastikan tombol menu (hamburger) tetap putih di navbar gelap */
+          nav button.text-gray-400 { color: white !important; }
+
           /* Change search input fields */
           input {
             background-color: white !important;
@@ -118,21 +130,20 @@ const App: React.FC = () => {
         `}</style>
       )}
 
-      <Navbar 
-        currentView={currentView} 
-        setView={setCurrentView} 
-        themeMode={themeMode}
-        setThemeMode={setThemeMode}
-      />
-      
-      <main className="relative">
-        {renderView()}
-      </main>
-
-      {/* Dynamic Background Container - Berada di layer paling bawah (z-[-1]) */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-         {renderBackground()}
+      {/* CONTENT LAYER (Z-INDEX 10) */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar 
+          currentView={currentView} 
+          setView={setCurrentView} 
+          themeMode={themeMode}
+          setThemeMode={setThemeMode}
+        />
+        
+        <main className={`flex-grow relative ${themeMode === 'default' || themeMode === 'black' ? 'text-white' : 'text-slate-900'}`}>
+          {renderView()}
+        </main>
       </div>
+
     </div>
   );
 };
