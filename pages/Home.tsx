@@ -7,10 +7,12 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView }) => {
-  // MENGGUNAKAN URL RAW GITHUB
-  // Ini adalah solusi paling stabil untuk memastikan gambar muncul di Vercel
-  // karena mengambil langsung dari repository Anda tanpa bergantung pada path lokal server.
-  const buddhaImageUrl = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+  // URL Gambar dari Repository GitHub Anda (Raw Content)
+  // Catatan: Jika repository Anda 'Private', link ini akan gagal (404) karena Vercel tidak punya akses.
+  const mainImage = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+  
+  // Gambar cadangan (Unsplash) - Akan muncul otomatis jika gambar GitHub gagal dimuat
+  const fallbackImage = "https://images.unsplash.com/photo-1570215778401-2b97e06d95aa?q=80&w=1200&auto=format&fit=crop";
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -39,9 +41,17 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
             
             {/* The Image */}
             <img 
-              src={buddhaImageUrl}
+              src={mainImage}
               alt="Techno Buddha Meditation" 
-              className="w-full h-full object-cover rounded-3xl border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-500"
+              className="w-full h-full object-cover rounded-3xl border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-500 bg-slate-800"
+              onError={(e) => {
+                const target = e.currentTarget;
+                // Logika Fallback: Jika gambar GitHub gagal, ganti ke gambar cadangan
+                if (target.src !== fallbackImage) {
+                    console.warn("Gambar GitHub tidak dapat dimuat, mengalihkan ke gambar cadangan.");
+                    target.src = fallbackImage;
+                }
+              }}
             />
             
             {/* Overlay Icon */}
