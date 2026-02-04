@@ -7,11 +7,10 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView }) => {
-  // Menggunakan path absolut ('/') untuk file di folder public.
-  // Pastikan file 'buddha.jpg' ada di dalam folder 'public/img/' di proyek Anda.
-  const buddhaImageUrl = "/img/buddha.jpg";
-  // Fallback ke raw github jika file lokal tidak ditemukan
-  const fallbackUrl = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+  // MENGGUNAKAN URL RAW GITHUB
+  // Ini adalah solusi paling stabil untuk memastikan gambar muncul di Vercel
+  // karena mengambil langsung dari repository Anda tanpa bergantung pada path lokal server.
+  const buddhaImageUrl = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -43,13 +42,6 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
               src={buddhaImageUrl}
               alt="Techno Buddha Meditation" 
               className="w-full h-full object-cover rounded-3xl border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-500"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.src !== fallbackUrl) {
-                    console.warn(`Gagal memuat ${buddhaImageUrl}, mencoba fallback ke GitHub...`);
-                    target.src = fallbackUrl;
-                }
-              }}
             />
             
             {/* Overlay Icon */}
