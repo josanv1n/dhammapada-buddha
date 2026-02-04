@@ -7,10 +7,10 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView }) => {
-  // Menggunakan link RAW dari GitHub agar gambar bisa dirender oleh browser secara langsung
-  const initialImage = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+  // Menggunakan link GitHub Pages yang baru
+  const initialImage = "https://josanvin.github.io/josanvin/img/buddha.jpg";
   
-  // Gambar Cadangan (Fallback) jika link GitHub bermasalah
+  // Gambar Cadangan (Fallback)
   const fallbackImage = "https://images.pexels.com/photos/3642337/pexels-photo-3642337.jpeg?auto=compress&cs=tinysrgb&w=800";
   
   const [imgSrc, setImgSrc] = useState(initialImage);
@@ -46,10 +46,10 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
 
           {/* Buddha Image (Techno Style) */}
           <div className="relative w-72 h-72 md:w-96 md:h-96 animate-float transition-transform duration-700 transform hover:scale-105">
-            {/* Glow effect behind the image - Changed to rounded-full */}
+            {/* Glow effect behind the image - Rounded Full */}
             <div className="absolute inset-0 bg-gradient-to-b from-techno-primary/20 to-techno-accent/20 rounded-full blur-2xl"></div>
             
-            {/* The Image Wrapper - Changed to rounded-full for circle shape */}
+            {/* The Image Wrapper - Rounded Full for circle shape */}
             <div className="w-full h-full rounded-full overflow-hidden bg-slate-800 border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)]">
               <img 
                 src={imgSrc}
