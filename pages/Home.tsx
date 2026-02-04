@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DhammaWheel, LotusIcon } from '../components/Icons';
 import { ViewState } from '../types';
 
@@ -7,12 +7,21 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView }) => {
-  // URL Gambar dari Repository GitHub Anda (Raw Content)
-  // Catatan: Jika repository Anda 'Private', link ini akan gagal (404) karena Vercel tidak punya akses.
-  const mainImage = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+  // Gambar Utama: Patung Buddha Emas yang Estetik (Sumber: Pexels Public)
+  const initialImage = "https://images.pexels.com/photos/3642337/pexels-photo-3642337.jpeg?auto=compress&cs=tinysrgb&w=800";
+  // Gambar Cadangan: Suasana Meditatif (Jika gambar utama gagal)
+  const fallbackImage = "https://images.pexels.com/photos/1036396/pexels-photo-1036396.jpeg?auto=compress&cs=tinysrgb&w=800";
   
-  // Gambar cadangan (Unsplash) - Akan muncul otomatis jika gambar GitHub gagal dimuat
-  const fallbackImage = "https://images.unsplash.com/photo-1570215778401-2b97e06d95aa?q=80&w=1200&auto=format&fit=crop";
+  const [imgSrc, setImgSrc] = useState(initialImage);
+  const [hasError, setHasError] = useState(false);
+
+  const handleImageError = () => {
+    if (!hasError) {
+      setImgSrc(fallbackImage);
+      setHasError(true);
+      console.log("Mengalihkan ke gambar cadangan...");
+    }
+  };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -39,20 +48,15 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
             {/* Glow effect behind the image */}
             <div className="absolute inset-0 bg-gradient-to-b from-techno-primary/20 to-techno-accent/20 rounded-3xl blur-2xl"></div>
             
-            {/* The Image */}
-            <img 
-              src={mainImage}
-              alt="Techno Buddha Meditation" 
-              className="w-full h-full object-cover rounded-3xl border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-500 bg-slate-800"
-              onError={(e) => {
-                const target = e.currentTarget;
-                // Logika Fallback: Jika gambar GitHub gagal, ganti ke gambar cadangan
-                if (target.src !== fallbackImage) {
-                    console.warn("Gambar GitHub tidak dapat dimuat, mengalihkan ke gambar cadangan.");
-                    target.src = fallbackImage;
-                }
-              }}
-            />
+            {/* The Image Wrapper with minimal styling backup */}
+            <div className="w-full h-full rounded-3xl overflow-hidden bg-slate-800 border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)]">
+              <img 
+                src={imgSrc}
+                alt="Techno Buddha Meditation" 
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                onError={handleImageError}
+              />
+            </div>
             
             {/* Overlay Icon */}
             <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-techno-dark/90 backdrop-blur-md p-3 rounded-full border border-techno-primary shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:scale-110 transition-transform">
