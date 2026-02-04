@@ -27,4 +27,12 @@ export interface SongItem {
 
 export type ViewState = 'home' | 'syair' | 'parita' | 'lagu' | 'kontak';
 
-export type ThemeMode = 'pattern' | 'mono' | 'gradient';
+export type ThemeMode = 
+  | 'default'   // Techno Dark (Awal)
+  | 'light'     // Terang (Putih)
+  | 'gray'      // Abu-abu Terang
+  | 'green'     // Hijau Terang
+  | 'blue'      // Biru Terang
+  | 'pink'      // Merah Jambu
+  | 'black'     // Hitam
+  | 'yellow';   // Kuning
