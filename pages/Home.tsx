@@ -7,6 +7,12 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView }) => {
+  // Menggunakan path absolut ('/') untuk file di folder public.
+  // Pastikan file 'buddha.jpg' ada di dalam folder 'public/img/' di proyek Anda.
+  const buddhaImageUrl = "/img/buddha.jpg";
+  // Fallback ke raw github jika file lokal tidak ditemukan
+  const fallbackUrl = "https://raw.githubusercontent.com/josanv1n/dhammapada-buddha/main/data/buddha.jpg";
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       
@@ -23,29 +29,38 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
         <div className="relative mb-12 group perspective-1000">
           {/* Rotating Halo */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-             <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] border-2 border-techno-gold/30 rounded-full animate-spin-slow"></div>
-             <div className="absolute w-[280px] h-[280px] md:w-[420px] md:h-[420px] border border-techno-primary/30 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '25s' }}></div>
+             <div className="w-[320px] h-[320px] md:w-[500px] md:h-[500px] border-2 border-techno-primary/30 rounded-full animate-spin-slow"></div>
+             <div className="absolute w-[300px] h-[300px] md:w-[480px] md:h-[480px] border border-techno-accent/30 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '25s' }}></div>
           </div>
 
-          {/* Buddha Image (Simulated 3D) */}
-          <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float transition-transform duration-700 transform style-preserve-3d">
-            <div className="absolute inset-0 bg-gradient-to-b from-techno-gold/20 to-transparent rounded-full blur-2xl"></div>
+          {/* Buddha Image (Techno Style) */}
+          <div className="relative w-72 h-72 md:w-96 md:h-96 animate-float transition-transform duration-700 transform hover:scale-105">
+            {/* Glow effect behind the image */}
+            <div className="absolute inset-0 bg-gradient-to-b from-techno-primary/20 to-techno-accent/20 rounded-3xl blur-2xl"></div>
+            
+            {/* The Image */}
             <img 
-              src="https://picsum.photos/seed/buddha/600/600" 
-              alt="Buddha" 
-              className="w-full h-full object-cover rounded-full border-4 border-techno-gold/50 shadow-[0_0_50px_rgba(251,191,36,0.4)] mask-image-gradient"
-              style={{ clipPath: 'circle(50%)' }}
+              src={buddhaImageUrl}
+              alt="Techno Buddha Meditation" 
+              className="w-full h-full object-cover rounded-3xl border-2 border-techno-primary/50 shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:shadow-[0_0_50px_rgba(139,92,246,0.6)] transition-all duration-500"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (target.src !== fallbackUrl) {
+                    console.warn(`Gagal memuat ${buddhaImageUrl}, mencoba fallback ke GitHub...`);
+                    target.src = fallbackUrl;
+                }
+              }}
             />
             
             {/* Overlay Icon */}
-            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-techno-dark p-3 rounded-full border border-techno-gold shadow-lg">
-                <DhammaWheel className="w-8 h-8 text-techno-gold animate-spin-slow" />
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-techno-dark/90 backdrop-blur-md p-3 rounded-full border border-techno-primary shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:scale-110 transition-transform">
+                <DhammaWheel className="w-8 h-8 text-techno-primary animate-spin-slow" />
             </div>
           </div>
         </div>
 
         {/* Text Content */}
-        <h1 className="text-4xl md:text-6xl font-techno font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-techno-primary to-techno-primary">
+        <h1 className="text-4xl md:text-6xl font-techno font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-techno-primary to-techno-accent">
           SYAIR DHAMMAPADA
         </h1>
         
