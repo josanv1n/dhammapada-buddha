@@ -1,16 +1,13 @@
 export interface Verse {
-  id: string;
-  chapterIndex: number;
-  verseNumber: number;
+  number: number;
   pali: string;
-  indonesian: string;
+  translation: string;
 }
 
-export interface Chapter {
-  id: string;
-  index: number;
+export interface Vagga {
+  id: number;
   title: string;
-  paliTitle: string;
+  translation: string;
   verses: Verse[];
 }
 

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { dhammapadaData } from '../data/dhammapada';
+import { DHAMMAPADA_DATA } from '../data/dhammapada';
 import { LotusIcon } from '../components/Icons';
 
 const Verses: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredData = dhammapadaData.map(chapter => ({
+  const filteredData = DHAMMAPADA_DATA.map(chapter => ({
     ...chapter,
     verses: chapter.verses.filter(verse => 
-      verse.indonesian.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      verse.translation.toLowerCase().includes(searchTerm.toLowerCase()) ||
       verse.pali.toLowerCase().includes(searchTerm.toLowerCase())
     )
   })).filter(chapter => chapter.verses.length > 0);
@@ -48,20 +48,20 @@ const Verses: React.FC = () => {
                     <LotusIcon className="w-6 h-6 text-techno-primary" />
                  </div>
                  <div>
-                    <h3 className="text-2xl font-bold text-white">{chapter.title}</h3>
-                    <p className="text-techno-primary text-sm font-techno">{chapter.paliTitle}</p>
+                    <h3 className="text-2xl font-bold text-white">{chapter.translation}</h3>
+                    <p className="text-techno-primary text-sm font-techno">{chapter.title}</p>
                  </div>
               </div>
 
               <div className="grid gap-6">
                 {chapter.verses.map((verse) => (
                   <div 
-                    key={verse.id} 
+                    key={verse.number} 
                     className="glass-panel p-6 rounded-xl hover:border-techno-gold/50 transition-all duration-300 group hover:transform hover:scale-[1.01]"
                   >
                     <div className="flex justify-between items-start mb-4">
                       <span className="bg-techno-gold/10 text-techno-gold px-3 py-1 rounded-full text-xs font-bold border border-techno-gold/20">
-                        Ayat {verse.verseNumber}
+                        Ayat {verse.number}
                       </span>
                     </div>
                     
@@ -72,7 +72,7 @@ const Verses: React.FC = () => {
                     <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700 to-transparent my-4"></div>
                     
                     <p className="text-white text-lg leading-relaxed font-sans">
-                      {verse.indonesian}
+                      {verse.translation}
                     </p>
                   </div>
                 ))}

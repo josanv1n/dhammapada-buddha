@@ -1,296 +1,609 @@
-import { Chapter } from '../types';
+import { Vagga } from '../types';
 
-export const dhammapadaData: Chapter[] = [
+export const DHAMMAPADA_DATA: Vagga[] = [
   {
-    id: "c1",
-    index: 1,
-    title: "Bab Kembar",
-    paliTitle: "Yamaka Vagga",
+    id: 1,
+    title: "YAMAKA VAGGA",
+    translation: "Syair Berpasangan",
     verses: [
-      {
-        id: "v1",
-        chapterIndex: 1,
-        verseNumber: 1,
-        pali: "Manopubbaṅgamā dhammā, manoseṭṭhā manomayā;\nManasā ce paduṭṭhena, bhāsati vā karoti vā;\nTato naṃ dukkhamanveti, cakkaṃva vahato padaṃ.",
-        indonesian: "Pikiran adalah pelopor dari segala sesuatu, pikiran adalah pemimpin, pikiran adalah pembentuk. Bila seseorang berbicara atau berbuat dengan pikiran jahat, maka penderitaan akan mengikutinya, bagaikan roda pedati mengikuti langkah kaki lembu yang menariknya."
-      },
-      {
-        id: "v2",
-        chapterIndex: 1,
-        verseNumber: 2,
-        pali: "Manopubbaṅgamā dhammā, manoseṭṭhā manomayā;\nManasā ce pasannena, bhāsati vā karoti vā;\nTato naṃ sukhamanveti, chāyāva anapāyinī.",
-        indonesian: "Pikiran adalah pelopor dari segala sesuatu, pikiran adalah pemimpin, pikiran adalah pembentuk. Bila seseorang berbicara atau berbuat dengan pikiran murni, maka kebahagiaan akan mengikutinya, bagaikan bayang-bayang yang tak pernah meninggalkan bendanya."
-      },
-      {
-        id: "v3",
-        chapterIndex: 1,
-        verseNumber: 3,
-        pali: "Akkocchi maṃ avadhi maṃ, ajini maṃ ahāsi me;\nYe taṃ upanayhanti, veraṃ tesaṃ na sammati.",
-        indonesian: "\"Ia menghina saya, ia memukul saya, ia mengalahkan saya, ia merampas milik saya.\" Selama seseorang masih menyimpan pikiran seperti itu, maka kebencian tak akan pernah berakhir."
-      },
-      {
-        id: "v4",
-        chapterIndex: 1,
-        verseNumber: 4,
-        pali: "Akkocchi maṃ avadhi maṃ, ajini maṃ ahāsi me;\nYe taṃ na upanayhanti, veraṃ tesūpasammati.",
-        indonesian: "\"Ia menghina saya, ia memukul saya, ia mengalahkan saya, ia merampas milik saya.\" Jika seseorang tidak lagi menyimpan pikiran-pikiran seperti itu, maka kebencian akan berakhir."
-      },
-      {
-        id: "v5",
-        chapterIndex: 1,
-        verseNumber: 5,
-        pali: "Na hi verena verāni, sammantīdha kudācanaṃ;\nAverena ca sammanti, esa dhammo sanantano.",
-        indonesian: "Kebencian tak akan pernah berakhir apabila dibalas dengan kebencian. Tetapi, kebencian akan berakhir bila dibalas dengan tidak membenci. Inilah satu hukum abadi."
-      },
-      {
-        id: "v6",
-        chapterIndex: 1,
-        verseNumber: 6,
-        pali: "Pare ca na vijānanti, ayamettha yamāmase;\nYe ca tattha vijānanti, tato sammanti medhagā.",
-        indonesian: "Banyak orang tidak menyadari bahwa di dunia ini kita semua dapat menemui ajal. Tetapi, bagi mereka yang menyadari hal ini, segala pertengkaran akan segera berakhir."
-      },
-      {
-        id: "v7",
-        chapterIndex: 1,
-        verseNumber: 7,
-        pali: "Subhānupassiṃ viharantaṃ, indriyesu asaṃvutaṃ;\nBhojanamhi cāmattaññuṃ, kusītaṃ hīnavīriyaṃ;\nTaṃ ve pasahati māro, vāto rukkhaṃva dubbalaṃ.",
-        indonesian: "Barang siapa hidup dengan hanya melihat hal-hal yang menyenangkan, tidak mengendalikan indria-indria, tidak mengenal batas dalam makan, malas dan tidak bersemangat, maka Mara (penggoda) akan menumbangkannya, bagaikan angin menumbangkan pohon yang lapuk."
-      },
-      {
-        id: "v8",
-        chapterIndex: 1,
-        verseNumber: 8,
-        pali: "Asubhānupassiṃ viharantaṃ, indriyesu susaṃvutaṃ;\nBhojanamhi ca mattaññuṃ, saddhaṃ āraddhavīriyaṃ;\nTaṃ ve nappasahati māro, vāto selaṃva pabbataṃ.",
-        indonesian: "Barang siapa hidup dengan merenungkan hal-hal yang tidak menyenangkan (kekotoran tubuh, dsb), mengendalikan indria-indria, mengenal batas dalam makan, penuh keyakinan dan bersemangat, maka Mara tidak akan dapat menumbangkannya, bagaikan angin yang tidak dapat menumbangkan gunung karang."
-      },
-      {
-        id: "v11",
-        chapterIndex: 1,
-        verseNumber: 11,
-        pali: "Asāre sāramatino, sāre cāsāradassino;\nTe sāraṃ nādhigacchanti, micchāsaṅkappagocarā.",
-        indonesian: "Mereka yang menganggap apa yang tidak berharga sebagai berharga, dan apa yang berharga sebagai tidak berharga, mereka tidak akan mencapai apa yang berharga karena mereka memiliki pandangan yang salah."
-      },
-      {
-        id: "v12",
-        chapterIndex: 1,
-        verseNumber: 12,
-        pali: "Sārañca sārato ñatvā, asārañca asārato;\nTe sāraṃ adhigacchanti, sammāsaṅkappagocarā.",
-        indonesian: "Tetapi mereka yang mengetahui apa yang berharga sebagai berharga, dan apa yang tidak berharga sebagai tidak berharga, mereka akan mencapai apa yang berharga karena mereka memiliki pandangan yang benar."
-      },
-      {
-        id: "v13",
-        chapterIndex: 1,
-        verseNumber: 13,
-        pali: "Yathā agāraṃ ducchannaṃ, vuṭṭhī samativijjhati;\nEvaṃ abhāvitaṃ cittaṃ, rāgo samativijjhati.",
-        indonesian: "Bagaikan hujan yang dapat menembus rumah yang beratap tiris, demikian pula nafsu akan dapat menembus pikiran yang tidak dikembangkan dengan baik."
-      },
-      {
-        id: "v14",
-        chapterIndex: 1,
-        verseNumber: 14,
-        pali: "Yathā agāraṃ succhannaṃ, vuṭṭhī na samativijjhati;\nEvaṃ subhāvitaṃ cittaṃ, rāgo na samativijjhati.",
-        indonesian: "Bagaikan hujan yang tidak dapat menembus rumah yang beratap kuat, demikian pula nafsu tidak dapat menembus pikiran yang telah dikembangkan dengan baik."
-      }
+      { number: 1, pali: "Manopubbaṅgamā dhammā, manoseṭṭhā manomayā; Manasā ce paduṭṭhena, bhāsati vā karoti vā; Tato naṃ dukkhamanveti, cakkaṃva vahato padaṃ.", translation: "Pikiran adalah pelopor dari segala sesuatu, pikiran adalah pemimpin, pikiran adalah pembentuk. Bila seseorang berbicara atau berbuat dengan pikiran jahat, maka penderitaan akan mengikutinya, bagaikan roda pedati mengikuti langkah kaki lembu yang menariknya." },
+      { number: 2, pali: "Manopubbaṅgamā dhammā, manoseṭṭhā manomayā; Manasā ce pasannena, bhāsati vā karoti vā; Tato naṃ sukhamanveti, chāyāva anapāyinī.", translation: "Pikiran adalah pelopor dari segala sesuatu, pikiran adalah pemimpin, pikiran adalah pembentuk. Bila seseorang berbicara atau berbuat dengan pikiran murni, maka kebahagiaan akan mengikutinya, bagaikan bayang-bayang yang tak pernah meninggalkan bendanya." },
+      { number: 3, pali: "Akkocchi maṃ avadhi maṃ, ajini maṃ ahāsi me; Ye ca taṃ upanayhanti, veraṃ tesaṃ na sammati.", translation: "“Ia menghina saya, ia memukul saya, ia mengalahkan saya, ia merampas milik saya.” Selama seseorang masih menyimpan pikiran seperti itu, maka kebencian tak akan pernah berakhir." },
+      { number: 4, pali: "Akkocchi maṃ avadhi maṃ, ajini maṃ ahāsi me; Ye ca taṃ nupanayhanti, veraṃ tesūpasammati.", translation: "“Ia menghina saya, ia memukul saya, ia mengalahkan saya, ia merampas milik saya.” Jika seseorang sudah tidak lagi menyimpan pikiran-pikiran seperti itu, maka kebencian akan berakhir." },
+      { number: 5, pali: "Na hi verena verāni, sammantīdha kudācanaṃ; Averena ca sammanti, esa dhammo sanantano.", translation: "Kebencian tak akan pernah berakhir, apabila dibalas dengan kebencian. Tetapi, kebencian akan berakhir, Bila dibalas dengan tidak membenci. Inilah satu hukum abadi." },
+      { number: 6, pali: "Pare ca na vijānanti, mayamettha yamāmase; Ye ca tattha vijānanti, tato sammanti medhagā.", translation: "Sebagian besar orang tidak mengetahui bahwa, dalam pertengkaran mereka akan binasa; tetapi mereka, yang dapat menyadari kebenaran ini; akan segera mengakhiri semua pertengkaran." },
+      { number: 7, pali: "Subhānupassiṃ viharantaṃ, indriyesu asaṃvutaṃ; Bhojanamhi cāmattaññuṃ, kusītaṃ hīnavīriyaṃ; Taṃ ve pasahati māro, vāto rukkhaṃva dubbalaṃ.", translation: "Seseorang yang hidupnya hanya ditujukan pada hal-hal yang menyenangkan, yang inderanya tidak terkendali, yang makannya tidak mengenal batas, malas serta tidak bersemangat, maka Mara (Penggoda) akan menguasai dirinya. bagaikan angin yang menumbangkan pohon yang lapuk." },
+      { number: 8, pali: "Asubhānupassiṃ viharantaṃ, indriyesu susaṃvutaṃ; Bhojanamhi ca mattaññuṃ, saddhaṃ āraddhavīriyaṃ; Taṃ ve nappasahati māro, vāto selaṃva pabbataṃ.", translation: "Seseorang yang hidupnya tidak ditujukan pada hal-hal yang menyenangkan, yang inderanya terkendali, sederhana dalam makanan, penuh keyakinan serta bersemangat, maka Mara (Penggoda) tidak dapat menguasai dirinya. bagaikan angin yang tidak dapat menumbangkan gunung karang." },
+      { number: 9, pali: "Anikkasāvo kāsāvaṃ, yo vatthaṃ paridahissati; Apeto damasaccena, na so kāsāvamarahati.", translation: "Barang siapa yang belum bebas, dari kekotoran-kekotoran batin. yang tidak memiliki pengendalian diri, serta tidak mengerti kebenaran. sesungguhnya tidak patut, ia mengenakan jubah kuning." },
+      { number: 10, pali: "Yo ca vantakasāvassa, sīlesu susamāhito; Upeto damasaccena, sa ve kāsāvamarahati.", translation: "Tetapi, ia yang telah dapat, membuang kekotoran-kekotoran batin, teguh dalam kesusilaan. memiliki pengendalian diri. serta mengerti kebenaran. maka sesungguhnya ia patut, mengenakan jubah kuning." },
+      { number: 11, pali: "Asāre sāramatino, sāre cāsāradassino; Te sāraṃ nādhigacchanti, micchāsaṅkappagocarā.", translation: "Mereka yang menganggap, ketidak-benaran sebagai kebenaran. dan kebenaran sebagai ketidak-benaran. maka mereka yang mempunyai, pikiran keliru seperti itu, tak akan pernah dapat, menyelami kebenaran." },
+      { number: 12, pali: "Sārañca sārato ñatvā, asārañca asārato; Te sāraṃ adhigacchanti, sammāsaṅkappagocarā.", translation: "Mereka yang mengetahui, kebenaran sebagai kebenaran. dan ketidak-benaran sebagai ketidak-benaran, maka mereka yang mempunyai, pikiran benar seperti itu, akan dapat menyelami kebenaran." },
+      { number: 13, pali: "Yathā agāraṃ ducchannaṃ, vuṭṭhī samativijjhati; Evaṃ abhāvitaṃ cittaṃ, rāgo samativijjhati.", translation: "Bagaikan hujan, yang dapat menembus rumah beratap tiris. demikian pula nafsu, akan dapat menembus pikiran yang tidak dikembangkan dengan baik." },
+      { number: 14, pali: "Yathā agāraṃ succhannaṃ, vuṭṭhī na samativijjhati; Evaṃ subhāvitaṃ cittaṃ, rāgo na samativijjhati.", translation: "Bagaikan hujan, yang tidak dapat menembus rumah beratap baik. demikian pula nafsu, tidak dapat menembus pikiran yang telah dikembangkan dengan baik." },
+      { number: 15, pali: "Idha socati pecca socati, pāpakārī ubhayattha socati; So socati so vihaññati, disvā kammakiliṭṭhamattano.", translation: "Di dunia ini ia bersedih hati. di dunia sana ia bersedih hati. pelaku kejahatan akan bersedih hati, di kedua dunia itu. ia bersedih hati dan meratap, karena melihat perbuatannya sendiri, yang tidak bersih." },
+      { number: 16, pali: "Idha modati pecca modati, katapuñño ubhayattha modati; So modati so pamodati, disvā kammavisuddhimattano.", translation: "Di dunia ini ia bergembira. Di dunia sana ia bergembira. Pelaku kebajikan, bergembira di kedua dunia itu. Ia bergembira dan bersuka cita karena, melihat perbuatannya sendiri yang bersih." },
+      { number: 17, pali: "Idha tappati pecca tappati, pāpakārī ubhayattha tappati; Pāpaṃ me katanti tappati, bhiyyo tappati duggatiṃ gato.", translation: "Di dunia ini ia menderita. Di dunia sana ia menderita. Pelaku kejahatan menderita di kedua dunia itu. Ia meratap ketika berpikir, “Aku telah berbuat jahat,”, dan ia akan lebih menderita lagi, ketika berada di alam sengsara." },
+      { number: 18, pali: "Idha nandati pecca nandati, katapuñño ubhayattha nandati; Puññaṃ me katanti nandati, bhiyyo nandati suggatiṃ gato.", translation: "Di dunia ini ia bahagia. Di dunia sana ia berbahagia. Pelaku kebajikan, berbahagia di kedua dunia itu. Ia akan berbahagia ketika berpikir, “Aku telah berbuat bajik”, dan ia akan lebih berbahagia lagi, ketika berada di alam bahagia." },
+      { number: 19, pali: "Bahumpi ce sahitaṃ bhāsamāno, na takkaro hoti naro pamatto; Gopo va gāvo gaṇayaṃ paresaṃ, na bhāgavā sāmaññassa hoti.", translation: "Biarpun seseorang banyak membaca kitab suci, tetapi tidak berbuat sesuai ajaran, maka orang lengah itu, sama seperti gembala sapi yang menghitung sapi milik orang lain. Ia tak akan memperoleh, manfaat kehidupan suci." },
+      { number: 20, pali: "Appampi ce sahitaṃ bhāsamāno, dhammassa hoti anudhammacārī; Rāgañca dosañca pahāya mohaṃ, sammappajāno suvimuttacitto; Anupādiyāno idha vā huraṃ vā, sa bhāgavā sāmaññassa hoti.", translation: "Biarpun seseorang sedikit membaca kitab suci, tetapi berbuat sesuai dengan ajaran, menyingkirkan nafsu indria, kebencian dan ketidaktahuan, memiliki pengetahuan benar, dan batin yang bebas dari nafsu, tidak melekat pada apapun, baik di sini maupun di sana; maka ia akan memperoleh, manfaat kehidupan suci." }
     ]
   },
   {
-    id: "c2",
-    index: 2,
-    title: "Kewaspadaan",
-    paliTitle: "Appamada Vagga",
+    id: 2,
+    title: "APPAMADA VAGGA",
+    translation: "Kewaspadaan",
     verses: [
-      {
-        id: "v21",
-        chapterIndex: 2,
-        verseNumber: 21,
-        pali: "Appamādo amatapadaṃ, pamādo maccuno padaṃ;\nAppamattā na mīyanti, ye pamattā yathā matā.",
-        indonesian: "Kewaspadaan adalah jalan menuju Kekekalan (Nibbana); kelengah-lengahen adalah jalan menuju kematian. Mereka yang waspada tidak akan mati; tetapi mereka yang lengah, meskipun hidup sebetulnya seperti orang mati."
-      },
-      {
-        id: "v22",
-        chapterIndex: 2,
-        verseNumber: 22,
-        pali: "Etaṃ visesato ñatvā, appamādamhi paṇḍitā;\nAppamāde pamodanti, ariyānaṃ gocare ratā.",
-        indonesian: "Setelah mengerti hal ini dengan jelas, orang bijaksana bergembira dalam kewaspadaan dan bergembira dalam praktek para ariya."
-      },
-      {
-        id: "v23",
-        chapterIndex: 2,
-        verseNumber: 23,
-        pali: "Te jhāyino sātatikā, niccaṃ daḷhaparakkamā;\nPhusanti dhīrā nibbānaṃ, yogakkhemaṃ anuttaraṃ.",
-        indonesian: "Orang bijaksana yang melakukan meditasi, tekun, dan berusaha dengan teguh, akan mencapai Nibbana, suatu kebebasan mutlak dari belenggu."
-      },
-      {
-        id: "v24",
-        chapterIndex: 2,
-        verseNumber: 24,
-        pali: "Uṭṭhānavato satimato, sucikammassa nisammakārino;\nSaññatassa ca dhammajīvino, appamattassa yaso bhivaḍḍhati.",
-        indonesian: "Orang yang penuh semangat, selalu sadar, murni dalam perbuatan, berhati-hati dalam segala tindakan, mengendalikan diri, hidup sesuai dengan Dhamma dan selalu waspada, maka kebahagiaannya akan bertambah."
-      },
-      {
-        id: "v25",
-        chapterIndex: 2,
-        verseNumber: 25,
-        pali: "Uṭṭhānenappamādena, saṃyamena damena ca;\nDīpaṃ kayirātha medhāvī, yaṃ ogho nābhikīrati.",
-        indonesian: "Dengan usaha yang tekun, semangat, disiplin, dan pengendalian diri, hendaklah orang bijaksana membuat pulau bagi dirinya sendiri yang tidak dapat ditenggelamkan oleh banjir."
-      },
-      {
-        id: "v26",
-        chapterIndex: 2,
-        verseNumber: 26,
-        pali: "Pamādamanuyañjanti, bālā dummedhino janā;\nAppamādañca medhāvī, dhanaṃ seṭṭhaṃva rakkhati.",
-        indonesian: "Orang dungu dan bodoh menyerah pada kelengah-lengahen; tetapi orang bijaksana menjaga kewaspadaan sebagai harta yang paling berharga."
-      },
-      {
-        id: "v27",
-        chapterIndex: 2,
-        verseNumber: 27,
-        pali: "Mā pamādamanuyañjetha, mā kāmaratisanthavaṃ;\nAppamatto hi jhāyanto, pappoti vipulaṃ sukhaṃ.",
-        indonesian: "Jangan menyerah pada kelengah-lengahen, jangan terbuai oleh kesenangan indria. Karena orang yang waspada dan rajin bersamadhi akan memperoleh kebahagiaan sejati."
-      }
+      { number: 21, pali: "Appamādo amatapadaṃ, pamādo maccuno padaṃ; Appamattā na mīyanti, ye pamattā yathā matā.", translation: "Kewaspadaan adalah jalan menuju kekekalan; kelengahan adalah jalan menuju kematian. Orang yang waspada tidak akan mati, Tetapi orang yang lengah seperti orang yang sudah mati." },
+      { number: 22, pali: "Evaṃ visesato ñatvā, appamādamhi paṇḍitā; Appamāde pamodanti, ariyānaṃ gocare ratā.", translation: "Setelah mengerti hal ini dengan jelas, orang bijaksana akan bergembira dalam kewaspadaan dan bergembira dalam praktek para ariya." },
+      { number: 23, pali: "Te jhāyino sātatikā, niccaṃ daḷhaparakkamā; Phusanti dhīrā nibbānaṃ, yogakkhemaṃ anuttaraṃ.", translation: "Orang bijaksana yang tekun bersamadhi, hidup bersemangat dan selalu bersungguh-sungguh, pada akhirnya mencapai nibbana (kebebasan mutlak)." },
+      { number: 24, pali: "Uṭṭhānavato satimato, sucikammassa nisammakārino; Saññatassa ca dhammajīvino, appamattassa yaso bhivaḍḍhati.", translation: "Orang yang penuh semangat, selalu sadar, murni dalam perbuatan, Memiliki pengendalian diri, hidup sesuai dengan Dhamma, dan selalu waspada, maka kebahagiaannya akan bertambah." },
+      { number: 25, pali: "Uṭṭhānenappamādena, saṃyamena damena ca; Dīpaṃ kayirātha medhāvī, yaṃ ogho nābhikīrati.", translation: "Dengan usaha yang tekun, semangat, disiplin, dan pengendalian diri, hendaklah orang bijaksana, membuat pulau bagi dirinya sendiri, yang tidak dapat ditenggelamkan oleh banjir." },
+      { number: 26, pali: "Pamādam anuyuñjanti, bālā dummedhino janā; Appamādañca medhāvī, dhanaṃ seṭṭhaṃva rakkhati.", translation: "Orang dungu yang berpengertian dangkal, terlena dalam kelengahan, sebaliknya, orang bijaksana senantiasa menjaga kewaspadaan. seperti menjaga harta yang paling berharga." },
+      { number: 27, pali: "Mā pamādam anuyuñjetha, mā kāmaratisanthavaṃ; Appamatto hi jhāyanto, pappoti vipulaṃ sukhaṃ.", translation: "Jangan terlena dalam kelengahan, Jangan terikat pada kesenangan-kesenangan indria. Orang yang waspada dan rajin bersamadhi, akan memperoleh kebahagiaan sejati." },
+      { number: 28, pali: "Pamādaṃ appamādena, yadā nudati paṇḍito; Paññāpāsādamāruyha, asoko sokiniṃ pajaṃ; Pabbataṭṭhova bhūmaṭṭhe, dhīro bāle avekkhati.", translation: "Bilamana orang bijaksana, telah mengatasi kelengahan dengan kewaspadaan, maka ia akan bebas dari kesedihan, seakan memanjat menara kebijaksanaan, dan memandang orang-orang yang menderita di sekelilingnya, seperti seseorang yang berdiri diatas gunung memandang mereka yang berada di bawah." },
+      { number: 29, pali: "Appamatto pamattesu, suttesu bahujāgaro; Abalassaṃva sīghasso, hitvā yāti sumedhaso.", translation: "Waspada di antara yang lengah, berjaga di antara yang tertidur, orang bijaksana akan maju terus, bagaikan seekor kuda yang tangkas berlari meninggalkan kuda yang lemah di belakangnya." },
+      { number: 30, pali: "Appamādena maghavā, devānaṃ seṭṭhataṃ gato; Appamādaṃ pasaṃsanti, pamādo garahito sadā.", translation: "Dengan menyempurnakan kewaspadaan, Dewa Sakka dapat mencapai tingkat pemimpin di antara para dewa. Sesungguhnya, kewaspadaan itu akan selalu dipuji, dan kelengahan akan selalu dicela." },
+      { number: 31, pali: "Appamādarato bhikkhu, pamāde bhayadassi vā; Saṃyojanaṃ aṇuṃ thūlaṃ, ḍahaṃ aggīva gacchati.", translation: "Seorang bhikkhu, yang bergembira dalam kewaspadaan, dan melihat bahaya dalam kelengahan, akan maju terus membakar semua rintangan batin, bagaikan api membakar kayu, baik yang besar maupun yang kecil." },
+      { number: 32, pali: "Appamādarato bhikkhu, pamāde bhayadassi vā; Abhabbo parihānāya, nibbānasseva santike.", translation: "Seorang bhikkhu yang bergembira dalam kewaspadaan, dan melihat bahaya dalam kelengahan, tak akan terperosok lagi, Ia sudah berada di ambang pintu nibbana." }
     ]
   },
   {
-    id: "c3",
-    index: 3,
-    title: "Pikiran",
-    paliTitle: "Citta Vagga",
+    id: 3,
+    title: "CITTA VAGGA",
+    translation: "Pikiran",
     verses: [
-      {
-        id: "v33",
-        chapterIndex: 3,
-        verseNumber: 33,
-        pali: "Phandanaṃ capalaṃ cittaṃ, durakkhaṃ dunnivārayaṃ;\nUjuṃ karoti medhāvī, usukārova tejanaṃ.",
-        indonesian: "Pikiran itu selalu mengembara, tidak tetap, sukar dijaga dan sukar dikendalikan. Orang bijaksana meluruskannya bagaikan seorang pembuat panah meluruskan anak panah."
-      },
-      {
-        id: "v34",
-        chapterIndex: 3,
-        verseNumber: 34,
-        pali: "Vārijova thale khitto, okamokataubbhato;\nPariphatati idaṃ cittaṃ, māradheyyaṃ pahātave.",
-        indonesian: "Bagaikan ikan yang dikeluarkan dari air dan dilemparkan ke darat, menggelepar-gelepar; demikian pula pikiran ini menggelepar-gelepar saat mencoba melepaskan diri dari kekuasaan Mara."
-      },
-      {
-        id: "v35",
-        chapterIndex: 3,
-        verseNumber: 35,
-        pali: "Dunniggahassa lahuno, yatthakāmanipātino;\nCittassa damatho sādhu, cittaṃ dantaṃ sukhāvahaṃ.",
-        indonesian: "Pikiran itu sangat sulit untuk dikendalikan, bergerak sangat cepat, dan suka mengembara semaunya. Adalah baik untuk dapat mengendalikan pikiran; pikiran yang terkendali akan membawa kebahagiaan."
-      },
-      {
-        id: "v36",
-        chapterIndex: 3,
-        verseNumber: 36,
-        pali: "Sududdasaṃ sunipuṇaṃ, yatthakāmanipātinaṃ;\nCittaṃ rakkhetha medhāvī, cittaṃ guttaṃ sukhāvahaṃ.",
-        indonesian: "Pikiran itu sangat halus dan sulit untuk dilihat, ia bergerak semaunya. Orang bijaksana hendaknya menjaga pikirannya; pikiran yang terjaga akan membawa kebahagiaan."
-      },
-      {
-        id: "v40",
-        chapterIndex: 3,
-        verseNumber: 40,
-        pali: "Kumbhūpamaṃ kāyamimaṃ viditvā, nagarūpamaṃ cittamidaṃ ṭhapetvā;\nYodhetha māraṃ paññāvudhena, jitañca rakkhe anivesano siyā.",
-        indonesian: "Setelah mengetahui bahwa tubuh ini rapuh bagaikan tempayan, hendaknya ia membuat pikirannya kuat bagaikan sebuah benteng, dan berperang melawan Mara dengan senjata kebijaksanaan; lalu ia harus menjaga kemenangannya dan jangan melekat padanya."
-      },
-      {
-        id: "v42",
-        chapterIndex: 3,
-        verseNumber: 42,
-        pali: "Diso disaṃ yaṃ taṃ kayirā, verī vā pana verinaṃ;\nMicchāpaṇihitaṃ cittaṃ, pāpiyo naṃ tato kare.",
-        indonesian: "Apa yang dilakukan oleh musuh terhadap musuh, atau orang yang membenci terhadap yang dibenci, nafsu jahat yang tersimpan di dalam pikiran sendiri akan dapat mengakibatkan kehancuran yang lebih dahsyat."
-      },
-      {
-        id: "v43",
-        chapterIndex: 3,
-        verseNumber: 43,
-        pali: "Na taṃ mātā pitā kayirā, aññe vāpi ca ñātakā;\nSammāpaṇihitaṃ cittaṃ, seyyaso naṃ tato kare.",
-        indonesian: "Bukan ibu, bukan ayah, ataupun sanak keluarga lain yang dapat melakukan hal itu; tetapi pikiran yang diarahkan dengan baiklah yang akan mengangkat derajat seseorang."
-      }
-    ]
-  },
-   {
-    id: "c4",
-    index: 4,
-    title: "Bunga-bunga",
-    paliTitle: "Puppha Vagga",
-    verses: [
-      {
-        id: "v44",
-        chapterIndex: 4,
-        verseNumber: 44,
-        pali: "Ko imaṃ paṭhaviṃ vicessati, Yamalokañca imaṃ sadevakaṃ;\nKo dhammapadaṃ sudesitaṃ, kusalo pupphamiva pacessati.",
-        indonesian: "Siapakah yang akan menaklukkan dunia ini beserta dunia Yama dan dunia Dewa? Siapakah yang akan menyelidiki Jalan Kebajikan (Dhammapada) yang telah diajarkan dengan jelas, bagaikan seorang perangkai bunga yang pandai memilih bunga?"
-      },
-      {
-        id: "v49",
-        chapterIndex: 4,
-        verseNumber: 49,
-        pali: "Yathāpi bhamaro pupphaṃ, vaṇṇagandhamaheṭhayaṃ;\nPaleti rasamādāya, evaṃ gāme munī care.",
-        indonesian: "Bagaikan seekor lebah yang tidak merusak kuntum bunga, baik warna maupun baunya, pergi setelah memperoleh madu, begitulah hendaknya orang bijaksana mengembara dari desa ke desa."
-      },
-      {
-        id: "v50",
-        chapterIndex: 4,
-        verseNumber: 50,
-        pali: "Na paresaṃ vilomāni, na paresaṃ katākataṃ;\nAttanova avekkheyya, katāni akatāni ca.",
-        indonesian: "Janganlah memperhatikan kesalahan dan hal-hal yang telah atau belum dikerjakan oleh orang lain. Tetapi, perhatikanlah apa yang telah dan belum dikerjakan oleh diri sendiri."
-      },
-      {
-        id: "v51",
-        chapterIndex: 4,
-        verseNumber: 51,
-        pali: "Yathāpi ruciraṃ pupphaṃ, vaṇṇavantaṃ agandhakaṃ;\nEvaṃ subhāsitā vācā, aphalā hoti akubbato.",
-        indonesian: "Bagaikan sekuntum bunga yang indah tetapi tidak berbau harum, demikian pula kata-kata mutiara tidak akan memberikan manfaat bagi orang yang tidak mempraktekkannya."
-      },
-      {
-        id: "v52",
-        chapterIndex: 4,
-        verseNumber: 52,
-        pali: "Yathāpi ruciraṃ pupphaṃ, vaṇṇavantaṃ sagandhakaṃ;\nEvaṃ subhāsitā vācā, saphalā hoti kubbato.",
-        indonesian: "Bagaikan sekuntum bunga yang indah serta berbau harum, demikian pula kata-kata mutiara akan bermanfaat bagi orang yang mempraktekkannya."
-      }
+      { number: 33, pali: "Phandanaṃ capalaṃ cittaṃ, durakkhaṃ dunnivārayaṃ; Ujuṃ karoti medhāvī, usukārova tejanaṃ.", translation: "Pikiran itu mudah goyah dan tidak tetap; pikiran susah dikendalikan dan dikuasai. Orang bijaksana meluruskannya bagaikan seorang pembuat panah meluruskan anak panah." },
+      { number: 34, pali: "Vārijova thale khitto, okamokata ubbhato; Pariphatati idaṃ cittaṃ, māradheyyaṃ pahātave.", translation: "Bagaikan ikan yang dikeluarkan dari air dan dilemparkan ke atas tanah, pikiran itu selalu menggelepar. Karena itu cengkeraman dari Mara harus ditaklukkan." },
+      { number: 35, pali: "Dunniggahassa lahuno, yatthakāmanipātino; Cittassa damatho sādhu, cittaṃ dantaṃ sukhāvahaṃ.", translation: "Sukar mengendalikan pikiran yang binal dan senang mengembara sesuka hatinya. Adalah baik untuk mengendalikan pikiran, suatu pengendalian pikiran yang baik akan membawa kebahagiaan." },
+      { number: 36, pali: "Sududdasaṃ sunipuṇaṃ, yatthakāmanipātinaṃ; Cittaṃ rakkhetha medhāvī, cittaṃ guttaṃ sukhāvahaṃ.", translation: "Pikiran sangat sulit untuk dilihat, amat lembut dan halus, pikiran bergerak sesuka hatinya. Orang bijaksana selalu menjaga pikirannya, seseorang yang menjaga pikirannya akan berbahagia." },
+      { number: 37, pali: "Dūraṅgamaṃ ekacaraṃ, asarīraṃ guhāsayaṃ; Ye cittaṃ saṃyamessanti, mokkhanti mārabandhanā.", translation: "Pikiran itu selalu mengembara jauh, tidak berwujud, dan terletak jauh di lubuk hati. Mereka yang dapat mengendalikannya, akan bebas dari jeratan Mara." },
+      { number: 38, pali: "Anavaṭṭhitacittassa, saddhammaṃ avijānato; Pariplavapasādassa, paññā na paripūrati.", translation: "Orang yang pikirannya tidak teguh, yang tidak mengenal ajaran yang benar, yang keyakinannya selalu goyah, orang seperti itu tidak akan sempurna kebijaksanaannya." },
+      { number: 39, pali: "Anavassutacittassa, ananvāhatacetaso; Puññapāpapahīnassa, natthi jāgarato bhayaṃ.", translation: "Orang yang pikirannya tidak dikuasai oleh nafsu dan kebencian, yang telah mengatasi keadaan baik dan buruk, di dalam diri orang yang selalu sadar seperti itu tidak ada lagi ketakutan." },
+      { number: 40, pali: "Kumbhūpamaṃ kāyamimaṃ viditvā, nagarūpamaṃ cittamidaṃ ṭhapetvā; Yodhetha māraṃ paññāvudhena, jitañca rakkhe anivesano siyā.", translation: "Dengan mengetahui bahwa tubuh ini rapuh bagaikan tempayan, hendaknya seseorang memperkokoh pikirannya bagaikan benteng kota, dan melenyapkan Mara dengan senjata kebijaksanaan. Ia harus menjaga apa yang telah dicapainya, dan hidup tanpa ikatan lagi." },
+      { number: 41, pali: "Aciraṃ vatayaṃ kāyo, pathaviṃ adhisessati; Chuddho apetaviññāṇo, niratthaṃva kaliṅgaraṃ.", translation: "Aduh, tak lama lagi tubuh ini akan terbujur di atas tanah, dibiarkan saja, tanpa kesadaran, bagaikan sebatang kayu yang tidak berguna." },
+      { number: 42, pali: "Diso disaṃ yaṃ taṃ kayirā, verī vā pana verinaṃ; Micchāpaṇihitaṃ cittaṃ, pāpiyo naṃ tato kare.", translation: "Luka dan kesakitan macam apa pun, dapat dibuat oleh orang yang saling bermusuhan atau saling membenci. Namun pikiran yang diarahkan secara salah, akan melukai seseorang jauh lebih berat." },
+      { number: 43, pali: "Na taṃ mātā pitā kayirā, aññe vāpi ca ñātakā; Sammāpaṇihitaṃ cittaṃ, seyyaso naṃ tato kare.", translation: "Bukan dengan pertolongan ibu, ayah, ataupun sanak keluarga; namun pikiran yang diarahkan dengan baik, yang akan membantu dan mengangkat derajat seseorang." }
     ]
   },
   {
-    id: "c5",
-    index: 5,
-    title: "Orang Bodoh",
-    paliTitle: "Bala Vagga",
+    id: 4,
+    title: "PUPPHA VAGGA",
+    translation: "Bunga-Bunga",
     verses: [
-      {
-        id: "v60",
-        chapterIndex: 5,
-        verseNumber: 60,
-        pali: "Dīghā jāgarato ratti, dīghaṃ santassa yojanaṃ;\nDīgho bālānaṃ saṃsāro, saddhammaṃ avijānataṃ.",
-        indonesian: "Malam terasa panjang bagi orang yang berjaga, satu yojana terasa jauh bagi orang yang lelah. Demikian pula, lingkaran tumimbal lahir (samsara) terasa lama bagi orang bodoh yang tidak mengenal Dhamma Sejati."
-      },
-      {
-        id: "v61",
-        chapterIndex: 5,
-        verseNumber: 61,
-        pali: "Carañce nādhigaccheyya, seyyaṃ sadisamattano;\nEkacariyaṃ daḷhaṃ kayirā, natthi bāle sahāyatā.",
-        indonesian: "Jika dalam pengembaraan seseorang tidak menemukan sahabat yang lebih baik atau sebanding dengan dirinya, maka hendaklah ia bersungguh-sungguh mengembara sendirian. Karena tidak ada persahabatan dengan orang bodoh."
-      },
-      {
-        id: "v62",
-        chapterIndex: 5,
-        verseNumber: 62,
-        pali: "Puttā malthi dhanammathi, iti bālo vihaññati;\nAttā hi attano natthi, kuto puttā kuto dhanaṃ.",
-        indonesian: "\"Anak-anak ini milikku, kekayaan ini milikku,\" demikianlah pikiran orang bodoh yang membuatnya risau. Padahal dirinya sendiri bukanlah miliknya, bagaimana mungkin anak dan kekayaan itu menjadi miliknya?"
-      },
-      {
-        id: "v63",
-        chapterIndex: 5,
-        verseNumber: 63,
-        pali: "Yo bālo maññati bālyaṃ, paṇḍito vāpi tena so;\nBālo ca paṇḍitamānī, sa ve bālo'ti vuccati.",
-        indonesian: "Orang bodoh yang menyadari kebodohannya adalah orang bijaksana. Tetapi orang bodoh yang menganggap dirinya bijaksana, dialah yang sebetulnya disebut orang bodoh."
-      },
-      {
-        id: "v64",
-        chapterIndex: 5,
-        verseNumber: 64,
-        pali: "Yāvajīvampi ce bālo, paṇḍitaṃ payirupāsati;\nNa so dhammaṃ vijānāti, dabbī sūparasaṃ yathā.",
-        indonesian: "Walaupun seumur hidup orang bodoh bergaul dengan orang bijaksana, ia tidak akan mengerti Dhamma, bagaikan sendok yang tidak dapat merasakan lezatnya sayur."
-      }
+      { number: 44, pali: "Ko imaṃ pathaviṃ vijessati, yamalokañca imaṃ sadevakaṃ; Ko dhammapadaṃ sudesitaṃ, kusalo pupphamiva pacessati.", translation: "Siapakah yang akan menaklukkan dunia ini beserta alam Yama dan alam Dewa? Siapakah yang akan menyelidiki Jalan Kebajikan yang telah diterangkan dengan jelas, seperti seorang perangkai bunga yang pandai memilih bunga?" },
+      { number: 45, pali: "Sekho pathaviṃ vijessati, yamalokañca imaṃ sadevakaṃ; Sekho dhammapadaṃ sudesitaṃ, kusalo pupphamiva pacessati.", translation: "Seorang Sekha (siswa yang masih berlatih) akan menaklukkan dunia ini beserta alam Yama dan alam Dewa. Seorang siswa yang masih berlatih ini akan menyelidiki jalan kebajikan yang telah diajarkan dengan jelas, seperti seorang perangkai bunga yang pandai memilih bunga." },
+      { number: 46, pali: "Pheṇūpamaṃ kāyamimaṃ viditvā, marīcidhammaṃ abhisambudhāno; Chetvāna mārassa papupphakāni, adassanaṃ maccurājassa gacche.", translation: "Setelah mengetahui bahwa tubuh ini bagaikan busa, dan setelah menyadari sifat mayanya, maka hendaknya seseorang mematahkan bunga nafsu keinginan, dan menghilang dari pandangan raja kematian." },
+      { number: 47, pali: "Pupphāni heva cinantaṃ, byāsattamanasaṃ naraṃ; Suttaṃ gāmaṃ mahoghova, maccu ādāya gacchati.", translation: "Orang yang mengumpulkan bunga-bunga kesenangan indria, yang pikirannya kacau, akan diseret oleh kematian. Bagaikan banjir besar menghanyutkan sebuah desa yang tertidur." },
+      { number: 48, pali: "Pupphāni heva cinantaṃ, byāsattamanasaṃ naraṃ; Atittaññeva kāmesu, antako kurute vasaṃ.", translation: "Orang yang mengumpulkan bunga-bunga kesenangan indria, yang pikirannya kacau dan tak pernah puas, akan berada di bawah kekuasaan Sang Penghancur (kematian)." },
+      { number: 49, pali: "Yathāpi bhamaro pupphaṃ, vaṇṇagandhamaheṭhayaṃ; Paleti rasamādāya, evaṃ gāme munī care.", translation: "Bagaikan seorang kumbang mengumpulkan madu dari bunga-bunga tanpa merusak warna dan baunya; demikian pula hendaknya orang bijaksana mengembara dari desa ke desa." },
+      { number: 50, pali: "Na paresaṃ vilomāni, na paresaṃ katākataṃ; Attanova avekkheyya, katāni akatāni ca.", translation: "Janganlah memperhatikan kesalahan dan hal-hal yang telah atau belum dikerjakan oleh orang lain. Tetapi, perhatikanlah apa yang telah dikerjakan dan apa yang belum dikerjakan oleh diri sendiri." },
+      { number: 51, pali: "Yathāpi ruciraṃ pupphaṃ, vaṇṇavantaṃ agandhakaṃ; Evaṃ subhāsitā vācā, aphalā hoti akubbato.", translation: "Bagaikan sekuntum bunga yang indah tetapi tidak berbau harum; demikian pula akan tidak bermanfaat kata-kata mutiara yang diucapkan oleh orang yang tidak melaksanakannya." },
+      { number: 52, pali: "Yathāpi ruciraṃ pupphaṃ, vaṇṇavantaṃ sagandhakaṃ; Evaṃ subhāsitā vācā, saphalā hoti sakubbato.", translation: "Bagaikan sekuntum bunga yang indah serta berbau harum; demikian pula sungguh bermanfaat kata-kata mutiara yang diucapkan oleh orang yang melaksanakannya." },
+      { number: 53, pali: "Yathāpi puppharāsimhā, kayirā mālāguṇe bahū; Evaṃ jātena maccena, kattabbaṃ kusalaṃ bahuṃ.", translation: "Seperti dari setumpuk bunga dapat dibuat banyak karangan bunga; demikian pula hendaknya banyak kebajikan dapat dilakukan oleh manusia di dunia ini." },
+      { number: 54, pali: "Na pupphagandho paṭivātameti, na candanaṃ tagaramallikā vā; Satañca gandho paṭivātameti, sabbā disā sappuriso pavāyati.", translation: "Harumnya bunga, tidak dapat melawan arah angin. Begitu pula harumnya kayu cendana, bunga tagara dan melati. Tetapi harumnya kebajikan, dapat melawan arah angin; harumnya nama orang bajik dapat menyebar ke segenap penjuru." },
+      { number: 55, pali: "Candanaṃ tagaraṃ vāpi, uppalaṃ atha vassikī; Etesaṃ gandhajātānaṃ, sīlagandho anuttaro.", translation: "Harumnya kebajikan, adalah jauh melebihi harumnya kayu cendana, bunga tagara, teratai maupun melati." },
+      { number: 56, pali: "Appamatto ayaṃ gandho, yvāyaṃ tagaracandani; Yo ca sīlavataṃ gandho, vāti devesu uttamo.", translation: "Tidaklah seberapa, harumnya bunga tagara dan kayu cendana; tetapi harumnya mereka, yang memiliki sila (kebajikan), menyebar sampai ke surga." },
+      { number: 57, pali: "Tesaṃ sampannasīlānaṃ, appamādavihārinaṃ; Sammadaññāvimuttānaṃ, māro maggaṃ na vindati.", translation: "Mara tak dapat menemukan jejak mereka yang memiliki sila, yang hidup tanpa kelengahan, dan yang telah terbebas melalui Pengetahuan Sempurna." },
+      { number: 58, pali: "Yathā saṅkāradhānasmiṃ, ujjhitasmiṃ mahāpathe; Padumaṃ tattha jāyetha, sucigandhaṃ manoramaṃ.", translation: "Seperti dari tumpukan sampah yang dibuang di tepi jalan, tumbuh bunga teratai yang berbau harum dan menyenangkan hati." },
+      { number: 59, pali: "Evaṃ saṅkārabhūtesu, andhabhūte puthujjane; Atirocati paññāya, sammāsambuddhasāvako.", translation: "Begitu juga di antara orang duniawi, siswa Sang Buddha Yang Maha Sempurna, bersinar menerangi dunia yang gelap ini dengan kebijaksanaannya." }
+    ]
+  },
+  {
+    id: 5,
+    title: "BALA VAGGA",
+    translation: "Orang Bodoh",
+    verses: [
+      { number: 60, pali: "Dīghā jāgarato ratti, dīghaṃ santassa yojanaṃ; Dīgho bālāna saṃsāro, saddhammaṃ avijānataṃ.", translation: "Malam terasa panjang bagi orang yang berjaga, satu yojana terasa jauh bagi orang yang lelah; sungguh panjang siklus kehidupan bagi orang bodoh yang tidak mengenal Ajaran Benar." },
+      { number: 61, pali: "Carañce nādhigaccheyya, seyyaṃ sadisamattano; Ekacariyaṃ daḷhaṃ kayirā, natthi bāle sahāyatā.", translation: "Apabila dalam pengembaraan seseorang tak menemukan sahabat yang lebih baik atau sebanding dengan dirinya, maka hendaklah ia tetap melanjutkan pengembaraannya seorang diri. Janganlah bergaul dengan orang bodoh." },
+      { number: 62, pali: "Puttā malthi dhanammathi, iti bālo vihaññati; Attā hi attano natthi, kuto puttā kuto dhanaṃ.", translation: "“Anak-anak ini milikku, kekayaan ini milikku,” demikianlah pikiran orang bodoh. Apabila dirinya sendiri sebenarnya bukan merupakan miliknya, bagaimana mungkin anak dan kekayaan itu menjadi miliknya?" },
+      { number: 63, pali: "Yo bālo maññati bālyaṃ, paṇḍito vāpi tena so; Bālo ca paṇḍitamānī, sa ve bālo'ti vuccati.", translation: "Bila orang bodoh dapat menyadari kebodohannya, maka ia dapat dikatakan bijaksana; tetapi orang bodoh yang menganggap dirinya bijaksana, sesungguhnya dialah yang disebut orang bodoh." },
+      { number: 64, pali: "Yāvajīvampi ce bālo, paṇḍitaṃ payirupāsati; Na so dhammaṃ vijānāti, dabbī sūparasaṃ yathā.", translation: "Orang bodoh, walaupun selama hidupnya bergaul dengan orang bijaksana, tetap tidak akan mengerti Dhamma, bagaikan sendok yang tidak dapat merasakan rasa sayur." },
+      { number: 65, pali: "Muhuttamapi ce viññū, paṇḍitaṃ payirupāsati; Khippaṃ dhammaṃ vijānāti, jivhā sūparasaṃ yathā.", translation: "Walaupun hanya sesaat saja orang pandai bergaul dengan orang bijaksana, namun dengan segera ia akan dapat mengerti Dhamma, bagaikan lidah yang dapat merasakan rasa sayur." },
+      { number: 66, pali: "Caranti bālā dummedhā, amitteneva attanā; Karontā pāpakaṃ kammaṃ, yaṃ hoti kaṭukapphalaṃ.", translation: "Orang bodoh yang dangkal pengetahuannya, memperlakukan diri sendiri seperti musuh; ia melakukan perbuatan jahat yang akan menghasilkan buah yang pahit." },
+      { number: 67, pali: "Na taṃ kammaṃ kataṃ sādhu, yaṃ katvā anutappati; Yassa assumukho rodaṃ, vipākaṃ paṭisevati.", translation: "Bilamana suatu perbuatan setelah selesai dilakukan membuat seseorang menyesal, maka perbuatan itu tidak baik. Orang itu akan menerima akibat perbuatannya dengan ratap tangis dan wajah yang berlinang air mata." },
+      { number: 68, pali: "Tañca kammaṃ kataṃ sādhu, yaṃ katvā nānutappati; Yassa patīto sumano, vipākaṃ paṭisevati.", translation: "Bila suatu perbuatan setelah selesai dilakukan tidak membuat seseorang menyesal, maka perbuatan itu adalah baik. Orang itu akan menerima buah perbuatannya dengan hati gembira dan puas." },
+      { number: 69, pali: "Madhuvā maññati bālo, yāva pāpaṃ na paccati; Yadā ca paccati pāpaṃ, atha bālo dukkhaṃ nigacchati.", translation: "Selama buah dari suatu perbuatan jahat belum masak, maka orang bodoh akan menganggapnya manis seperti madu; tetapi apabila buah perbuatan itu telah masak, maka ia akan merasakan pahitnya penderitaan." },
+      { number: 70, pali: "Māse māse kusaggena, bālo bhuñjeyya bhojanaṃ; Na so saṅkhatadhammānaṃ, kalaṃ agghati soḷasiṃ.", translation: "Biarpun bulan demi bulan orang bodoh memakan makanannya dengan ujung rumput kusa, namun demikian ia tidak berharga seperenambelas bagian dari mereka yang telah mengerti Dhamma dengan baik." },
+      { number: 71, pali: "Na hi pāpaṃ kataṃ kammaṃ, sajju khīraṃva muccati; Ḍahantaṃ bālamanveti, bhasmacchannova pāvako.", translation: "Suatu perbuatan jahat yang telah dilakukan, tidak segera menghasilkan buah, seperti air susu yang tidak langsung menjadi dadih; demikianlah perbuatan jahat itu membara mengikuti orang bodoh, seperti api yang ditutupi abu." },
+      { number: 72, pali: "Yāvadeva anatthāya, ñattaṃ bālassa jāyati; Hanti bālassa sukkaṃsaṃ, muddhamassa vipātayaṃ.", translation: "Orang bodoh mendapat pengetahuan dan kemashuran yang menuju kepada kehancuran, Pengetahuan dan kemashurannya itu akan menghancurkan semua perbuatan baiknya, dan akan membelah kepalanya sendiri." },
+      { number: 73, pali: "Asantaṃ bhāvanamiccheyya, purekkhārañca bhikkhusu; Āvāsesu ca issariyaṃ, pūjā parakulesu ca.", translation: "Seorang bhikkhu yang bodoh, menginginkan ketenaran yang keliru, ingin menonjol di antara para bhikkhu, ingin berkuasa dalam vihara-vihara, dan ingin dihormati oleh semua keluarga." },
+      { number: 74, pali: "Mameva kata maññantu, gihī pabbajitā ubho; Mamevātivasā assu, kiccākiccesu kismici; Iti bālassa saṅkappo, icchā māno ca vaḍḍhati.", translation: "“Biarlah umat awam dan para bhikkhu berpikir bahwa hal ini hanya dilakukan olehku, dalam semua pekerjaan besar atau kecil mereka menunjuk diriku,” demikianlah ambisi bhikkhu yang bodoh itu, dan keinginan serta kesombongannya pun terus bertambah." },
+      { number: 75, pali: "Aññā hi lābhūpanisā, aññā nibbānagāminī; Evametaṃ abhiññāya, bhikkhu buddhassa sāvako; Sakkāraṃ nābhinandeyya, vivekamanubrūhaye.", translation: "Ada jalan lain menuju pada keuntungan duniawi, dan ada jalan lain yang menuju ke Nibbana. Setelah menyadari hal ini dengan jelas, hendaklah seseorang bhikkhu siswa Sang Buddha tidak bergembira dalam hal-hal duniawi, tetapi mengembangkan pembebasan diri." }
+    ]
+  },
+  {
+    id: 6,
+    title: "PANDITA VAGGA",
+    translation: "Orang Bijaksana",
+    verses: [
+      { number: 76, pali: "Nidhīnaṃva pavattāraṃ, yaṃ passe vajjadassinaṃ; Niggayhavādiṃ medhāviṃ, tādisaṃ paṇḍitaṃ bhaje; Tādisaṃ bhajamānassa, seyyo hoti na pāpiyo.", translation: "Seandainya seseorang bertemu orang bijaksana yang mau menunjukkan dan memberitahukan kesalahan-kesalahannya, seperti orang menunjukan harta karun, hendaklah ia bergaul dengan orang bijaksana itu. Sungguh baik dan tidak tercela bergaul dengan orang yang bijaksana." },
+      { number: 77, pali: "Ovadeyya anusāseyya, asabbhā ca nivāraye; Sataṃ hi so piyo hoti, asataṃ hoti appiyo.", translation: "Biarlah ia memberi nasehat, petunjuk, dan melarang apa yang tidak baik, orang bijaksana akan dicintai oleh orang yang baik dan dijauhi oleh orang yang jahat." },
+      { number: 78, pali: "Na bhaje pāpake mitte, na bhaje purisādhame; Bhajetha mitte kalyāṇe, bhajetha purisuttame.", translation: "Jangan bergaul dengan orang jahat, jangan bergaul dengan orang yang berbudi rendah, tetapi bergaullah dengan sahabat yang baik, bergaullah dengan orang yang berbudi luhur." },
+      { number: 79, pali: "Dhammapīti sukhaṃ seti, vippasannena cetasā; Ariyappavedite dhamme, sadā ramati paṇḍito.", translation: "Ia yang mengenal Dhamma akan hidup berbahagia dengan pikiran yang tenang. Orang bijaksana selalu bergembira dalam ajaran yang dibabarkan oleh para Ariya." },
+      { number: 80, pali: "Udakaṃ hi nayanti nettikā, usukārā namayanti tejanaṃ; Dāruṃ namayanti tacchakā, attānaṃ damayanti paṇḍitā.", translation: "Pembuat saluran air mengalirkan air, tukang panah meluruskan anak panah, tukang kayu melengkungkan kayu, orang bijaksana mengendalikan dirinya." },
+      { number: 81, pali: "Selo yathā ekaghano, vātena na samīrati; Evaṃ nindāpasaṃsāsu, na samiñjanti paṇḍitā.", translation: "Bagaikan batu karang yang tak tergoncangkan oleh badai, demikian pula para bijaksana tidak akan terpengaruh oleh celaan maupun pujian." },
+      { number: 82, pali: "Yathāpi rahado gambhīro, vippasanno anāvilo; Evaṃ dhammāni sutvāna, vippasīdanti paṇḍitā.", translation: "Bagaikan danau yang dalam, airnya jernih dan tenang. Demikian pula batin para orang bijaksana, menjadi tentram karena mendengarkan Dhamma." },
+      { number: 83, pali: "Sabbattha ve sappurisā cajanti, na kāmakāmā lapayanti santo; Sukhena phuṭṭhā atha vā dukhena, na uccāvacaṃ paṇḍitā dassayanti.", translation: "Orang bajik membuang kemelekatan terhadap sesuatu, orang suci tidak membicarakan hal-hal yang berkaitan dengan nafsu keinginan. Dalam menghadapi kebahagiaan atau kemalangan, Orang bijaksana tidak menjadi gembira maupun kecewa." },
+      { number: 84, pali: "Na attahetu na parassa hetu, na puttamicche na dhanaṃ na raṭṭhaṃ; Na iccheyya adhammena samiddhimattano, sa sīlavā paññavā dhammiko siyā.", translation: "Seseorang yang arif tidak berbuat jahat demi kepentingannya sendiri ataupun orang lain, demikian pula ia tidak menginginkan anak, kekayaan, pangkat atau keberhasilan dengan cara yang tidak benar. Orang seperti itulah yang sebenarnya luhur, bijaksana, dan berbudi." },
+      { number: 85, pali: "Appakā te manussesu, ye janā pāragāmino; Athāyaṃ itarā pajā, tīramevānudhāvati.", translation: "Diantara umat manusia hanya sedikit yang dapat mencapai pantai seberang, sebagian besar hanya berjalan hilir mudik di tepi sebelah sini." },
+      { number: 86, pali: "Ye ca kho sammadakkhāte, dhamme dhammānuvattino; Te janā pāramessanti, maccudheyyaṃ suduttaraṃ.", translation: "Mereka yang hidup sesuai dengan Dhamma yang telah diterangkan dengan baik, akan mencapai Pantai Seberang, menyeberangi alam kematian yang sangat sukar diseberangi." },
+      { number: 87, pali: "Kaṇhaṃ dhammaṃ vippahāya, sukkaṃ bhāvetha paṇḍito; Okā anokamāgamma, viveke yattha dūramaṃ.", translation: "Meninggalkan rumah dan pergi menempuh kehidupan tanpa rumah, demikian hendaknya orang bijaksana meninggalkan keadaan gelap (kebodohan), dan mengembangkan keadaan terang (kebijaksanaan). Hendaknya ia mencari kebahagiaan pada ketidakmelekatan yang sulit didapat." },
+      { number: 88, pali: "Tatrābhiratimiccheyya, hitvā kāme akiñcano; Pariyodapeyya attānaṃ, cittaklesehi paṇḍito.", translation: "Dengan meninggalkan semua kesenangan indria dan kemelekatan, demikian hendaknya orang bijaksana membersihkan dirinya dari noda-noda pikiran." },
+      { number: 89, pali: "Yesaṃ sambodhiyaṅgesu, sammā cittaṃ subhāvitaṃ; Ādānapaṭinissagge, anupādāya ye ratā; Khīṇāsavā jutimanto, te loke parinibbutā.", translation: "Mereka yang telah menyempurnakan pikirannya dalam Tujuh Faktor Penerangan, yang tanpa ikatan, yang bergembira dengan batin yang bebas, yang telah bebas dari kekotoran batin, yang bersinar, maka sesungguhnya mereka telah mencapai Nibbana dalam kehidupan sekarang ini juga." }
+    ]
+  },
+  {
+    id: 7,
+    title: "ARAHANTA VAGGA",
+    translation: "Arahat",
+    verses: [
+      { number: 90, pali: "Gataddhino visokassa, vippamuttassa sabbadhi; Sabbaganthappahīnassa, pariḷāho na vijjati.", translation: "Orang yang telah menyelesaikan perjalanannya yang telah terbebas dari segala hal, Yang telah menghancurkan semua ikatan, maka dalam dirinya tidak ada lagi demam nafsu." },
+      { number: 91, pali: "Uyyuñjanti satimanto, na nikete ramanti te; Haṃsāva pallalaṃ hitvā, okamokaṃ jahanti te.", translation: "Orang yang telah telah sadar dan meninggalkan kehidupan rumah tangga, tidak lagi terikat pada tempat kediaman. Bagaikan kawanan angsa yang meninggalkan kolam demi kolam, demikianlah mereka meninggalkan tempat kediaman demi tempat kediaman." },
+      { number: 92, pali: "Yesaṃ sannicayo natthi, ye pariññātabhojanā; Suññato animitto ca, vimokkho yesa gocaro; Ākāse va sakuntānaṃ, gati tesaṃ durannayā.", translation: "Mereka yang tidak lagi mengumpulkan harta duniawi, yang sederhana dalam makanan, yang telah mencapai “Kebebasan Mutlak”, maka jejak mereka tidak dapat dilacak, bagaikan burung-burung di angkasa." },
+      { number: 93, pali: "Yassāsavā parikkhīṇā, āhāre ca anissito; Suññato animitto ca, vimokkho yassa gocaro; Ākāse va sakuntānaṃ, padaṃ tassa durannayaṃ.", translation: "Ia yang telah memusnahkan semua kekotoran batin, yang tidak lagi terikat pada makanan, yang telah menyadari Kebebasan Mutlak, maka jejaknya tidak dapat dilacak, bagaikan burung-burung di angkasa." },
+      { number: 94, pali: "Yassindriyāni samathaṅgatāni, assā yathā sārathinā sudantā; Pahīnamānassa anāsavassa, devāpi tassa pihayanti tādino.", translation: "Ia yang telah menaklukkan dirinya, bagaikan seorang kusir mengendalikan kudanya, yang telah bebas dari kesombongan dan kekotoran batin, maka para dewa pun akan mengasihi orang suci seperti ini." },
+      { number: 95, pali: "Pathavisamo no virujjhati, indakhīlūpamo tādi subbato; Rahadova apetakaddamo, saṃsārā na bhavanti tādino.", translation: "Bagaikan tanah, demikian pula orang suci. Tidak pernah marah, teguh pikirannya bagaikan tugu kota (indakhila), bersih tingkah lakunya bagaikan kolam tak berlumpur. Bagi orang suci seperti ini tak ada lagi siklus kehidupan." },
+      { number: 96, pali: "Santaṃ tassa manaṃ hoti, santā vācā ca kamma ca; Sammadaññāvimuttassa, upasantassa tādino.", translation: "Orang suci yang memiliki pengetahuan sejati, yang telah terbebas, damai dan seimbang batinnya, maka ucapan, perbuatan serta pikirannya senantiasa tenang." },
+      { number: 97, pali: "Assaddho akataññū ca, sandhicchedo ca yo naro; Hatāvakāso vantāso, sa ve uttamaporiso.", translation: "Orang yang telah bebas dari ketahyulan, yang telah mengerti keadaan tak tercipta (nibbana), yang telah memutuskan semua ikatan (tumimbal lahir), yang telah mengakhiri kesempatan (baik dan jahat), yang telah menyingkirkan semua nafsu keinginan, maka sesungguhnya ia adalah orang yang paling mulia." },
+      { number: 98, pali: "Gāme vā yadi vāraññe, ninne vā yadi vā thale; Yattha arahanto viharanti, taṃ bhūmirāmaṇeyyakaṃ.", translation: "Apakah di desa atau di dalam hutan, di tempat yang rendah atau di atas bukit, di mana pun Para Suci menetap, maka tempat itu sungguh menyenangkan." },
+      { number: 99, pali: "Ramaṇīyāni araññāni, yattha na ramatī jano; Vītarāgā ramissanti, na te kāmagavesino.", translation: "Hutan bukan tempat yang menyenangkan bagi orang duniawi, namun di sanalah orang-orang yang telah bebas dari nafsu bergembira, karena mereka tidak lagi mencari kesenangan indria." }
+    ]
+  },
+  {
+    id: 8,
+    title: "SAHASSA VAGGA",
+    translation: "Ribuan",
+    verses: [
+      { number: 100, pali: "Sahassamapi ce vācā, anatthapadasaṃhitā; Ekaṃ atthapadaṃ seyyo, yaṃ sutvā upasammati.", translation: "Daripada seribu kata yang tak berarti, adalah lebih baik sepatah kata yang bermanfaat, yang dapat memberi kedamaian kepada pendengarnya." },
+      { number: 101, pali: "Sahassamapi ce gāthā, anatthapadasaṃhitā; Ekaṃ gāthāpadaṃ seyyo, yaṃ sutvā upasammati.", translation: "Daripada seribu bait syair yang tak berguna, adalah lebih baik sebait syair yang berguna, yang dapat memberi kedamaian kepada pendengarnya." },
+      { number: 102, pali: "Yo ca gāthāsataṃ bhāse, anatthapadasaṃhitā; Ekaṃ dhammapadaṃ seyyo, yaṃ sutvā upasammati.", translation: "Daripada seribu bait syair yang tak bermanfaat, adalah lebih baik satu kata Dhamma, yang dapat memberi kedamaian kepada pendengarnya." },
+      { number: 103, pali: "Yo sahassaṃ sahassena, saṅgāme mānuse jine; Ekañca jeyyamattānaṃ, sa ve saṅgāmajuttamo.", translation: "Walaupun seseorang dapat menaklukkan ribuan musuh dalam ribuan kali pertempuran, namun sesungguhnya penakluk terbesar adalah orang yang dapat menaklukkan dirinya sendiri." },
+      { number: 104, pali: "Attā have jitaṃ seyyo, yā cāyaṃ itarā pajā; Attadantassa posassa, niccaṃ saññatacārino.", translation: "Menaklukkan diri sendiri sesungguhnya lebih baik daripada menaklukkan makhluk lain; orang yang telah menaklukkan dirinya sendiri selalu dapat mengendalikan diri." },
+      { number: 105, pali: "Neva devo na gandhabbo, na māro saha brahmunā; Jitaṃ apajitaṃ kayirā, tathārūpassa jantuno.", translation: "Tidak ada Dewa, Mara, Gandhabba, ataupun Brahmana, yang dapat mengubah kemenangan dari orang yang telah dapat menaklukkan dirinya sendiri." },
+      { number: 106, pali: "Māse māse sahassena, yo yajetha sataṃ samaṃ; Ekañca bhāvitattānaṃ, muhuttamapi pūjaye; Sāyeva pūjanā seyyo, yañce vassasataṃ hutaṃ.", translation: "Biarpun bulan demi bulan seseorang mempersembahkan seribu korban selama seratus tahun, namun lebih baik jika menghormati orang yang memiliki pengendalian diri, walaupun hanya sesaat saja." },
+      { number: 107, pali: "Yo ca vassasataṃ jantu, aggiṃ paricare vane; Ekañca bhāvitattānaṃ, muhuttamapi pūjaye; Sāyeva pūjanā seyyo, yañce vassasataṃ hutaṃ.", translation: "Biarpun selama seratus tahun seseorang menyalakan api pemujaan di hutan, namun sesungguhnya lebih baik jika ia, walaupun hanya sesaat saja, menghormati orang yang telah memiliki pengendalian diri." },
+      { number: 108, pali: "Yaṃ kiñci yiṭṭhaṃ va hutaṃ va loke, saṃvaccharaṃ yajetha puññapekkho; Sabbampi taṃ na catubhāgameti, abhivādanā ujjugatesu seyyo.", translation: "Dalam dunia ini, pengorbanan dan persembahan apapun yang dilakukan oleh seseorang selama seratus tahun, untuk memperoleh pahala dari perbuatannya itu, semuanya tidak berharga seperempat bagian pun, daripada penghormatan yang diberikan kepada orang yang hidupnya lurus." },
+      { number: 109, pali: "Abhivādanasīlissa, niccaṃ vuḍḍhāpacāyino; Cattāro dhammā vaḍḍhanti, āyu vaṇṇo sukhaṃ balaṃ.", translation: "Ia yang selalu menghormati dan menghargai orang yang lebih tua, kelak akan memperoleh empat hal, yaitu: umur panjang, kecantikan, kebahagiaan, dan kekuatan." },
+      { number: 110, pali: "Yo ca vassasataṃ jīve, dussīlo asamāhito; Ekāhaṃ jīvitaṃ seyyo, sīlavantassa jhāyino.", translation: "Walaupun seseorang hidup seratus tahun, tetapi memiliki kelakuan buruk dan tak terkendali, sesungguhnya lebih baik adalah kehidupan sehari dari orang yang memiliki sila dan tekun bersamadhi." },
+      { number: 111, pali: "Yo ca vassasataṃ jīve, duppañño asamāhito; Ekāhaṃ jīvitaṃ seyyo, paññavantassa jhāyino.", translation: "Walaupun seseorang hidup seratus tahun, tetapi tidak bijaksana dan tidak terkendali, sesungguhnya lebih baik adalah kehidupan sehari dari orang yang bijaksana dan tekun bersamadhi." },
+      { number: 112, pali: "Yo ca vassasataṃ jīve, kusīto hīnavīriyo; Ekāhaṃ jīvitaṃ seyyo, vīriyārambhato daḷhaṃ.", translation: "Walaupun seseorang hidup seratus tahun, tetapi malas dan tidak bersemangat, maka sesungguhnya lebih baik kehidupan sehari dari orang berjuang dengan penuh semangat." },
+      { number: 113, pali: "Yo ca vassasataṃ jīve, apassaṃ udayabbayaṃ; Ekāhaṃ jīvitaṃ seyyo, passato udayabbayaṃ.", translation: "Walaupun seseorang hidup seratus tahun, tetapi tidak dapat melihat timbul tenggelamnya segala sesuatu yang berkondisi, sesungguhnya lebih baik kehidupan sehari dari orang yang dapat melihat timbul tenggelamnya segala sesuatu yang berkondisi." },
+      { number: 114, pali: "Yo ca vassasataṃ jīve, apassaṃ amataṃ padaṃ; Ekāhaṃ jīvitaṃ seyyo, passato amataṃ padaṃ.", translation: "Walaupun seseorang hidup seratus tahun, tetapi tidak dapat melihat “keadaan tanpa kematian” (nibbana), sesungguhnya lebih baik kehidupan sehari dari orang yang dapat melihat “keadaan tanpa kematian”." },
+      { number: 115, pali: "Yo ca vassasataṃ jīve, apassaṃ dhammamuttamaṃ; Ekāhaṃ jīvitaṃ seyyo, passato dhammamuttamaṃ.", translation: "Walaupun seseorang hidup seratus tahun, tetapi tidak dapat melihat keluhuran Dhamma (Dhammamuttamam), sesungguhnya lebih baik kehidupan sehari dari orang yang dapat melihat keluhuran Dhamma." }
+    ]
+  },
+  {
+    id: 9,
+    title: "PAPA VAGGA",
+    translation: "Kejahatan",
+    verses: [
+      { number: 116, pali: "Abhittharetha kalyāṇe, pāpā cittaṃ nivāraye; Dandhaṃ hi karoto puññaṃ, pāpasmiṃ ramatī mano.", translation: "Bergegaslah berbuat kebajikan, dan kendalikan pikiranmu dari kejahatan; barang siapa lamban berbuat bajik, maka pikirannya akan senang dalam kejahatan." },
+      { number: 117, pali: "Pāpañce puriso kayirā, na naṃ kayirā punappunaṃ; Na tamhi chandaṃ kayirātha, dukkho pāpassa uccayo.", translation: "Apabila seseorang berbuat jahat, hendaklah ia tidak mengulangi perbuatannya itu, dan jangan merasa senang dengan perbuatan itu, sungguh menyakitkan akibat dari memupuk perbuatan jahat." },
+      { number: 118, pali: "Puññañce puriso kayirā, kayirā naṃ punappunaṃ; Tamhi chandaṃ kayirātha, sukho puññassa uccayo.", translation: "Apabila seseorang berbuat bajik, hendaklah dia mengulangi perbuatannya itu dan bersuka cita dengan perbuatannya itu, sungguh membahagiakan akibat dari memupuk perbuatan bajik." },
+      { number: 119, pali: "Pāpopi passati bhadraṃ, yāva pāpaṃ na paccati; Yadā ca paccati pāpaṃ, atha pāpo pāpāni passati.", translation: "Pembuat kejahatan hanya melihat hal yang baik, selama buah perbuatan jahatnya belum masak, tetapi bilamana hasil perbuatannya itu telah masak, ia akan melihat akibat-akibatnya yang buruk." },
+      { number: 120, pali: "Bhadropi passati pāpaṃ, yāva bhadraṃ na paccati; Yadā ca paccati bhadraṃ, atha bhadro bhadrāni passati.", translation: "Pembuat kebajikan hanya melihat hal yang buruk, selama buah perbuatan bajiknya belum masak, tetapi bilamana hasil perbuatannya itu telah masak, ia akan melihat akibat-akibatnya yang baik." },
+      { number: 121, pali: "Māvamaññetha pāpassa, na mantaṃ āgamissati; Udabindu nipātena, udakumbhopi pūrati; Bālo pūrati pāpassa, thokaṃ thokampi ācinaṃ.", translation: "Jangan meremehkan kejahatan walaupun kecil, dengan berkata: “Perbuatan jahat tidak akan membawa akibat”. Bagaikan sebuah tempayan akan terisi penuh oleh air yang jatuh setetes demi setetes, demikian pula orang bodoh sedikit demi sedikit memenuhi dirinya dengan kejahatan." },
+      { number: 122, pali: "Māvamaññetha puññassa, na mantaṃ āgamissati; Udabindu nipātena, udakumbhopi pūrati; Dhīro pūrati puññassa, thokaṃ thokampi ācinaṃ.", translation: "Janganlah meremehkan kebajikan walaupun kecil dengan berkata: “Perbuatan bajik tidak akan membawa akibat.” Bagaikan sebuah tempayan akan terisi penuh oleh air yang dijatuhkan setetes demi setetes, demikian pula orang bijaksana sedikit demi sedikit memenuhi dirinya dengan kebajikan." },
+      { number: 123, pali: "Vāṇijova bhayaṃ maggaṃ, appasattho mahaddhano; Visaṃ jīvitukāmovā, pāpāni parivajjaye.", translation: "Bagaikan seorang saudagar yang dengan sedikit pengawal membawa banyak harta, menghindari jalan yang berbahaya, demikian pula orang yang mencintai hidup, hendaknya menghindari racun dan hal-hal yang jahat." },
+      { number: 124, pali: "Pāṇimhi ce vaṇo nāssa, hareyya pāṇinā visaṃ; Nābbaṇaṃ visamanveti, natthi pāpaṃ akubbato.", translation: "Apabila seseorang tidak mempunyai luka di tangan, maka ia dapat menggenggam racun. Racun tidak akan mencelakakan orang yang tidak luka. Tiada penderitaan bagi orang yang tidak berbuat jahat." },
+      { number: 125, pali: "Yo appaduṭṭhassa narassa dussati, suddhassa posassa anaṅgaṇassa; Tameva bālaṃ pacceti pāpaṃ, sukhumo rajo paṭivātaṃva khitto.", translation: "Barangsiapa berbuat jahat terhadap orang baik, orang suci, dan orang yang tidak bersalah, maka kejahatan akan berbalik menimpa orang bodoh itu, bagaikan debu yang dilempar melawan angin." },
+      { number: 126, pali: "Gabbhameke uppajjanti, nirayaṃ pāpakammino; Saggaṃ sugatino yanti, parinibbanti anāsavā.", translation: "Sebagian orang terlahir melalui kandungan; pelaku kejahatan terlahir di alam neraka; orang yang berkelakuan baik pergi ke surga; dan orang yang bebas dari kekotoran batin mencapai nibbana." },
+      { number: 127, pali: "Na antalikkhe na samuddamajjhe, na pabbatānaṃ vivaraṃ pavissa; Na vijjatī so jagatippadeso, yatthaṭṭhito mucceyya pāpakammā.", translation: "Tidak di langit, di tengah lautan, di celah-celah gunung atau di manapun juga, dapat ditemukan suatu tempat bagi seseorang untuk dapat menyembunyikan diri dari akibat perbuatan jahatnya." },
+      { number: 128, pali: "Na antalikkhe na samuddamajjhe, na pabbatānaṃ vivaraṃ pavissa; Na vijjatī so jagatippadeso, yatthaṭṭhitaṃ nappasaheyya maccu.", translation: "Tidak di langit, di tengah lautan, di celah-celah gunung atau di manapun juga, dapat ditemukan suatu tempat bagi seseorang untuk dapat menyembunyikan diri dari kematian." }
+    ]
+  },
+  {
+    id: 10,
+    title: "DANDA VAGGA",
+    translation: "Hukuman",
+    verses: [
+      { number: 129, pali: "Sabbe tasanti daṇḍassa, sabbe bhāyanti maccuno; Attānaṃ upamaṃ katvā, na haneyya na ghātaye.", translation: "Semua orang takut akan hukuman; semua orang takut akan kematian. Setelah membandingkan orang lain dengan diri sendiri, hendaknya seseorang tidak membunuh atau mengakibatkan pembunuhan." },
+      { number: 130, pali: "Sabbe tasanti daṇḍassa, sabbesaṃ jīvitaṃ piyaṃ; Attānaṃ upamaṃ katvā, na haneyya na ghātaye.", translation: "Semua orang takut akan hukuman; semua orang mencintai kehidupan. Setelah membandingkan orang lain dengan diri sendiri, hendaknya seseorang tidak membunuh atau mengakibatkan pembunuhan." },
+      { number: 131, pali: "Sukhakāmāni bhūtāni, yo daṇḍena vihiṃsati; Attano sukhamesāno, pecca so na labhate sukhaṃ.", translation: "Barang siapa mencari kebahagiaan untuk dirinya sendiri dengan jalan menganiaya makhluk lain yang juga mendambakan kebahagiaan, maka setelah mati ia tak akan memperoleh kebahagiaan." },
+      { number: 132, pali: "Sukhakāmāni bhūtāni, yo daṇḍena na hiṃsati; Attano sukhamesāno, pecca so labhate sukhaṃ.", translation: "Barang siapa mencari kebahagiaan untuk dirinya sendiri dengan jalan tidak menganiaya makhluk lain yang juga mendambakan kebahagiaan, maka setelah mati ia akan memperoleh kebahagiaan." },
+      { number: 133, pali: "Māvoca pharusaṃ kañci, vuttā paṭivadeyyu taṃ; Dukkhā hi sārambhakathā, paṭidaṇḍā phuseyyu taṃ.", translation: "Jangan berbicara kasar kepada siapapun, karena mereka yang mendapat perlakuan demikian, akan membalas dengan cara yang sama. Sungguh menyakitkan ucapan kasar itu, yang pada gilirannya akan melukaimu." },
+      { number: 134, pali: "Sace neresi attānaṃ, kaṃso upahato yathā; Esa pattosi nibbānaṃ, sārambho te na vijjati.", translation: "Apabila engkau berdiam diri bagaikan sebuah gong pecah, berarti engkau telah mencapai nibbana, sebab keinginan membalas dendam tak terdapat lagi dalam dirimu." },
+      { number: 135, pali: "Yathā daṇḍena gopālo, gāvo pājeti gocaraṃ; Evaṃ jarā ca maccu ca, āyuṃ pājenti pāṇinaṃ.", translation: "Bagaikan seorang penggembala menghalau sapinya dengan tongkat ke padang rumput, begitu juga umur tua dan kematian menghalau kehidupan setiap makhluk." },
+      { number: 136, pali: "Atha pāpāni kammāni, karaṃ bālo na bujjhati; Sehi kammehi dummedho, aggidaḍḍhova tappati.", translation: "Apabila orang bodoh melakukan kejahatan, ia tak mengerti akan akibat perbuatannya. Orang bodoh akan tersiksa oleh perbuatannya sendiri, seperti orang yang terbakar oleh api." },
+      { number: 137, pali: "Yo daṇḍena adaṇḍesu, appaduṭṭhesu dussati; Dasannamaññataraṃ ṭhānaṃ, khippameva nigacchati.", translation: "Seseorang yang menghukum mereka yang tidak patut dihukum dan tidak bersalah, akan segera memperoleh salah satu di antara sepuluh keadaan berikut:" },
+      { number: 138, pali: "Vedanaṃ pharusaṃ jāniṃ, sarīrassa ca bhedanaṃ; Garukaṃ vāpi ābādhaṃ, cittakkhepaṃ va pāpuṇe.", translation: "Ia akan mengalami penderitaan hebat, kecelakaan, luka berat, sakit berat, atau bahkan hilang ingatan." },
+      { number: 139, pali: "Rājato vā upasaggaṃ, abbhakkhānaṃ va dāruṇaṃ; Parikkhayaṃ va ñātīnaṃ, bhogānaṃ va pabhaṅguraṃ.", translation: "Atau ditindak oleh raja, atau mendapat tuduhan yang berat, atau kehilangan sanak saudara, atau harta kekayaannya habis." },
+      { number: 140, pali: "Atha vāssa agārāni, aggi ḍahati pāvako; Kāyassa bhedā duppañño, nirayaṃ so upapajjati.", translation: "Atau rumahnya musnah terbakar, dan setelah tubuhnya hancur, orang bodoh ini akan terlahir kembali di alam neraka." },
+      { number: 141, pali: "Na naggacariyā na jaṭā na paṅkā, nānāsakā thaṇḍilasāyikā vā; Rajojallaṃ ukkuṭikappadhānaṃ, sodhenti maccaṃ avitiṇṇakaṅkhaṃ.", translation: "Bukan dengan cara telanjang, rambut dijalin, badan kotor berlumpur, berpuasa, berbaring di tanah, melumuri tubuh dengan debu, ataupun berjongkok di atas tumit, seseorang yang belum bebas dari keragu-raguan dapat mensucikan diri." },
+      { number: 142, pali: "Alaṅkato cepi samaṃ careyya, santo danto niyato brahmacārī; Sabbesu bhūtesu nidhāya daṇḍaṃ, so brāhmaṇo so samaṇo sa bhikkhu.", translation: "Walau digoda dengan cara bagaimanapun, tetapi bila seseorang dapat menjaga ketenangan pikirannya, damai, mantap, terkendali, suci murni dan tidak lagi menyakiti makhluk lain, sesungguhnya ia adalah seorang brahmana, seorang samana, seorang bhikkhu." },
+      { number: 143, pali: "Hirinisedho puriso, koci lokasmi vijjati; Yo niddaṃ apabodheti, asso bhadro kasāmiva.", translation: "Dalam dunia ini jarang ditemukan seseorang yang dapat mengendalikan diri dengan memiliki rasa malu untuk berbuat jahat, yang senantiasa waspada, bagaikan seekor kuda yang terlatih baik dapat menghindari cemeti." },
+      { number: 144, pali: "Asso yathā bhadro kasāniviṭṭho, ātāpino saṃvegino bhavātha; Saddhāya sīlena ca vīriyena ca, samādhinā dhammavinicchayena ca; Sampannavijjācaraṇā patissatā, jahissatha dukkhamidaṃ anappakaṃ.", translation: "Bagaikan seekor kuda yang terlatih baik, walaupun sekali saja merasakan cambukan, segera menjadi bersemangat dan berlari cepat, demikian pula halnya dengan orang yang rajin, penuh keyakinan, memiliki sila, semangat, konsentrasi dan menyelidiki Ajaran Benar, dengan bekal pengetahuan dan tingkah laku sempurna serta memiliki kesadaran, akan segera meninggalkan penderitaan yang berat ini." },
+      { number: 145, pali: "Udakaṃ hi nayanti nettikā, usukārā namayanti tejanaṃ; Dāruṃ namayanti tacchakā, attānaṃ damayanti subbatā.", translation: "Pembuat saluran air mengatur jalannya air, tukang panah meluruskan anak panah, tukang kayu melengkungkan kayu, orang bajik mengendalikan dirinya sendiri." }
+    ]
+  },
+  {
+    id: 11,
+    title: "JARA VAGGA",
+    translation: "Usia Tua",
+    verses: [
+      { number: 146, pali: "Ko nu hāso kimānando, niccaṃ pajjalite sati; Andhakārena onaddhā, padīpaṃ na gavessatha.", translation: "Mengapa tertawa, mengapa bergembira kalau dunia ini selalu terbakar? Dalam kegelapan, tidakkan engkau ingin mencari terang?" },
+      { number: 147, pali: "Passa cittakataṃ bimbaṃ, arukāyaṃ samussitaṃ; Āturaṃ bahusaṅkappaṃ, yassa natthi dhuvaṃ ṭhiti.", translation: "Pandanglah tubuh yang indah ini, penuh luka, terdiri dari rangkaian tulang, berpenyakit serta memerlukan banyak perawatan. Ia tidak kekal serta tidak tetap keadaannya." },
+      { number: 148, pali: "Parijiṇṇamidaṃ rūpaṃ, roganīḷaṃ pabhaṅguraṃ; Bhijjati pūtisandehaṃ, maraṇantaṃ hi jīvitaṃ.", translation: "Tubuh ini benar-benar rapuh, sarang penyakit dan mudah membusuk. Tumpukan yang menjijikkan ini akan hancur berkeping-keping. Sesungguhnya, kehidupan ini akan berakhir dengan kematian." },
+      { number: 149, pali: "Yānimāni apatthāni, alāpūneva sārade; Kāpotakāni aṭṭhīni, tāni disvāna kā rati.", translation: "Bagaikan labu yang dibuang pada musim rontok, demikian pula halnya dengan tulang-tulang yang memutih ini. Kesenangan apakah yang didapat dari memandangnya?" },
+      { number: 150, pali: "Aṭṭhīnaṃ nagaraṃ kataṃ, maṃsalohitalepanaṃ; Yattha jarā ca maccu ca, māno makkho ca ohito.", translation: "Kota (tubuh) ini terbuat dari tulang belulang yang dibungkus oleh daging dan darah. Di sinilah terdapat kelapukan dan kematian, kesombongan dan iri hati." },
+      { number: 151, pali: "Jīranti ve rājarathā sucittā, atho sarīrampi jaraṃ upeti; Satañca dhammo na jaraṃ upeti, santo have sabbhi pavedayanti.", translation: "Kereta kerajaan yang indah sekalipun pasti akan lapuk, begitu pula tubuh ini akan menjadi tua. Tetapi ‘Ajaran’ (Dhamma) orang suci tidak akan lapuk. Sesungguhnya dengan cara inilah orang suci mengajarkan kebaikan." },
+      { number: 152, pali: "Appassutāyaṃ puriso, balibaddhova jīrati; Maṃsāni tassa vaḍḍhanti, paññā tassa na vaḍḍhati.", translation: "Orang yang tidak mau belajar akan menjadi tua seperti sapi; dagingnya bertambah tetapi kebijaksanaannya tidak berkembang." },
+      { number: 153, pali: "Anekajātisaṃsāraṃ, sandhāvissaṃ anibbisaṃ; Gahakārakaṃ gavesanto, dukkhā jāti punappunaṃ.", translation: "Dengan melalui banyak kelahiran aku telah mengembara dalam samsara (siklus kehidupan). Terus mencari, namun tidak kutemukan pembuat rumah ini. Sungguh menyakitkan kelahiran yang berulang-ulang ini." },
+      { number: 154, pali: "Gahakāraka diṭṭhosi, puna gehaṃ na kāhasi; Sabbā te phāsukā bhaggā, gahakūṭaṃ visaṅkhataṃ; Visaṅkhāragataṃ cittaṃ, taṇhānaṃ khayamajjhagā.", translation: "O, pembuat rumah, engkau telah ku lihat, engkau tak dapat membangun rumah lagi. Seluruh atapmu telah runtuh dan tiangmu belandarmu telah patah. Sekarang batinku telah mencapai ‘Keadaan tak Berkondisi (Nibbana)’. Pencapaian ini merupakan akhir daripada nafsu keinginan." },
+      { number: 155, pali: "Acaritvā brahmacariyaṃ, aladdhā yobbane dhanaṃ; Jiṇṇakoñcāva jhāyanti, khīṇamaccheva pallale.", translation: "Mereka yang tidak menjalankan kehidupan suci serta tidak mengumpulkan bekal (kekayaan) selagi masih muda, akan merana seperti bangau tua yang berdiam di kolam yang tidak ada ikannya." },
+      { number: 156, pali: "Acaritvā brahmacariyaṃ, aladdhā yobbane dhanaṃ; Senti cāpātikhīṇāva, purāṇāni anutthunaṃ.", translation: "Mereka yang tidak menjalankan kehidupan suci serta tidak mengumpulkan bekal (kekayaan) selagi masih muda, akan terbaring seperti busur panah yang rusak, menyesali masa lampaunya." }
+    ]
+  },
+  {
+    id: 12,
+    title: "ATTA VAGGA",
+    translation: "Diri Sendiri",
+    verses: [
+      { number: 157, pali: "Attānañce piyaṃ jaññā, rakkheyya naṃ surakkhitaṃ; Tiṇṇamaññataraṃ yāmaṃ, paṭijaggeyya paṇḍito.", translation: "Bila orang mencintai dirinya sendiri, maka ia harus menjaga dirinya dengan baik. Orang bijaksana selalu waspada selama tiga masa dalam kehidupannya." },
+      { number: 158, pali: "Attānameva paṭhamaṃ, patirūpe nivesaye; Athaññamanusāseyya, na kilisseyya paṇḍito.", translation: "Hendaknya orang terlebih dahulu mengembangkan diri sendiri dalam hal-hal yang patut, dan selanjutnya melatih orang lain. Orang bijaksana yang berbuat demikian tak akan dicela." },
+      { number: 159, pali: "Attānañce tathā kayirā, yathāññamanusāsati; Sudanto vata dammetha, attā hi kira duddamo.", translation: "Sebagaimana ia mengajari orang lain, demikianlah hendaknya ia berbuat. Setelah ia dapat mengendalikan dirinya sendiri dengan baik, hendaklah ia melatih orang lain. Sesungguhnya amat sukar untuk mengendalikan diri sendiri." },
+      { number: 160, pali: "Attā hi attano nātho, ko hi nātho paro siyā; Attanā hi sudantena, nāthaṃ labhati dullabhaṃ.", translation: "Diri sendiri sesungguhnya adalah pelindung bagi diri sendiri. Karena siapa pula yang dapat menjadi pelindung bagi dirinya? Setelah dapat mengendalikan dirinya sendiri dengan baik, ia akan memperoleh perlindungan yang sungguh amat sukar dicari." },
+      { number: 161, pali: "Attanā va kataṃ pāpaṃ, attajaṃ attasambhavaṃ; Abhimatthati dummedhaṃ, vajiraṃvasmamayaṃ maṇiṃ.", translation: "Kejahatan yang dilakukan oleh diri sendiri, timbul dari diri sendiri serta disebabkan oleh diri sendiri, akan menghancurkan orang bodoh, bagaikan intan memecah permata yang keras." },
+      { number: 162, pali: "Yassa accantadussīlyaṃ, māluvā sālamivotthataṃ; Karoti so tathattānaṃ, yathā naṃ icchate diso.", translation: "Orang yang berkelakuan buruk adalah seperti tanaman menjalar maluva yang melilit pohon sala. Ia akan terjerumus sendiri, seperti apa yang diharapkan musuh terhadap dirinya." },
+      { number: 163, pali: "Sukarāni asādhūni, attano ahitāni ca; Yaṃ ve hitañca sādhuñca, taṃ ve paramadukkaraṃ.", translation: "Sungguh mudah untuk melakukan hal-hal yang buruk dan tak bermanfaat, tetapi sungguh sulit untuk melakukan hal-hal yang baik dan bermanfaat bagi diri sendiri." },
+      { number: 164, pali: "Yo sāsanaṃ arahataṃ, ariyānaṃ dhammajīvinaṃ; Paṭikkosati dummedho, diṭṭhiṃ nissāya pāpikaṃ; Phalāni kaṭṭhakasseva, attaghāññāya phallati.", translation: "Karena pandangan yang salah orang bodoh menghina ajaran orang mulia, orang suci dan orang bijak. Ia akan menerima akibatnya yang buruk, seperti rumput kastha yang berbuah hanya untuk menghancurkan dirinya sendiri." },
+      { number: 165, pali: "Attanā va kataṃ pāpaṃ, attanā saṅkilissati; Attanā akataṃ pāpaṃ, attanā va visujjhati; Suddhi asuddhi paccattaṃ, nāñño aññaṃ visodhaye.", translation: "Oleh diri sendiri kejahatan dilakukan, oleh diri sendiri seseorang menjadi suci. Suci atau tidak suci tergantung pada diri sendiri. Tak seseorang pun yang dapat mensucikan orang lain." },
+      { number: 166, pali: "Attadattham paratthena, bahunāpi na hāpaye; Attadatthamabhiññāya, sadatthapasuto siyā.", translation: "Jangan karena demi kesejahteraan orang lain lalu seseorang melalaikan kesejahteraan sendiri. Setelah memahami tujuan akhir bagi diri sendiri, hendaklah ia teguh melaksanakan tugas kewajibannya." }
+    ]
+  },
+  {
+    id: 13,
+    title: "LOKA VAGGA",
+    translation: "Dunia",
+    verses: [
+      { number: 167, pali: "Hīnaṃ dhammaṃ na seveyya, pamādena na saṃvase; Micchādiṭṭhiṃ na seveyya, na siyā lokavaḍḍhano.", translation: "Janganlah mengejar sesuatu yang rendah, janganlah hidup dalam kelengahan. Janganlah menganut pandangan-pandangan salah, dan janganlah menjadi pendukung keduniawian." },
+      { number: 168, pali: "Uttiṭṭhe nappamajjeyya, dhammaṃ sucaritaṃ care; Dhammacārī sukhaṃ seti, asmiṃ loke paramhi ca.", translation: "Bangun! Jangan lengah! Tempuhlah kehidupan benar. Barang siapa menempuh kehidupan benar, maka ia akan hidup bahagia di dunia ini maupun di dunia selanjutnya." },
+      { number: 169, pali: "Dhammaṃ care sucaritaṃ, na naṃ duccaritaṃ care; Dhammacārī sukhaṃ seti, asmiṃ loke paramhi ca.", translation: "Hendaklah seseorang hidup sesuai dengan Dhamma dan tak menempuh cara-cara jahat. Barang siapa hidup sesuai Dhamma, maka ia akan hidup bahagia di dunia ini maupun di dunia selanjutnya." },
+      { number: 170, pali: "Yathā bubbuḷakaṃ passe, yathā passe marīcikaṃ; Evaṃ lokaṃ avekkhantaṃ, maccurājā na passati.", translation: "Barangsiapa dapat memandang dunia ini seperti melihat busa atau seperti ia melihat fatamorgana, maka Raja Kematian tidak dapat menemukan dirinya." },
+      { number: 171, pali: "Etha passathimaṃ lokaṃ, cittaṃ rājarathūpamaṃ; Yattha bālā visīdanti, natthi saṅgo vijānataṃ.", translation: "Marilah, pandanglah dunia ini yang seperti kereta kerajaan yang penuh hiasan, yang membuat orang bodoh terlelap di dalamnya. Tetapi bagi orang yang mengetahui, maka tak ada lagi ikatan dalam dirinya." },
+      { number: 172, pali: "Yo ca pubbe pamajjitvā, pacchā so nappamajjati; Somaṃ lokaṃ pabhāseti, abbhā muttova candimā.", translation: "Barang siapa yang sebelumnya pernah malas, tetapi kemudian tidak malas, maka ia akan menerangi dunia ini bagaikan bulan yang terbebas dari awan." },
+      { number: 173, pali: "Yassa pāpaṃ kataṃ kammaṃ, kusalena pithīyati; Somaṃ lokaṃ pabhāseti, abbhā muttova candimā.", translation: "Barang siapa meninggalkan perbuatan jahat yang pernah dilakukan dengan jalan berbuat kebajikan, maka ia akan menerangi dunia ini bagai bulan yang bebas dari awan." },
+      { number: 174, pali: "Andhabhūto ayaṃ loko, tanukettha vipassati; Sakuṇo jālamuttova, appo saggāya gacchati.", translation: "Dunia ini terselubung kegelapan, dan hanya sedikit orang yang dapat melihat dengan jelas. Bagaikan burung-burung kena jerat, hanya sedikit yang dapat melepaskan diri; demikian pula hanya sedikit orang yang dapat pergi ke alam surga." },
+      { number: 175, pali: "Haṃsādiccapathe yanti, ākāse yanti iddhiyā; Nīyanti dhīrā lokamhā, jetvā māraṃ savāhiniṃ.", translation: "Kawanan angsa terbang menuju matahari, orang-orang yang memiliki kekuatan gaib terbang di udara. Orang bijaksana berjalan menuju kesucian setelah menaklukkan Mara beserta bala tentaranya." },
+      { number: 176, pali: "Ekaṃ dhammaṃ atītassa, musāvādissa jantuno; Vitiṇṇaparalokassa, natthi pāpaṃ akāriyaṃ.", translation: "Orang yang melanggar salah satu Dhamma (sila keempat, yakni selalu berkata bohong), yang tidak memperdulikan dunia mendatang, maka tak ada kejahatan yang tidak dilakukannya." },
+      { number: 177, pali: "Na ve kadariyā devalokaṃ vajanti, bālā have nappasaṃsanti dānaṃ; Dhīro ca dānaṃ anumodamāno, teneva so hoti sukhī parattha.", translation: "Sesungguhnya orang kikir tidak dapat pergi ke alam dewa. Orang bodoh tidak memuji kemurahan hati. Akan tetapi orang bijaksana senang dalam memberi, dan karenanya ia akan bergembira di alam berikutnya." },
+      { number: 178, pali: "Pathabyā ekarajjena, saggassa gamanena vā; Sabbalokādhipaccena, sotāpattiphalaṃ varaṃ.", translation: "Ada yang lebih baik daripada kekuasaan mutlak atas bumi, daripada pergi ke surga, atau daripada memerintah seluruh dunia, yakni hasil kemuliaan dari seorang suci yang telah memenangkan arus (sotapatti-phala)." }
+    ]
+  },
+  {
+    id: 14,
+    title: "BUDDHA VAGGA",
+    translation: "Buddha",
+    verses: [
+      { number: 179, pali: "Yassa jitaṃ nāvajīyati, jitaṃ yassa noyāti koci loke; Taṃ buddhamanantagocaraṃ, apadaṃ kena padena nessatha.", translation: "Beliau yang kemenangannya tak dapat dikalahkan lagi, yang nafsunya telah diatasi dan tidak mengikutinya lagi, Sang Buddha yang tiada bandingnya, yang tanpa jejak nafsu, dengan cara apa akan kaugoda Beliau?" },
+      { number: 180, pali: "Yassa jālinī visattikā, taṇhā natthi kuhiñci netave; Taṃ buddhamanantagocaraṃ, apadaṃ kena padena nessatha.", translation: "Beliau yang tak terjerat dan terlibat nafsu keinginan yang menyebabkan kelahiran, Sang Buddha yang tiada bandingnya, yang tanpa jejak nafsu, dengan cara apa akan kaugoda Beliau?" },
+      { number: 181, pali: "Ye jhālapasutā dhīrā, nekkhammūpasame ratā; Devāpi tesaṃ pihayanti, sambuddhānaṃ satīmataṃ.", translation: "Orang bijaksana yang tekun bersamadhi, yang bergembira dalam kedamaian pelepasan, yang memiliki kesadaran sejati dan telah mencapai Penerangan Sempurna, akan dicintai oleh para dewa." },
+      { number: 182, pali: "Kiccho manussapaṭilābho, kicchaṃ maccāna jīvitaṃ; Kicchaṃ saddhammassavanaṃ, kiccho buddhānamuppādo.", translation: "Sungguh sulit untuk dapat dilahirkan sebagai manusia, sungguh sulit kehidupan manusia, sungguh sulit untuk dapat mendengarkan Ajaran Benar, begitu pula, sungguh sulit munculnya seorang Buddha." },
+      { number: 183, pali: "Sabbapāpassa akaraṇaṃ, kusalassa upasampadā; Sacittapariyodapanaṃ, etaṃ buddhāna sāsanaṃ.", translation: "Tidak melakukan segala bentuk kejahatan, senantiasa mengembangkan kebajikan dan membersihkan batin; inilah Ajaran Para Buddha." },
+      { number: 184, pali: "Khantī paramaṃ tapo titikkhā, nibbānaṃ paramaṃ vadanti buddhā; Na hi pabbajito parūpaghātī, na samaṇo hoti paraṃ viheṭhayanto.", translation: "Kesabaran adalah praktek bertapa yang paling tinggi. “Nibbana adalah tertinggi”‘ begitulah sabda Para Buddha. Dia yang masih menyakiti orang lain sesungguhnya bukanlah seorang pertapa (samana)." },
+      { number: 185, pali: "Anūpavādo anūpaghāto, pātimokkhe ca saṃvaro; Mattaññutā ca bhattasmiṃ, pantañca sayanāsanaṃ; Adhicitte ca āyogo, etaṃ buddhāna sāsanaṃ.", translation: "Tidak menghina, tidak menyakiti, dapat mengendalikan diri sesuai dengan peraturan, memiliki sikap madya dalam hal makan, berdiam di tempat yang sunyi serta giat mengembangkan batin nan luhur; inilah Ajaran Para Buddha." },
+      { number: 186, pali: "Na kahāpaṇavassena, titti kāmesu vijjati; Appassādā dukhā kāmā, iti viññāya paṇḍito.", translation: "Bukan dalam hujan emas dapat ditemukan kepuasan nafsu indria. Nafsu indria hanya merupakan kesenangan sekejap yang membuahkan penderitaan." },
+      { number: 187, pali: "Api dibbesu kāmesu, ratiṃ so nādhigacchati; Taṇhakkhayarato hoti, sammāsambuddhasāvako.", translation: "Bagi orang bijaksana yang dapat memahami, hal itu tidak membuatnya bergembira bila mendapat kesenangan surgawi sekalipun. Siswa Sang Buddha Yang Maha Sempurna bergembira dalam penghancuran nafsu-nafsu keinginan." },
+      { number: 188, pali: "Bahuṃ ve saraṇaṃ yanti, pabbatāni vanāni ca; Ārāmarukkhacetyāni, manussā bhayatajjitā.", translation: "Karena rasa takut, banyak orang pergi mencari perlindungan ke gunung-gunung, ke arama-arama (hutan buatan), ke pohon-pohon dan ke tempat-tempat pemujaan yang dianggap keramat." },
+      { number: 189, pali: "Netaṃ kho saraṇaṃ khemaṃ, netaṃ saraṇamuttamaṃ; Netaṃ saraṇamāgamma, sabbadukkhā pamuccati.", translation: "Tetapi itu bukanlah perlindungan yang aman, bukanlah perlindungan yang utama. Dengan mencari perlindungan seperti itu, orang tidak akan bebas dari penderitaan." },
+      { number: 190, pali: "Yo ca buddhañca dhammañca, saṅghañca saraṇaṃ gato; Cattāri ariyasaccāni, sammappaññāya passati.", translation: "Ia yang telah berlindung kepada Buddha, Dhamma dan Sangha, dengan bijaksana dapat melihat Empat Kebenaran Mulia, yaitu:" },
+      { number: 191, pali: "Dukkhaṃ dukkhasamuppādaṃ, dukkhassa ca atikkamaṃ; Ariyañcaṭṭhaṅgikaṃ maggaṃ, dukkhūpasamagāminaṃ.", translation: "Dukkha, sebab dari dukkha, akhir dari dukkha, serta Jalan Mulia Berfaktor Delapan yang menuju pada akhir dukkha." },
+      { number: 192, pali: "Etaṃ kho saraṇaṃ khemaṃ, etaṃ saraṇamuttamaṃ; Etaṃ saraṇamāgamma, sabbadukkhā pamuccati.", translation: "Sesungguhnya itulah perlindungan yang utama. Dengan pergi mencari perlindungan seperti itu, orang akan bebas dari segala penderitaan." },
+      { number: 193, pali: "Dullabho purisājañño, na so sabbattha jāyati; Yattha so jāyati dhīro, taṃ kulaṃ sukhamedhati.", translation: "Sukar untuk berjumpa dengan manusia yang mempunyai kebijaksanaan Agung. Orang seperti itu tidak akan dilahirkan di sebarang tempat. Tetapi dimanapun orang seperti itu dilahirkan, maka keluarganya akan hidup bahagia." },
+      { number: 194, pali: "Sukho buddhānamuppādo, sukhā saddhammadesanā; Sukhā saṅghassa sāmaggi, samaggānaṃ tapo sukho.", translation: "Kelahiran Para Buddha merupakan sebab kebahagiaan. Pembabaran Ajaran Benar merupakan sebab kebahagiaan. Persatuan Sangha merupakan sebab kebahagiaan. Dan usaha perjuangan mereka yang telah bersatu merupakan sebab kebahagiaan." },
+      { number: 195, pali: "Pūjārahe pūjayato, buddhe yadi va sāvake; Papañcasamatikkante, tiṇṇasokapariddave.", translation: "Ia yang menghormati mereka yang patut dihormati, yakni Para Buddha atau siswa-siswa-Nya, yang telah dapat mengatasi rintangan-rintangan, akan bebas dari kesedihan dan ratap tangis." },
+      { number: 196, pali: "Te tādise pūjayato, nibbute akutobhaye; Na sakkā puññaṃ saṅkhātuṃ, imettamapi kenaci.", translation: "Ia yang menghormati orang-orang suci yang telah menemukan kedamaian dan telah bebas dari ketakutan; maka jasa perbuatannya tak dapat diukur dengan ukuran apapun." }
+    ]
+  },
+  {
+    id: 15,
+    title: "SUKHA VAGGA",
+    translation: "Kebahagiaan",
+    verses: [
+      { number: 197, pali: "Susukhaṃ vata jīvāma, verinesu averino; Verinesu manussesu, viharāma averino.", translation: "Sungguh bahagia jika kita hidup tanpa membenci di antara orang-orang yang membenci; di antara orang-orang yang membenci, kita hidup tanpa benci." },
+      { number: 198, pali: "Susukhaṃ vata jīvāma, āturesu anāturā; Āturesu manussesu, viharāma anāturā.", translation: "Sungguh bahagia jika kita hidup tanpa penyakit di antara orang-orang yang berpenyakit; di antara orang-orang yang berpenyakit, kita hidup tanpa penyakit." },
+      { number: 199, pali: "Susukhaṃ vata jīvāma, ussukesu anussukā; Ussukesu manussesu, viharāma anussukā.", translation: "Sungguh bahagia jika kita hidup tanpa keserakahan di antara orang-orang yang serakah; di antara orang-orang yang serakah, kita hidup tanpa keserakahan." },
+      { number: 200, pali: "Susukhaṃ vata jīvāma, yesaṃ no natthi kiñcanaṃ; Pītibhakkhā bhavissāma, devā ābhassarā yathā.", translation: "Sungguh bahagia hidup kita ini apabila sudah tidak terikat lagi oleh rasa ingin memiliki. Kita akan hidup dengan bahagia bagaikan dewa-dewa di alam yang cemerlang." },
+      { number: 201, pali: "Jayaṃ veraṃ pasavati, dukkhaṃ seti parājito; Upasanto sukhaṃ seti, hitvā jayaparājayaṃ.", translation: "Kemenangan menimbulkan kebencian, dan yang kalah hidup dalam penderitaan. Setelah dapat melepaskan diri dari kemenangan dan kekalahan, orang yang penuh damai akan hidup bahagia." },
+      { number: 202, pali: "Natthi rāgasamo aggi, natthi dosasamo kali; Natthi khandhasamā dukkhā, natthi santiparaṃ sukhaṃ.", translation: "Tiada api yang menyamai nafsu; tiada kejahatan yang menyamai kebencian; tiada penderitaan yang menyamai kelompok kehidupan (khandha); dan tiada kebahagiaan yang lebih tinggi daripada ‘Kedamaian Abadi’ (nibbana)." },
+      { number: 203, pali: "Jighacchāparamā rogā, saṅkhāraparamā dukhā; Etaṃ ñatvā yathābhūtaṃ, nibbānaṃ paramaṃ sukhaṃ.", translation: "Kelapuran merupakan penyakit yang paling berat. Segala sesuatu yang berkondisi merupakan penderitaan yang paling besar. Setelah mengetahui hal ini sebagaimana adanya, orang bijaksana memahami bahwa nibbana merupakan kebahagiaan tertinggi." },
+      { number: 204, pali: "Ārogyaparamā lābhā, santuṭṭhiparamaṃ dhanaṃ; Vissāsaparamā ñāti, nibbānaṃ paramaṃ sukhaṃ.", translation: "Kesehatan adalah keuntungan yang paling besar. Kepuasan adalah kekayaan yang paling berharga. Kepercayaan adalah saudara yang paling baik. Nibbana adalah kebahagiaan yang tertinggi." },
+      { number: 205, pali: "Pavivekarasaṃ pītvā, rasaṃ upasamassa ca; Niddaro hoti nippāpo, dhammapītirasaṃ pivaṃ.", translation: "Setelah mencicipi rasa penyepian dan ketentraman, maka ia akan bebas dari duka-cita dan tidak ternoda, serta mereguk kebahagiaan dalam Dhamma." },
+      { number: 206, pali: "Sāhu dassanamariyānaṃ, sannivāso sadā sukho; Adassanena bālānaṃ, niccameva sukhī siyā.", translation: "Bertemu dengan para ariya adalah baik, tinggal bersama mereka merupakan suatu kebahagiaan, orang akan selalu berbahagia bila tak menjumpai orang bodoh." },
+      { number: 207, pali: "Bālasaṅgatacārī hi, dīghamaddhāna socati; Dukkho bālehi saṃvāso, amitteneva sabbadā; Dhīro ca sukhasaṃvāso, ñātīnaṃva samāgamo.", translation: "Seseorang yang sering bergaul dengan orang bodoh pasti akan meratap lama sekali. Karena bergaul dengan orang bodoh adalah penderitaan seperti tinggal bersama musuh. Tetapi, siapa yang tinggal bersama orang bijaksana akan berbahagia, sama seperti sanak keluarga yang kumpul bersama." },
+      { number: 208, pali: "Tasmā hi- Dhīrañca paññañca bahussutañca, dhorayhasīlaṃ vatavantamariyaṃ; Taṃ tādisaṃ sappurisaṃ sumedhaṃ, bhajetha nakkhattapathavaṃ candimā.", translation: "Karena itu, ikutilah orang yang pandai, bijaksana, terpelajar, tekun, patuh dan mulia; hendaklah engkau selalu dekat dengan orang yang bajik dan pandai seperti itu, bagaikan bulan mengikuti peredaran bintang." }
+    ]
+  },
+  {
+    id: 16,
+    title: "PIYA VAGGA",
+    translation: "Kecintaan",
+    verses: [
+      { number: 209, pali: "Ayoge yuñjamattānaṃ, yogasmiñca ayojayaṃ; Atthaṃ hitvā piyaggāhī, pihetattānuyoginaṃ.", translation: "Orang yang memperjuangkan apa yang seharusnya dihindari, dan tidak memperjuangkan apa yang seharusnya diperjuangkan; melepaskan apa yang baik dan melekat pada apa yang tidak menyenangkan, akan merasa iri terhadap mereka yang tekun dalam latihan." },
+      { number: 210, pali: "Mā piyehi samāgañchi, appiyehi kudācanaṃ; Piyānaṃ adassanaṃ dukkhaṃ, appiyānañca dassanaṃ.", translation: "Janganlah melekat pada apa yang dicintai atau yang tidak dicintai. Tidak bertemu dengan mereka yang dicintai dan bertemu dengan mereka yang tidak dicintai, keduanya merupakan penderitaan." },
+      { number: 211, pali: "Tasmā piyaṃ na kayirātha, piyāpāyo hi pāpako; Ganthā tesaṃ na vijjanti, yesaṃ natthi piyāppiyaṃ.", translation: "Oleh sebab itu, janganlah mencintai apapun, karena berpisah dengan apa yang dicintai adalah menyedihkan. Tiada lagi ikatan bagi mereka yang telah bebas dari mencintai dan tidak mencintai." },
+      { number: 212, pali: "Piyato jāyatī soko, piyato jāyatī bhayaṃ; Piyato vippamuttassa, natthi soko kuto bhayaṃ.", translation: "Dari yang disayangi timbul kesedihan, dari yang disayangi timbul ketakutan; bagi orang yang telah bebas dari yang disayangi, tiada lagi kesedihan maupun ketakutan." },
+      { number: 213, pali: "Pemato jāyatī soko, pemato jāyatī bhayaṃ; Pemato vippamuttassa, natthi soko kuto bhayaṃ.", translation: "Dari cinta timbul kesedihan, dari cinta timbul ketakutan; bagi orang yang telah bebas dari rasa cinta, tiada lagi kesedihan maupun ketakutan." },
+      { number: 214, pali: "Ratiyā jāyatī soko, ratiyā jāyatī bhayaṃ; Ratiyā vippamuttassa, natthi soko kuto bhayaṃ.", translation: "Dari kemelekatan timbul kesedihan, dari kemelekatan timbul ketakutan; bagi orang yang telah bebas dari kemelekatan, tiada lagi kesedihan maupun ketakutan." },
+      { number: 215, pali: "Kāmato jāyatī soko, kāmato jāyatī bhayaṃ; Kāmato vippamuttassa, natthi soko kuto bhayaṃ.", translation: "Dari nafsu timbul kesedihan, dari nafsu timbul ketakutan; bagi orang yang telah bebas dari nafsu, tiada lagi kesedihan maupun ketakutan." },
+      { number: 216, pali: "Taṇhāya jāyatī soko, taṇhāya jāyatī bhayaṃ; Taṇhāya vippamuttassa, natthi soko kuto bhayaṃ.", translation: "Dari keinginan timbul kesedihan, dari keinginan timbul ketakutan; bagi orang yang telah bebas dari keinginan, tiada lagi kesedihan maupun ketakutan." },
+      { number: 217, pali: "Sīladassanasampannaṃ, dhammaṭṭhaṃ saccavedinaṃ; Attano kamma kubbānaṃ, taṃ jano kurute piyaṃ.", translation: "Barang siapa sempurna dalam sila dan mempunyai pandangan terang, teguh dalam Dhamma, selalu berbicara benar dan memenuhi segala kewajibannya, maka semua orang akan mencintainya." },
+      { number: 218, pali: "Chandajāto anakkhāte, manasā ca phuṭo siyā; Kāmesu ca appaṭibaddhacitto, uddhaṃsototi vuccati.", translation: "Barang siapa bermaksud ingin mencapai ‘Yang Tak Dinyatakan’ (nibbana), yang batinnya tidak lagi terikat oleh kesenangan indria, orang seperti itu disebut “yang telah pergi ke hilir arus kehidupan”." },
+      { number: 219, pali: "Cirappavāsiṃ purisaṃ, dūrato sotthimāgataṃ; Ñātimittā suhajjā ca, abhinandanti āgataṃ.", translation: "Setelah lama seseorang pergi jauh dan kemudian pulang ke rumah dengan selamat, maka keluarga, kerabat dan sahabat akan menyambutnya dengan senang hati." },
+      { number: 220, pali: "Tatheva katapuññampi, asmā lokā paraṃ gataṃ; Puññāni paṭigaṇhanti, piyaṃ ñātīva āgataṃ.", translation: "Begitu juga, perbuatan-perbuatan baik yang telah dilakukan akan menyambut pelakunya yang telah pergi dari dunia ini ke dunia selanjutnya, seperti keluarga yang menyambut pulangnya orang tercinta." }
+    ]
+  },
+  {
+    id: 17,
+    title: "KODHA VAGGA",
+    translation: "Kemarahan",
+    verses: [
+      { number: 221, pali: "Kodhaṃ jahe vippajaheyya mānaṃ, saṃyojanaṃ sabbamatikkameyya; Taṃ nāmarūpasmimasajjamānaṃ, akiñcanaṃ nānupatanti dukkhā.", translation: "Hendaklah orang menghentikan kemarahan dan kesombongan, hendaklah ia mengatasi semua belenggu. Orang yang tidak lagi terikat pada batin dan jasmani, yang telah bebas dari nafsu-nafsu, tak akan menderita lagi." },
+      { number: 222, pali: "Yo ve uppatitaṃ kodhaṃ, rathaṃ bhantaṃva dhāraye; Tamahaṃ sārathiṃ brūmi, rasmiggāho itaro jano.", translation: "Barangsiapa yang dapat menahan kemarahannya yang telah memuncak seperti menahan kereta yang sedang melaju, ia patut disebut sais sejati. Sedangkan sais lainnya hanya sebagai pemegang kendali belaka." },
+      { number: 223, pali: "Akkodhena jine kodhaṃ, asādhuṃ sādhunā jine; Jine kadariyaṃ dānena, saccenālikavādinaṃ.", translation: "Kalahkan kemarahan dengan cinta kasih dan kalahkan kejahatan dengan kebajikan. Kalahkan kekikiran dengan kemurahan hati, dan kalahkan kebohongan dengan kejujuran." },
+      { number: 224, pali: "Saccaṃ bhaṇe na kujjheyya, dajjāppasmimpi yācito; Etehi tīhi ṭhānehi, gacche devāna santike.", translation: "Hendaknya orang berbicara benar, hendaknya orang tidak marah, hendaknya orang memberi walaupun sedikit kepada mereka yang membutuhkan. Dengan tiga cara ini, orang dapat pergi ke hadapan para dewa." },
+      { number: 225, pali: "Ahiṃsakā ye munayo, niccaṃ kāyena saṃvutā; Te yanti accutaṃ ṭhānaṃ, yattha gantvā na socare.", translation: "Orang-orang suci yang tidak menganiaya mahluk lain dan selalu terkendali jasmaninya, akan sampai pada ‘Keadaan Tanpa Kematian’ (nibbana); dan setelah sampai pada keadaan itu, kesedihan tak akan ada lagi dalam dirinya." },
+      { number: 226, pali: "Sadā jāgaramānānaṃ, ahorattānusikkhinaṃ; Nibbānaṃ adhimuttānaṃ, atthaṃ gacchanti āsavā.", translation: "Mereka yang senantiasa sadar, tekun melatih diri siang dan malam, selalu mengarahkan batin ke nibbana, maka semua kekotoran batin dalam dirinya akan musnah." },
+      { number: 227, pali: "Porāṇametaṃ atula, netaṃ ajjatanāmiva; Nindanti tuṇhimāsīnaṃ, nindanti bahubhāṇinaṃ; Mitabhāṇimpi nindanti, natthi loke anindito.", translation: "O Atula, hal ini telah ada sejak dahulu dan bukan saja ada sekarang, di mana mereka mencela orang yang duduk diam, mereka mencela orang yang banyak bicara, mereka juga mencela orang yang sedikit bicara. Tak ada seorangpun di dunia ini yang tak dicela." },
+      { number: 228, pali: "Na cāhu na ca bhavissati, na cetarahi vijjati; Ekantaṃ nindito poso, ekantaṃ vā pasaṃsito.", translation: "Tidak pada zaman dahulu, waktu yang akan datang ataupun waktu sekarang, dapat ditemukan seseorang yang selalu dicela maupun yang selalu dipuji." },
+      { number: 229, pali: "Yañce viññū pasaṃsanti, anuvicca suve suve; Acchiddavuttiṃ medhāviṃ, paññāsīlasamāhitaṃ.", translation: "Setelah memperhatikan secara seksama, orang bijaksana memuji ia yang menempuh kehidupan tanpa cela, pandai serta memiliki kebijaksanaan dan sila." },
+      { number: 230, pali: "Nikkhaṃ jambonadasseva, ko taṃ ninditumarahati; Devāpi naṃ pasaṃsanti, brahmunāpi pasaṃsito.", translation: "Siapakah yang layak merendahkan orang tanpa cela seperti sepotong emas murni? Para dewa akan selalu memujinya, begitu pula para brahmana." },
+      { number: 231, pali: "Kāyappakopaṃ rakkheyya, kāyena saṃvuto siyā; Kāyaduccaritaṃ hitvā, kāyena sucaritaṃ care.", translation: "Hendaklah orang selalu menjaga rangsangan jasmani, hendaklah ia selalu mengendalikan jasmaninya. Setelah menghentikan perbuatan-perbuatan jahat melalui jasmani, hendaklah ia giat melakukan perbuatan-perbuatan baik melalui jasmani." },
+      { number: 232, pali: "Vacīpakopaṃ rakkheyya, vācāya saṃvuto siyā; Vacīduccaritaṃ hitvā, vācāya sucaritaṃ care.", translation: "Hendaklah orang selalu menjaga rangsangan ucapan, hendaklah ia mengendalikan ucapannya. hendaklah ia giat melakukan perbuatan-perbuatan baik melalui ucapan." },
+      { number: 233, pali: "Manopakopaṃ rakkheyya, manasā saṃvuto siyā; Manoduccaritaṃ hitvā, manasā sucaritaṃ care.", translation: "Hendaklah orang selalu menjaga rangsangan pikiran, hendaklah ia mengendalikan pikirannya. Setelah menghentikan perbuatan-perbuatan jahat melalui pikiran, hendaklah ia giat melakukan perbuatan-perbuatan baik melalui pikiran." },
+      { number: 234, pali: "Kāyena saṃvutā dhīrā, atho vācāya saṃvutā; Manasā saṃvutā dhīrā, te ve suparisaṃvutā.", translation: "Para bijaksana terkendali perbuatan, ucapan, dan pikirannya. Sesungguhnya mereka itu benar-benar telah dapat menguasai diri." }
+    ]
+  },
+  {
+    id: 18,
+    title: "MALA VAGGA",
+    translation: "Noda-Noda",
+    verses: [
+      { number: 235, pali: "Paṇḍupalāsova dānisi, yamapurisāpi ca taṃ upaṭṭhitā; Uyyogamukhe ca tiṭṭhasi, pātheyyampi ca te na vijjati.", translation: "Sekarang ini engkau bagaikan daun mengering layu. Para utusan raja kematian (Yama) telah menantimu. Engkau telah berdiri di ambang pintu keberangkatan, namun tidak kaumiliki bekal untuk perjalanan nanti." },
+      { number: 236, pali: "So karohi dīpamattano, khippaṃ vāyama paṇḍito bhava; Niddhantamalo anaṅgaṇo, dibbaṃ ariyabhūmiṃ upehisi.", translation: "Buatlah pulau bagi dirimu sendiri Berusahalah sekarang juga dan jadikan dirimu bijaksana. Setelah membersihkan noda-noda dan bebas dari nafsu keinginan, maka engkau akan mencapai alam kedamaian para Ariya." },
+      { number: 237, pali: "Upanītavayo ca dānisi, sampayātosi yamassa santike; Vāso te natthi antarā, pātheyyampi ca te na vijjati.", translation: "Sekarang kehidupanmu telah mendekati akhir, dan engkau telah mulai berjalan ke hadapan raja kematian (Yama). Tidak ada tempat bagimu berhenti di perjalanan, sedangkan engkau belum memiliki bekal untuk perjalananmu." },
+      { number: 238, pali: "So karohi dīpamattano, khippaṃ vāyama paṇḍito bhava; Niddhantamalo anaṅgaṇo, na puna jātijaraṃ upehisi.", translation: "Buatlah pulau bagi dirimu sendiri. Berusahalah sekarang juga dan jadikan dirimu bijaksana. Setelah membersihkan noda-noda dan bebas dari nafsu keinginan, maka kelahiran dan kematian tidak akan datang lagi padamu." },
+      { number: 239, pali: "Anupubbena medhāvī, thokaṃ thokaṃ khaṇe khaṇe; Kammāro rajatasseva, niddhame malamattano.", translation: "Dengan latihan bertahap, sedikit demi sedikit, dari waktu ke waktu hendaklah orang bijaksana membersihkan noda-noda yang ada dalam dirinya, bagaikan seorang pandai perak membersihkan perak yang berkarat." },
+      { number: 240, pali: "Ayasāva malaṃ samuṭṭhitaṃ, taduṭṭhāya tameva khādati; Evaṃ atidhonacārinaṃ, sāni kammāni nayanti duggatiṃ.", translation: "Bagaikan karat yang timbul dari besi, bila telah timbul akan menghancurkan besi itu sendiri, begitu pula perbuatan-perbuatan sendiri yang buruk akan menjerumuskan pelakunya ke alam kehidupan yang menyedihkan." },
+      { number: 241, pali: "Asajjhāyamalā mantā, anuṭṭhānamalā gharā; Malaṃ vaṇṇassa kosajjaṃ, pamādo rakkhato malaṃ.", translation: "Tidak membaca ulang adalah noda bagi mantra, tidak berusaha adalah noda bagi kehidupan berumah tangga. Kemalasan adalah noda bagi kecantikan, dan kelengahan adalah noda bagi seorang penjaga." },
+      { number: 242, pali: "Malitthiyā duccaritaṃ, maccheraṃ dadato malaṃ; Malā ve pāpakā dhammā, asmiṃ loke paramhi ca.", translation: "Kelakuan buruk adalah noda bagi seorang wanita, kekikiran adalah noda bagi seorang dermawan. Sesungguhnya, segala bentuk kejahatan merupakan noda, baik dalam dunia ini maupun dalam dunia selanjutnya." },
+      { number: 243, pali: "Tato malā malataraṃ, avijjā paramaṃ malaṃ; Etaṃ malaṃ pahatvāna, nimmalā hotha bhikkhavo.", translation: "Yang lebih buruk dari semua noda adalah kebodohan. Kebodohan merupakan noda paling buruk. O, para bhikkhu, singkirkanlah noda ini dan hiduplah tanpa noda." },
+      { number: 244, pali: "Sujīvaṃ ahirikena, kākasūrena dhaṃsinā; Pakkhandinā pagabbhena, saṅkiliṭṭhena jīvitaṃ.", translation: "Hidup ini mudah bagi orang yang tidak tahu malu, yang suka menonjolkan diri seperti seekor burung gagak, suka menfitnah, tidak tahu sopan santun, pongah, dan menjalankan hidup kotor." },
+      { number: 245, pali: "Hirīmatā ca dujjīvaṃ, niccaṃ sucigavesinā; Alīnena appagabbhena, suddhājīvena passatā.", translation: "Hidup ini sukar bagi orang yang tahu malu, yang senantiasa mengejar kesucian, yang bebas dari kemelekatan, rendah hati, menjalankan hidup bersih dan penuh perhatian." },
+      { number: 246, pali: "Yo pāṇamatipāteti, musāvādañca bhāsati; Loke adinnamādiyati, paradārañca gacchati.", translation: "Barang siapa membunuh makhluk hidup, suka berbicara tidak benar, mengambil apa yang tidak diberikan, merusak kesetiaan istri orang lain," },
+      { number: 247, pali: "Surāmerayapānañca, yo naro anuyuñjati; Idheva meso lokasmiṃ, mūlaṃ khanati attano.", translation: "Atau menyerah pada minuman yang memabukkan; maka di dunia ini orang seperti itu bagaikan menggali kubur bagi dirinya sendiri." },
+      { number: 248, pali: "Evaṃ bho purisa jānāhi, pāpadhammā asaññatā; Mā taṃ lobho adhammo ca, ciraṃ dukkhāya randhayuṃ.", translation: "Orang baik, ketahuilah bahwa sesungguhnya tidak mudah mengendalikan hal-hal yang jahat. Jangan biarkan keserakahan dan kejahatan menyeretmu ke dalam penderitaan yang tak berkesudahan." },
+      { number: 249, pali: "Dadāti ve yathāsaddhaṃ, yathāpasādanaṃ jano; Tattha yo maṅku bhavati, paresaṃ pānabhojane; Na so divā vā rattiṃ vā, samādhimadhigacchati.", translation: "Orang-orang memberi sesuai dengan keyakinan dan menurut kesenangan hati mereka. Karena itu barang siapa yang merasa iri atas makanan dan minuman orang lain, ia tidak akan memperoleh kedamaian batin, baik siang ataupun malam." },
+      { number: 250, pali: "Yassa cetam samucchinnaṃ, mūlaghaccaṃ samūhataṃ; Sa ve divā vā rattiṃ vā, samādhimadhigacchati.", translation: "Orang yang telah memotong perasaan iri hati ini seluruhnya, mencabut akar-akarnya serta menghancurkannya, akan memperoleh kedamaian batin, baik siang ataupun malam." },
+      { number: 251, pali: "Natthi rāgasamo aggi, natthi dosasamo gaho; Natthi mohasamaṃ jālaṃ, natthi taṇhāsamā nadī.", translation: "Tiada api yang menyamai nafsu, tiada cengkeraman yang dapat menyamai kebencian, tiada jaring yang dapat menyamai ketidaktahuan, dan tiada arus yang sederas nafsu keinginan." },
+      { number: 252, pali: "Sudassaṃ vajjamaññesaṃ, attano pana duddasaṃ; Paresaṃ hi so vajjāni, opuṇāti yathābhusaṃ; Attano pana chādeti, kaliṃva kitavā saṭho.", translation: "Amat mudah melihat kesalahan-kesalahan orang lain, tetapi sangat sulit untuk melihat kesalahan-kesalahan sendiri. Seseorang dapat menunjukkan kesalahan-kesalahan orang lain seperti menampi dedak, tetapi ia menyembunyikan kesalahan-kesalahannya sendiri seperti penjudi licik menyembunyikan dadu yang berangka buruk." },
+      { number: 253, pali: "Paravajjānupassissa, niccaṃ ujjhānasaññino; Āsavā tassa vaḍḍhanti, ārā so āsavakkhayā.", translation: "Barang siapa yang selalu memperhatikan dan mencari-cari kesalahan orang lain, maka kekotoran batin dalam dirinya akan bertambah dan ia semakin jauh dari penghancuran kekotoran-kekotoran batin." },
+      { number: 254, pali: "Ākāse va padaṃ natthi, samaṇo natthi bāhire; Papañcābhiratā pajā, nippapañcā tathāgatā.", translation: "Tidak ada jejak di angkasa, tidak ada orang suci di luar Dhamma. Umat manusia bergembira di dalam belenggu, tetapi Para Tathagata telah bebas dari semua itu." },
+      { number: 255, pali: "Ākāse va padaṃ natthi, samaṇo natthi bāhire; Saṅkhārā sassatā natthi, natthi buddhānamiñjitaṃ.", translation: "Tidak ada jejak di angkasa, tidak ada orang suci di luar Dhamma. Tidak ada hal-hal berkondisi yang abadi. Tidak ada lagi keragu-raguan bagi Para Buddha." }
+    ]
+  },
+  {
+    id: 19,
+    title: "DHAMMATTHA VAGGA",
+    translation: "Orang Adil",
+    verses: [
+      { number: 256, pali: "Na tena hoti dhammaṭṭho, yenatthaṃ sahasā naye; Yo ca atthaṃ anatthañca, ubho niccheyya paṇḍito.", translation: "Orang yang memutuskan segala sesuatu dengan tergesa-gesa tidak dapat dikatakan sebagai orang adil Orang bijaksana hendaknya memeriksa dengan teliti mana yang benar dan mana yang salah." },
+      { number: 257, pali: "Asāhasena dhammena, samena nayatī pare; Dhammassa gutto medhāvī, dhammaṭṭhoti pavuccati.", translation: "Orang yang mengadili orang lain dengan tidak tergesa-gesa, bersikap adil dan tidak berat sebelah, yang senantiasa menjaga kebenaran, pantas disebut orang adil." },
+      { number: 258, pali: "Na tena paṇḍito hoti, yāvatā bahu bhāsati; Khemī averī abhayo, paṇḍitoti pavuccati.", translation: "Seseorang tidak dapat dikatakan bijaksana hanya karena ia banyak bicara. tetapi orang yang damai, tanpa rasa benci dan rasa takut dapat disebut orang bijaksana." },
+      { number: 259, pali: "Na tāvatā dhammadharo, yāvatā bahu bhāsati; Yo ca appampi sutvāna, dhammaṃ kāyena passati; Sa ve dhammadharo hoti, yo dhammaṃ nappamajjati.", translation: "Seseorang bukan ‘pendukung Dhamma’ hanya karena ia banyak bicara. Namun seseorang yang walaupun hanya belajar sedikit tetapi batinnya melihat Dhamma dan tidak melalaikannya, maka sesungguhnya ia adalah seorang ‘pendukung Dhamma’" },
+      { number: 260, pali: "Na tena thero so hoti, yenassa palitaṃ siro; Paripakko vayo tassa, moghajiṇṇoti vuccati.", translation: "Seseorang tidak disebut “Thera (lebih tua)” hanya karena rambutnya telah memutih. Biarpun usianya sudah lanjut, dapat saja ia disebut ‘orang tua yang tidak berguna’." },
+      { number: 261, pali: "Yamhi saccañca dhammo ca, ahiṃsā saṃyamo damo; Sa ve vantamalo dhīro, thero iti pavuccati.", translation: "Orang yang memiliki kebenaran dan kebajikan, tidak kejam, terkendali dan terlatih, pandai dan bebas dari noda-noda, sesungguhnya ia patut disebut Thera." },
+      { number: 262, pali: "Na vākkaraṇamattena, vaṇṇapokkharatāya vā; Sādhurūpo naro hoti, issukī maccharī saṭho.", translation: "Bukan hanya karena pandai bicara dan bukan pula karena memiliki penampilan yang baik seseorang dapat menyebut dirinya orang yang baik hati, apabila ia masih bersifat iri, kikir dan suka menipu." },
+      { number: 263, pali: "Yassa cetaṃ samucchinnaṃ, mūlaghaccaṃ samūhataṃ; Sa vantadoso medhāvī, sādhurūpoti vuccati.", translation: "Orang yang telah memotong, mencabut dan memutuskan akar sifat iri hati, kekikiran serta dusta; maka orang bijaksana yang telah menyingkirkan segala keburukan itulah sesungguhnya dapat disebut orang yang baik hati." },
+      { number: 264, pali: "Na muṇḍakena samaṇo, abbato alikaṃ bhaṇaṃ; Icchālobhasamāpanno, samaṇo kiṃ bhavissati.", translation: "Seseorang yang tidak memiliki disiplin dan suka berdusta tidak dapat disebut seorang pertapa (samana) walaupun ia berkepala gundul. Mana mungkin orang yang penuh dengan keinginan serta keserakahan dapat menjadi seorang samana?" },
+      { number: 265, pali: "Yo ca sameti pāpāni, aṇuṃ thūlāni sabbaso; Samitattā hi pāpānaṃ, samaṇoti pavuccati.", translation: "Barang siapa dapat mengalahkan semua kejahatan, baik yang kecil maupun yang besar, ia patut disebut seorang samana karena ia telah mengatasi semua kejahatan." },
+      { number: 266, pali: "Na tena bhikkhu so hoti, yāvatā bhikkhate pare; Vissaṃ dhammaṃ samādāya, bhikkhu hoti na tāvatā.", translation: "Seseorang tidak dapat disebut bhikkhu hanya karena ia mengumpulkan dana makanan dari orang lain. Selama ia masih bertingkah laku seperti seorang perumah tangga dan tidak mentaati peraturan, maka ia belum pantas disebut bhikkhu." },
+      { number: 267, pali: "Yodha puññañca pāpañca, bāhitvā brahmacariyaṃ; Saṅkhāya loke carati, sa ve bhikkhūti vuccati.", translation: "Dalam hal ini, seseorang yang telah mengatasi kebaikan dan kejahatan, yang menjalankan kehidupan suci dan melaksanakan perenungan tentang kelompok-kelompok khandha, maka sesungguhnya ia dapat disebut seorang bhikkhu." },
+      { number: 268, pali: "Na monena munī hoti, mūḷharūpo aviddasu; Yo ca tulaṃva paggayha, varamādāya paṇḍito.", translation: "Tidak hanya karena berdiam diri seorang menjadi orang suci (muni), apabila ia dungu dan bodoh. bagaikan memegang sepasang neraca, orang bijaksana melaksanakan sesuatu yang baik dan menghindari yang jahat." },
+      { number: 269, pali: "Pāpāni parivajjeti, sa munī tena so muni; Yo munāti ubho loke, munī tena pavuccati.", translation: "Karena seseorang dapat memilih apa yang baik dan menghindari apa yang buruk, maka ia disebut sebagai orang suci. Demikianlah, ia yang telah mengerti kedua kelompok (batin maupun jasmani), patut disebut orang suci." },
+      { number: 270, pali: "Na tena ariyo hoti, yena pāṇāni hiṃsati; Ahiṃsā sabbapāṇānaṃ, ariyoti pavuccati.", translation: "Seseorang tidak dapat disebut Ariya (orang mulia) apabila masih menyiksa makhluk hidup. Ia yang tidak lagi menyiksa makhluk-makhluk hiduplah yang dapat dikatakan mulia." },
+      { number: 271, pali: "Na sīlabbatamattena, bāhusaccena vā pana; Atha vā samādhilābhena, vivittasayanena vā.", translation: "Bukan hanya karena sila dan tekad, bukan pula karena banyak belajar ataupun karena telah mencapai perkembangan dalam samadhi, atau juga karena berdiam diri di tempat yang sepi;" },
+      { number: 272, pali: "Phusāmi nekkhammasukhaṃ, aputhujjanasevitaṃ; Bhikkhu vissāsamāpādi, appatto āsavakkhayaṃ.", translation: "Lalu berpikir: ‘Aku telah menikmati kebahagiaan dari pelepasan yang tidak dapat dicapai oleh orang duniawi.’ O para bhikkhu, janganlah engkau merasa puas sebelum mencapai penghancuran semua kekotoran batin." }
+    ]
+  },
+  {
+    id: 20,
+    title: "MAGGA VAGGA",
+    translation: "Jalan",
+    verses: [
+      { number: 273, pali: "Maggānaṭṭhaṅgiko seṭṭho, saccānaṃ caturo padā; Virāgo seṭṭho dhammānaṃ, dvipadānañca cakkhumā.", translation: "Di antara semua jalan, maka “Jalan Mulia Berfaktor Delapan’ adalah yang terbaik; di antara semua kebenaran, maka ‘Empat Kebenaran Mulia’ adalah yang terbaik. Di antara semua keadaan, maka keadaan tanpa nafsu adalah yang terbaik; dan di antara semua makhluk hidup, maka orang yang ‘melihat’ adalah yang terbaik." },
+      { number: 274, pali: "Eso va maggo natthañño, dassanassa visuddhiyā; Etamhi tumhe paṭipajjatha, mārassetaṃ pamohanaṃ.", translation: "Inilah satu-satunya ‘Jalan’. Tidak ada jalan lain yang dapat membawa pada kemurnian pandangan. Ikutilah jalan ini, yang dapat mengalahkan Mara (penggoda)." },
+      { number: 275, pali: "Etamhi tumhe paṭipannā, dukkhassantaṃ karissatha; Akkhāto ve mayā maggo, aññāya sallasanthanaṃ.", translation: "Dengan mengikuti ‘Jalan’ ini, engkau dapat mengakhiri penderitaan. Dan jalan ini pula yang Kutunjukkan setelah Aku mengetahui bagaimana cara mencabut duri-duri (kekotoran batin)." },
+      { number: 276, pali: "Tumhehi kiccamātappaṃ, akkhātāro tathāgatā; Paṭipannā pamokkhanti, jhāyino mārabandhanā.", translation: "Engkau sendirilah yang harus berusaha, para Tathagata hanya menunjukkan ‘Jalan’. Mereka yang tekun bersemadi dan memasuki ‘Jalan’ ini akan terbebas dari belenggu Mara." },
+      { number: 277, pali: "Sabbe saṅkhārā aniccāti, yadā paññāya passati; Atha nibbindati dukkhe, esa maggo visuddhiyā.", translation: "Segala sesuatu yang berkondisi tidak kekal adanya. Apabila dengan kebijaksanaan orang dapat melihat hal ini; maka ia akan merasa jemu dengan penderitaan. Inilah Jalan yang membawa pada kesucian." },
+      { number: 278, pali: "Sabbe saṅkhārā dukkhāti, yadā paññāya passati; Atha nibbindati dukkhe, esa maggo visuddhiyā.", translation: "Segala sesuatu yang berkondisi adalah dukkha. Apabila dengan kebijaksanaan orang dapat melihat hal ini, maka ia akan merasa jemu dengan penderitaan. Inilah Jalan yang membawa pada kesucian." },
+      { number: 279, pali: "Sabbe dhammā anattāti, yadā paññāya passati; Atha nibbindati dukkhe, esa maggo visuddhiyā.", translation: "Segala sesuatu yang berkondisi adalah tanpa inti. Apabila dengan kebijaksanaan orang dapat melihat ini, maka ia akan merasa jemu dengan penderitaan. Inilah Jalan yang membawa pada kesucian." },
+      { number: 280, pali: "Uṭṭhānakālamhi anuṭṭhahāno, yuvā balī ālasiyaṃ upeto; Saṃsannasaṅkappamano kusīto, paññāya maggaṃ alaso na vindati.", translation: "Walaupun seseorang masih muda dan kuat, namun bila ia malas dan tidak mau berjuang semasa harus berjuang, serta berpikiran lamban; maka orang yang malas dan lamban seperti itu tidak akan menemukan Jalan yang mengantarnya pada kebijaksanaan." },
+      { number: 281, pali: "Vācānurakkhī manasā susaṃvuto, kāyena ca akusalaṃ na kayirā; Ete tayo kammapathe visodhaye, ārādhaye maggamisippaveditaṃ.", translation: "Hendaklah ia menjaga ucapan dan mengendalikan pikiran dengan baik serta tidak melakukan perbuatan jahat melalui jasmani. Hendaklah ia memurnikan tiga saluran perbuatan ini, memenangkan ‘Jalan’ yang telah dibabarkan oleh Para Suci." },
+      { number: 282, pali: "Yogā ve jāyatī bhūri, ayogā bhūrisaṅkhayo; Etaṃ dvedhāpathaṃ ñatvā, bhavāya vibhavāya ca; Tathāttānaṃ niveseyya, yathā bhūri pavaḍḍhati.", translation: "Sesungguhnya dari meditasi akan timbul kebijaksanaan; tanpa meditasi kebijaksanaan akan pudar. Setelah mengetahui kedua jalan bagi perkembangan dan kemerosotan batin, hendaklah orang melatih diri sehingga kebijaksanaannya berkembang." },
+      { number: 283, pali: "Vanaṃ chindatha mā rukkhaṃ, vanato jāyatī bhayaṃ; Chetva vanañca vanathañca, nibbanā hotha bhikkhavo.", translation: "O, Para bhikkhu, tebanglah hutan nafsu itu, karena dari nafsu timbul ketakutan. Setelah menebang hutan dan belukar nafsu, jadilah orang yang tidak lagi memiliki nafsu." },
+      { number: 284, pali: "Yāva hi vanatho na chijjati, aṇumattopi narassa nārisu; Paṭibaddhamanova tāva so, vaccho khīrapakova mātari.", translation: "Selama nafsu keinginan laki-laki terhadap wanita belum dihancurkan, betapapun kecilnya, maka selama itu pula seseorang masih terikat pada kehidupan, bagaikan seekor anak sapi yang masih menyusu pada induknya." },
+      { number: 285, pali: "Ucchinda sinehamattano, kumudaṃ sāradikaṃva pāṇinā; Santimaggameva brūhaya, nibbānaṃ sugatena desitaṃ.", translation: "Patahkanlah rasa cinta terhadap diri sendiri, seperti memetik bunga teratai putih di musim gugur. Kembangkanlah jalan kedamaian Nibbana yang telah diajarkan oleh Sang Sugata." },
+      { number: 286, pali: "Idha vassaṃ vasissāmi, idha hemantagimhisu; Iti bālo vicinteti, antarāyaṃ na bujjhati.", translation: "Di sini aku akan berdiam pada musim hujan, di sini aku akan berdiam selama musim gugur dan musim panas. Demikianlah pikiran orang bodoh yang tidak menyadari bahaya (kematian)." },
+      { number: 287, pali: "Taṃ puttapasusammattaṃ, byāsattamanasaṃ naraṃ; Suttaṃ gāmaṃ mahoghova, maccu ādāya gacchati.", translation: "Orang yang pikirannya melekat pada anak-anak dan ternak peliharaannya, maka kematian akan menyeret dan menghanyutkannya, seperti banjir besar yang menghanyutkan sebuah desa yang tertidur." },
+      { number: 288, pali: "Na santi puttā tāṇāya, na pitā nāpi bandhavā; Antakenādhipannassa, natthi ñātīsu tāṇatā.", translation: "Anak-anak tidak dapat melindungi, begitu juga ayah maupun sanak saudara. Bagi orang yang sedang menghadapi kematian, maka tidak ada sanak saudara yang dapat melindungi dirinya lagi." },
+      { number: 289, pali: "Etamatthavasaṃ ñatvā, paṇḍito sīlasaṃvuto; Nibbānagamanaṃ maggaṃ, khippameva visodhaye.", translation: "Setelah mengetahui kenyataan ini, Maka orang berbudi dan bijaksana tak akan menunda waktu dalam menempuh jalan menuju Nibbana." }
+    ]
+  },
+  {
+    id: 21,
+    title: "PAKINNAKA VAGGA",
+    translation: "Bunga Rampai",
+    verses: [
+      { number: 290, pali: "Mattāsukhapariccāgā, passe ce vipulaṃ sukhaṃ; Caje mattāsukhaṃ dhīro, sampassaṃ vipulaṃ sukhaṃ.", translation: "Apabila dengan melepaskan kebahagiaan yang lebih kecil orang dapat memperoleh kebahagiaan yang lebih besar, maka hendaknya orang bijaksana melepaskan kebahagiaan yang kecil itu, guna memperoleh kebahagiaan yang lebih besar." },
+      { number: 291, pali: "Paradukkhūpadānena, attano sukhamicchati; Verasaṃsaggasaṃsaṭṭho, verā so na parimuccati.", translation: "Barangsiapa menginginkan kebahagiaan bagi dirinya sendiri dengan menimbulkan penderitaan orang lain, maka ia tidak akan terbebas dari kebencian; ia akan terjerat dalam kebencian." },
+      { number: 292, pali: "Yaṃ hi kiccaṃ tadapaviddhaṃ, akiccaṃ pana kayirati; Unnaḷānaṃ pamattānaṃ, tesaṃ vaḍḍhanti āsavā.", translation: "Orang yang melakukan yang seharusnya tak dilakukan dan tidak melakukan apa yang seharusnya dilakukan, maka kekotoran batin akan terus bertambah dalam diri orang yang sombong dan malas seperti itu." },
+      { number: 293, pali: "Yesañca susamāraddhā, niccaṃ kāyagatā sati; Akiccaṃ te na sevanti, kicce sātaccakārino; Satānaṃ sampajānānaṃ, atthaṃ gacchanti āsavā.", translation: "Mereka yang selalu giat melatih perenungan terhadap badan jasmani, tidak melakukan apa yang seharusnya tak dilakukan, dan melakukan apa yang seharusnya dilakukan, maka kekotoran-kekotoran batin akan lenyap dari diri mereka yang memiliki kesadaran dan pandangan terang seperti itu." },
+      { number: 294, pali: "Mātaraṃ pitaraṃ hantvā, rājāno dve ca khattiye; Raṭṭhaṃ sānucaraṃ hantvā, anīgho yāti brāhmaṇo.", translation: "Setelah membantai ibu (nafsu keinginan) dan ayah (kesombongan), serta dua orang ksatria; dan setelah menghancurkan negara (pintu-pintu indria) bersama dengan para menterinya (kemelekatan), maka seorang brahmana akan berjalan pergi tanpa kesedihan." },
+      { number: 295, pali: "Mātaraṃ pitaraṃ hantvā, rājāno dve ca sotthiye; Veyagghapañcamaṃ hantvā, anīgho yāti brāhmaṇo.", translation: "Setelah membantai ibu (nafsu keinginan) dan ayah (kesombongan), serta dua raja yang arif; dan setelah menghancurkan lima jalan yang penuh bahaya (lima rintangan batin), maka seorang brahmana akan berjalan pergi tanpa kesedihan." },
+      { number: 296, pali: "Suppabuddhaṃ pabujjhanti, sadā gotamasāvakā; Yesaṃ divā ca ratto ca, niccaṃ buddhagatā sati.", translation: "Para siswa Gotama telah bangun dengan baik dan selalu sadar, sepanjang siang dan malam mereka selalu merenungkan sifat-sifat mulia Sang Buddha dengan penuh kesadaran." },
+      { number: 297, pali: "Suppabuddhaṃ pabujjhanti, sadā gotamasāvakā; Yesaṃ divā ca ratto ca, niccaṃ dhammagatā sati.", translation: "Para siswa Gotama telah bangun dengan baik dan selalu sadar, sepanjang siang dan malam mereka selalu merenungkan sifat-sifat mulia Dhamma dengan penuh kesadaran." },
+      { number: 298, pali: "Suppabuddhaṃ pabujjhanti, sadā gotamasāvakā; Yesaṃ divā ca ratto ca, niccaṃ saṅghagatā sati.", translation: "Para siswa Gotama telah bangun dengan baik dan selalu sadar, sepanjang siang dan malam mereka selalu merenungkan sifat-sifat mulia Sangha dengan penuh kesadaran." },
+      { number: 299, pali: "Suppabuddhaṃ pabujjhanti, sadā gotamasāvakā; Yesaṃ divā ca ratto ca, niccaṃ kāyagatā sati.", translation: "Para siswa Gotama telah bangun dengan baik dan selalu sadar, sepanjang siang dan malam mereka selalu merenungkan sifat-sifat badan jasmani dengan penuh kesadaran." },
+      { number: 300, pali: "Suppabuddhaṃ pabujjhanti, sadā gotamasāvakā; Yesaṃ divā ca ratto ca, ahiṃsāya rato mano.", translation: "Para siswa Gotama telah bangun dengan baik dan selalu sadar, sepanjang siang dan malam mereka bergembira dalam keadaan bebas dari kekejaman." },
+      { number: 301, pali: "Suppabuddhaṃ pabujjhanti, sadā gotamasāvakā; Yesaṃ divā ca ratto ca, bhāvanāya rato mano.", translation: "Para siswa Gotama telah bangun dengan baik dan selalu sadar, sepanjang siang dan malam mereka bergembira dalam ketentraman samadhi." },
+      { number: 302, pali: "Duppabbajjaṃ durabhiramaṃ, durāvāsā gharā dukhā; Dukkhosamānasaṃvāso, dukkhānupatitaddhagū; Tasmā na caddhagū siyā, na ca dukkhānupatito siyā.", translation: "Sungguh sukar untuk menempuh kehidupan tanpa rumah (Pabbajja); sungguh sukar untuk bergembira dalam menempuh kehidupan tanpa rumah. Kehidupan rumah tangga adalah sukar dan menyakitkan. Tinggal bersama mereka yang tidak sesuai sungguh menyakitkan. Hidup mengembara dalam proses tumimbal lahir (Samsara) juga menyakitkan." },
+      { number: 303, pali: "Saddho sīlena sampanno, yasobhogasamappito; Yaṃ yaṃ padesaṃ bhajati, tattha tattheva pūjito.", translation: "Bagi orang yang memiliki keyakinan dan sila yang sempurna, akan memperoleh nama harum dan kekayaan, pergi ketempat manapun ia akan dihormati." },
+      { number: 304, pali: "Dūre santo pakāsanti, himavantova pabbato; Asantettha na dissanti, rattiṃ khittā yathā sarā.", translation: "Meskipun dari jauh, orang baik akan terlihat bersinar bagaikan puncak pegunungan Himalaya. Tetapi, meskipun dekat, orang jahat tidak akan terlihat, bagaikan anak panah yang dilepaskan pada malam hari." },
+      { number: 305, pali: "Ekāsanaṃ ekaseyyaṃ, eko caramatandito; Eko damayamattānaṃ, vanante ramito siyā.", translation: "Ia yang duduk sendiri, tidur sendiri, berjalan sendiri tanpa rasa jemu serta selalu membina diri, akan bergembira di dalam hutan." }
+    ]
+  },
+  {
+    id: 22,
+    title: "NIRAYA VAGGA",
+    translation: "Neraka",
+    verses: [
+      { number: 306, pali: "Abhūtavādī nirayaṃ upeti, yo vāpi katvā na karomīti cāha; Ubhopi te pecca samā bhavanti, nihīnakammā manujā parattha.", translation: "Orang yang selalu berbicara tidak benar dan juga orang yang setelah berbuat kemudian berkata, “Aku tidak melakukannya” akan masuk ke neraka. Dua macam orang yang mempunyai kelakuan rendah ini, mempunyai nasib yang sama dalam dunia selanjutnya." },
+      { number: 307, pali: "Kāsāvakaṇṭhā bahavo, pāpadhammā asaññatā; Pāpā pāpehi kammehi, nirayaṃ te upapajjare.", translation: "Bila seseorang menjadi bhikkhu dengan mengenakan jubah kuning tetapi masih berkelakuan buruk dan tidak terkendali, maka akibat perbuatan-perbuatan jahatnya sendiri, ia akan masuk ke alam neraka." },
+      { number: 308, pali: "Seyyo ayoguḷo bhutto, tatto aggisikhūpamo; Yañce bhuñjeyya dussīlo, raṭṭhapiṇḍaṃ asaññato.", translation: "Lebih baik menelan bola besi panas seperti bara api daripada selalu menerima makanan dari orang lain dan tetap berkelakuan buruk serta tak terkendali." },
+      { number: 309, pali: "Cattāri ṭhānāni naro pamatto, āpajjatī paradārūpasevī; Apuññalābhaṃ na nikāmaseyyaṃ, nindaṃ tatīyaṃ nirayaṃ catutthaṃ.", translation: "Orang yang lengah dan berzina akan menerima empat ganjaran, yaitu : pertama, ia akan menerima akibat buruk; kedua, ia tidak dapat tidur dengan tenang; ketiga, namanya tercela; dan keempat, ia akan masuk ke alam neraka." },
+      { number: 310, pali: "Apuññalābho ca gatī ca pāpikā, bhītassa bhītāya ratī ca thokikā; Rājā ca daṇḍaṃ garukaṃ paṇeti, tasmā naro paradāraṃ na seve.", translation: "Ia akan menerima akibat buruk dan kelahiran rendah pada kehidupannya yang akan datang. Sungguh singkat kenikmatan yang diperoleh lelaki dan wanita yang ketakutan, dan rajapun akan menjatuhkan hukuman berat." },
+      { number: 311, pali: "Kuso yathā duggahito, hatthamevānukantati; Sāmaññaṃ dupparāmaṭṭhaṃ, nirayāyupakaḍḍhati.", translation: "Bagaikan rumput kusa, bila dipegang secara salah akan melukai tangan; begitu juga kehidupan seorang pertapa, apabila dijalankan secara salah akan menyeret orang ke neraka." },
+      { number: 312, pali: "Yaṃ kiñci sithilaṃ kammaṃ, saṅkiliṭṭhañca yaṃ vataṃ; Saṅkassaraṃ brahmacariyaṃ, na taṃ hoti mahapphalaṃ.", translation: "Bila suatu pekerjaan dikerjakan dengan seenaknya, suatu tekad tidak dijalankan dengan selayaknya, kehidupan suci tidak dijalankan dengan sepenuh hati; maka semuanya ini tidak akan membuahkan hasil yang besar." },
+      { number: 313, pali: "Kayirañce kayirāthenaṃ, daḷhamenaṃ parakkame; Sithilo hi paribbājo, bhiyyo ākirate rajaṃ.", translation: "Hendaklah orang mengerjakan sesuatu dengan sepenuh hati. Suatu kehidupan suci yang dijalankan dengan seenaknya akan membangkitkan debu nafsu yang lebih besar." },
+      { number: 314, pali: "Akataṃ dukkataṃ seyyo, pacchā tapati dukkataṃ; Katañca sukataṃ seyyo, yaṃ katvā nānutappati.", translation: "Sebaiknya seseorang tidak melakukan perbuatan jahat, karena di kemudian hari perbuatan itu akan menyiksa dirinya sendiri. Lebih baik seseorang melakukan perbuatan baik, karena setelah melakukannya ia tidak akan menyesal." },
+      { number: 315, pali: "Nagaraṃ yathā paccantaṃ, guttaṃ santarabāhiraṃ; Evaṃ gopetha attānaṃ, khaṇo ve mā upaccagā; Khaṇātītā hi socanti, nirayamhi samappitā.", translation: "Bagaikan perbatasan negara yang dijaga kuat di bagian dalam dan luar, begitu pula seharusnya engkau menjaga dirimu; janganlah membiarkan kesempatan baik (dalam era ajaran Sang Buddha) ini berlalu." },
+      { number: 316, pali: "Alajjitāye lajjanti, lajjitāye na lajjare; Micchādiṭṭhisamādānā, sattā gacchanti duggatiṃ.", translation: "Mereka yang merasa malu terhadap apa yang sebenarnya tidak memalukan, dan sebaliknya tidak merasa malu terhadap apa yang sebenarnya memalukan; maka orang yang menganut pandangan salah seperti itu akan masuk ke alam sengsara." },
+      { number: 317, pali: "Abhaye bhayadassino, bhaye cābhayadassino; Micchādiṭṭhisamādānā, sattā gacchanti duggatiṃ.", translation: "Mereka yang merasa takut terhadap apa yang sebenarnya tidak menakutkan, dan sebaliknya tidak merasa takut terhadap apa yang sebenarnya menakutkan; maka orang yang menganut pandangan salah seperti itu akan masuk ke alam sengsara." },
+      { number: 318, pali: "Avajje vajjamatino, vajje cāvajjadassino; Micchādiṭṭhisamādānā, sattā gacchanti duggatiṃ.", translation: "Mereka yang menganggap tercela terhadap apa yang sebenarnya tidak tercela, dan menganggap tidak tercela terhadap apa yang sebenarnya tercela; maka orang yang menganut pandangan salah seperti itu akan masuk ke alam sengsara." },
+      { number: 319, pali: "Vajjañca vajjato ñatvā, avajjañca avajjato; Sammādiṭṭhisamādānā, sattā gacchanti suggatiṃ.", translation: "Mereka yang mengetahui apa yang tercela sebagai tercela, dan apa yang tidak tercela sebagai tidak tercela; maka orang yang menganut pandangan benar seperti itu akan masuk ke alam bahagia." }
+    ]
+  },
+  {
+    id: 23,
+    title: "NAGA VAGGA",
+    translation: "Gajah",
+    verses: [
+      { number: 320, pali: "Ahaṃ nāgova saṅgāme, cāpato patitaṃ saraṃ; Ativākyaṃ titikkhissaṃ, dussīlo hi bahujjano.", translation: "Seperti seekor gajah di medan perang dapat menahan serangan panah yang dilepaskan dari busur, begitu pula Aku (Tathagata) tetap bersabar terhadap cacian; sesungguhnya, sebagian besar orang mempunyai kelakuan rendah." },
+      { number: 321, pali: "Dantaṃ nayanti samitiṃ, dantaṃ rājābhirūhati; Danto seṭṭho manussesu, yotivākyaṃ titikkhati.", translation: "Mereka menuntun gajah yang telah terlatih ke hadapan orang banyak. Raja mengendarai gajah yang terlatih ke medan perang. Di antara umat manusia, maka yang terbaik adalah orang yang dapat menaklukkan dirinya sendiri dan dapat bersabar terhadap cacian." },
+      { number: 322, pali: "Varamassatarā dantā, ājānīyā ca sindhavā; Kuñjarā ca mahānāgā, attadanto tato varaṃ.", translation: "Sungguh baik keledai-keledai yang terlatih, begitu juga kuda-kuda Sindhu dan gajah-gajah perang milik para bangsawan; tetapi yang jauh lebih baik dari semua itu adalah orang yang telah dapat menaklukkan dirinya sendiri." },
+      { number: 323, pali: "Na hi etehi yānehi, gaccheyya agataṃ disaṃ; Yathāttanā sudantena, danto dantena gacchati.", translation: "Tidak dengan mengendarai tunggangan seperti itu seseorang dapat pergi ke tempat yang belum pernah didatangi (nibbana). Namun orang yang telah dapat melatih, menaklukkan, dan mengendalikan dirinya sendiri dapat pergi ke tempat yang belum pernah didatangi itu (nibbana)." },
+      { number: 324, pali: "Dhanapālako nāma kuñjaro, kaṭukapphedano dunnivārayo; Baddho kabalaṃ na bhuñjati, sumarati nāgavanassa kuñjaro.", translation: "Pada musim kawin, gajah ganas bernama Dhanapalaka sukar dikendalikan; walaupun diikat kuat ia tetap tidak mau makan karena merindukan gajah-gajah lain di hutan." },
+      { number: 325, pali: "Middhī yadā hoti mahagghaso ca, niddāyitā samparivattasāyī; Mahāvarāhova nivāpapuṭṭho, punappunaṃ gabbhamupeti mando.", translation: "Jika seseorang menjadi malas, serakah, rakus akan makanan dan suka merebahkan diri seperti babi hutan yang berguling-guling ke sana kemari. Orang yang bodoh ini akan terus menerus dilahirkan." },
+      { number: 326, pali: "Idaṃ pure cittamācāri cārikaṃ, yenicchakaṃ yatthakāmaṃ yathāsukhaṃ; Tadajjahaṃ niggahessāmi yoniso, hatthippabhinnhaṃ viya aṅkusaggaho.", translation: "Dahulu pikiran ini mengembara, pergi kepada objek-objek yang disukai, dingini, dan ke mana yang dikehendaki. Sekarang aku akan mengendalikannya dengan penuh perhatian, seperti penjinak gajah mengendalikan gajah dengan kaitan besi." },
+      { number: 327, pali: "Appamādarathā hotha, sacittamanurakkhatha; Duggā uddharathattānaṃ, paṅke sannova kuñjaro.", translation: "Bergembiralah dalam kewaspadaan dan jagalah pikiranmu dengan baik; bebaskanlah dari cara-cara yang salah, seperti seekor gajah melepaskan dirinya yang terbenam dalam lumpur." },
+      { number: 328, pali: "Sace labhetha nipakaṃ sahāyaṃ, saddhiṃ caraṃ sādhuvihāri dhīraṃ; Abhibhuyya sabbāni parissayāni, careyya tenattamano satīmā.", translation: "Apabila dalam pengembaraanmu engkau dapat menemukan seorang sahabat yang berkelakuan baik, pandai, dan bijaksana, maka hendaknya engkau berjalan bersamanya dengan senang hati dan penuh kesadaran untuk mengatasi semua bahaya." },
+      { number: 329, pali: "No ce labhetha nipakaṃ sahāyaṃ, saddhiṃ caraṃ sādhuvihāri dhīraṃ; Rājāva raṭṭhaṃ vijitaṃ pahāya, eko care mātaṅgaraññeva nāgo.", translation: "Apabila dalam pengembaraanmu engkau tak dapat menemukan seorang sahabat yang berkelakukan baik, pandai, dan bijaksana, maka hendaknya engkau berjalan seorang diri, seperti seorang raja yang meninggalkan negara yang telah dikalahkannya, atau seperti seekor gajah yang mengembara sendiri di dalam hutan." },
+      { number: 330, pali: "Ekassa caritaṃ seyyo, natthi bāle sahāyatā; Eko care na ca pāpāni kayirā, appossukko mātaṅgaraññeva nāgo.", translation: "Lebih baik mengembara seorang diri dan tidak bergaul dengan orang bodoh. Pergilah seorang diri dan jangan berbuat jahat, hiduplah dengan bebas (tidak banyak kebutuhan), seperti seekor gajah yang mengembara sendiri di dalam hutan." },
+      { number: 331, pali: "Atthamhi jātamhi sukhā sahāyā, tuṭṭhī sukhā yā itarītarena; Puññaṃ sukhaṃ jīvitasaṅkhayamhi, sabbassa dukkhassa sukhaṃ pahānaṃ.", translation: "Sungguh bahagia mempunyai kawan pada saat kita membutuhkannya; sungguh bahagia dapat merasa puas dengan apa yang diperoleh; sungguh bahagia dapat berbuat kebaikan menjelang kematian; dan sungguh bahagia dapat mengakhiri penderitaan." },
+      { number: 332, pali: "Sukhā matteyyatā loke, atho petteyyatā sukhā; Sukhā sāmaññatā loke, atho brahmaññatā sukhā.", translation: "Berlaku baik terhadap ibu berlaku baik terhadap ayah juga merupakan kebahagiaan. Berlaku baik terhadap pertapa merupakan suatu kebahagiaan dalam dunia ini; berlaku baik terhadap para Ariya juga merupakan kebahagiaan." },
+      { number: 333, pali: "Sukhaṃ yāva jarā sīlaṃ, sukhā saddhā patiṭṭhitā; Sukho paññāya paṭilābho, pāpānaṃ akaraṇaṃ sukhaṃ.", translation: "Moral (Sila) akan memberikan kebahagiaan sampai usia tua; keyakinan yang telah ditanam kuat akan memberikan kebahagiaan; kebijaksanaan yang telah diperoleh akan memberikan kebahagiaan; tidak berbuat jahat akan memberikan kebahagiaan." }
+    ]
+  },
+  {
+    id: 24,
+    title: "TANHA VAGGA",
+    translation: "Nafsu Keinginan",
+    verses: [
+      { number: 334, pali: "Manujassa pamattacārino, taṇhā vaḍḍhati māluvā viya; So plavati hurāhuraṃ, phalamicchaṃva vanasmi vānaro.", translation: "Bila seseorang hidup lengah, maka nafsu keinginan tumbuh, seperti tanaman Maluwa yang menjalar. Ia melompat dari satu kehidupan ke kehidupan yang lain, bagaikan kera yang senang mencari buah-buahan di dalam hutan." },
+      { number: 335, pali: "Yaṃ esā sahatī jammī, taṇhā loke visattikā; Sokā tassa pavaḍḍhanti, abhivaṭṭhaṃva bīraṇaṃ.", translation: "Dalam dunia ini, siapapun yang dikuasai oleh nafsu keinginan rendah dan beracun, penderitaannya akan bertambah seperti rumput Birana yang tumbuh dengan cepat karena disirami dengan baik." },
+      { number: 336, pali: "Yo cetaṃ sahatī jammiṃ, taṇhaṃ loke duraccayaṃ; Sokā tamhā papatanti, udabindūva pokkharā.", translation: "Tetapi barang siapa dapat mengatasi nafsu keinginan yang beracun dan sukar dikalahkan itu, maka kesedihan akan berlalu dari dalam dirinya, seperti air yang jatuh dari daun teratai." },
+      { number: 337, pali: "Taṃ vo vadāmi bhaddaṃ vo, yāvantettha samāgatā; Taṇhāya mūlaṃ khaṇatha, usīratthova bīraṇaṃ; Mā vo naḷaṃva sotova, māro bhañji punappunaṃ.", translation: "Kuberitahukan hal ini kepadamu: Semoga engkau sekalian yang telah datang berkumpul di sini memperoleh kesejahteraan! Bongkarlah nafsu keinginanmu, seperti orang mencabut akar rumput Birana yang harum. Jangan biarkan Mara menghancurkan dirimu berulang kali." },
+      { number: 338, pali: "Yathāpi mūle anupaddave daḷhe, chinno pi rukkho punareva rūhati; Evampi taṇhānusaye anūhate, nibbattatī dukkhamidaṃ punappunaṃ.", translation: "Sebatang pohon yang telah ditebang masih akan dapat tumbuh dan bersemi lagi apabila akar-akarnya masih kuat dan tidak dihancurkan. Begitu pula selama akar nafsu keinginan tidak dihancurkan, maka penderitaan akan tumbuh berulang kali." },
+      { number: 339, pali: "Yassa chattiṃsatī sotā, manāpassavanā bhusā; Vāhā vahanti duddiṭṭhiṃ, saṅkappā rāganissitā.", translation: "Apabila tiga puluh enam nafsu keinginan di dalam diri seseorang mengalir deras menuju objek-objek yang menyenangkan, maka gelombang pikiran yang penuh nafsu akan menyeret orang yang memiliki pandangan salah seperti itu." },
+      { number: 340, pali: "Savanti sabbadhi sotā, latā ubbhijja tiṭṭhati; Tañca disvā lataṃ jātaṃ, mūlaṃ paññāya chindatha.", translation: "Di mana-mana mengalir arus (=nafsu-nafsu keinginan); di mana-mana tanaman menjalar tumbuh merambat. Apabila engkau melihat tanaman menjalar (=nafsu keinginan) tumbuh tinggi, maka harus kau potong akar-akarnya dengan pisau (=kebijaksanaan)." },
+      { number: 341, pali: "Saritāni sinehitāni ca, somanassāni bhavanti jantuno; Te sātasitā sukhesino, te ve jātijarūpagā narā.", translation: "Dalam diri makhluk-makhluk timbul rasa senang mengejar objek-objek indria, dan mereka menjadi terikat pada keinginan-keinginan indria. Karena cenderung pada hal-hal yang menyenangkan dan terus mengejar kenikmatan-kenikmatan indria, maka mereka menjadi korban kelahiran dan kelapukan." },
+      { number: 342, pali: "Tasiṇāya purakkhatā pajā, parisappanti saso va bādhito; Saṃyojanasaṅgasattā, dukkhamupenti punappunaṃ cirāya.", translation: "Makhluk-makhluk yang terikat pada nafsu keinginan, berlarian kian kemari seperti seekor kelinci yang terjebak. Karena terikat erat oleh belenggu-belenggu dan ikatan-ikatan, maka mereka mengalami penderitaan untuk waktu yang lama." },
+      { number: 343, pali: "Tasiṇāya purakkhatā pajā, parisappanti saso va bādhito; Tasmā tasiṇaṃ vinodaye, ākaṅkhanta virāgamattano.", translation: "Makhluk-makhluk yang terikat oleh nafsu-nafsu keinginan, berlarian kian kemari seperti seekor kelinci yang terjebak. Karena itu seorang bhikkhu yang menginginkan kebebasan diri, hendaknya ia membuang segala nafsu-nafsu keinginannya." },
+      { number: 344, pali: "Yo nibbanatho vanādhimutto, vanamutto vanameva dhāvati; Taṃ puggalamanvetha passatha, mutto bandhanameva dhāvati.", translation: "Setelah bebas dari hutan keinginan (=kehidupan rumah tangga), ia menemukan hutan kesucian (=kehidupan pertapa). Tapi, walaupun telah bebas dari keinginan (akan kehidupan rumah tangga) ia kembali ke rumah lagi." },
+      { number: 345, pali: "Na taṃ daḷhaṃ bandhanamāhu dhīrā, yadāyasaṃ dārujaṃ babbajañca; Sārattarattā maṇikuṇḍalesu, puttesu dāresu ca yā apekhā.", translation: "Orang bijaksana menyatakan bahwa belenggu yang terbuat dari besi, kayu, ataupun rami tidaklah begitu kuat. Tetapi ikatan terhadap anak-anak, istri, dan harta benda, sesungguhnya merupakan belenggu yang jauh lebih kuat." },
+      { number: 346, pali: "Etaṃ daḷhaṃ bandhanamāhu dhīrā, ohārinaṃ sithilaṃ duppamuñcaṃ; Etampi chetvāna paribbajanti, anapekkhino kāmasukhaṃ pahāya.", translation: "Orang bijaksana menyatakan bahwa belenggu seperti itu amat kuat, dapat melemparkan orang ke bawah, halus dan sukar untuk dilepaskan. walaupun demikian, para bijaksana akan dapat memutuskan belenggu itu." },
+      { number: 347, pali: "Ye rāgarattānupatanti sotaṃ, sayaṃkataṃ makkaṭakova jālaṃ; Etampi chetvāna vajanti dhīrā, anapekkhino sabbadukkhaṃ pahāya.", translation: "Mereka yang bergembira dengan nafsu indria, akan jatuh ke dalam arus (kehidupan), seperti laba-laba yang jatuh ke dalam jaring yang dibuatnya sendiri. Tapi para bijaksana dapat memutuskan belenggu itu." },
+      { number: 348, pali: "Muñca pure muñca pacchato, majjhe muñca bhavassa pāragū; Sabbattha vimuttamānaso, na puna jātijaraṃ upehisi.", translation: "Tinggalkan apa yang telah lalu, yang akan datang maupun sekarang (=kemelekatan terhadap lima kelompok kehidupan) dan capailah ‘Pantai Seberang’ (=nibbana). Dengan pikiran yang telah bebas dari segala sesuatu, maka engkau tak akan mengalami kelahiran dan kelapukan lagi." },
+      { number: 349, pali: "Vitakkapamathitassa jantuno, tibbarāgassa subhānupassino; Bhiyyo taṇhā pavaḍḍhati, esa kho daḷhaṃ karoti bandhanaṃ.", translation: "Orang yang pikirannya kacau, penuh dengan nafsu, dan hanya melihat pada hal-hal yang menyenangkan saja, maka nafsu keinginannya akan terus bertambah. Sesungguhnya orang seperti itu hanya akan memperkuat ikatan belenggunya sendiri ." },
+      { number: 350, pali: "Vitakkūpasame ca yo rato, asubhaṃ bhāvayati sadā sato; Esa kho byantikāhiti, esa checchati mārabandhanaṃ.", translation: "Orang yang bergembira dalam menenangkan pikirannya, tekun merenungkan hal-hal yang menjijikkan (sebagai objek perenungan dalam samadhi) dan selalu sadar, maka ia akan mengakhiri nafsu-nafsu keinginannya dan menghancurkan belenggu Mara." },
+      { number: 351, pali: "Niṭṭhaṅgato asantāsī, vītataṇho anaṅgaṇo; Acchindi bhavasallāni, antimoyaṃ samussayo.", translation: "Orang yang telah mencapai tujuan akhir, tidak lagi mempunyai rasa takut, noda batin serta nafsu keinginan, sesungguhnyalah ia telah mematahkan ruji-ruji kehidupan. Bagi orang suci seperti itu, tubuhnya merupakan tubuh yang terakhir." },
+      { number: 352, pali: "Vītataṇho anādāno, niruttipadakovido; Akkharānaṃ sannipātaṃ, jaññā pubbāparāni ca; Sa ve antimasārīro, mahāpañño mahāpurisoti vuccati.", translation: "Orang yang telah bebas dari nafsu keinginan dan kemelekatan, pandai dalam menganalisa serta memahami ‘Ajaran’ beserta pasangan-pasangannya, maka ia patut disebut seorang ‘Pemilik Tubuh Terakhir’ (=arahat)." },
+      { number: 353, pali: "Sabbābhibhū sabbavidūhamasmi, sabbesu dhammesu anūpalitto; Sabbañjaho taṇhakkhaye vimutto, sayaṃ abhiññāya kamuddiseyyaṃ.", translation: "Aku telah mengalahkan semuanya. Aku telah mengetahui semuanya. Aku telah bebas dari semuanya. Aku telah meninggalkan semuanya. Setelah menghancurkan nafsu keinginan, Aku benar-benar bebas." },
+      { number: 354, pali: "Sabbadānaṃ dhammadānaṃ jināti, sabbarasaṃ dhammaraso jināti; Sabbaratiṃ dhammarati jināti, taṇhakkhayo sabbadukkhaṃ jināti.", translation: "Pemberian ‘Kebenaran’ (Dhamma) mengalahkan semua pemberian lainnya; rasa ‘Kebenaran’ (Dhamma) mengalahkan semua rasa lainnya; kegembiraan dalam ‘Kebenaran’ (Dhamma) mengalahkan semua kegembiraan lainnya." },
+      { number: 355, pali: "Hananti bhogā dummedhaṃ, no ca pāragavesino; Bhogataṇhāya dummedho, hanti aññeva attanaṃ.", translation: "Kekayaan dapat menghancurkan orang bodoh, tetapi tidak menghancurkan mereka yang mencari ‘Pantai Seberang’ (=nibbana). Karena nafsu keinginan mendapatkan kekayaan, orang bodoh menghancurkan dirinya sendiri." },
+      { number: 356, pali: "Tiṇadosāni khettāni, rāgadosā ayaṃ pajā; Tasmā hi vītarāgesu, dinnaṃ hoti mahapphalaṃ.", translation: "Rumput liar merupakan bencana bagi sawah dan ladang; nafsu indria merupakan bencana bagi manusia. Karena itu dana yang dipersembahkan kepada mereka yang telah bebas dari nafsu indria akan menghasilkan pahala yang besar." },
+      { number: 357, pali: "Tiṇadosāni khettāni, dosadosā ayaṃ pajā; Tasmā hi vītadosesu, dinnaṃ hoti mahapphalaṃ.", translation: "Rumput liar merupakan bencana bagi sawah dan ladang; kebencian merupakan bencana bagi manusia. karena itu, dana yang dipersembahkan kepada mereka yang telah bebas dari kebencian akan menghasilkan pahala yang besar." },
+      { number: 358, pali: "Tiṇadosāni khettāni, mohadosā ayaṃ pajā; Tasmā hi vītamohesu, dinnaṃ hoti mahapphalaṃ.", translation: "Rumput liar merupakan bencana bagi sawah dan ladang; ketidak-tahuan merupakan bencana bagi manusia. Karena itu, dana yang dipersembahkan kepada mereka yang telah bebas dari ketidak-tahuan akan menghasilkan pahala yang besar." },
+      { number: 359, pali: "Tiṇadosāni khettāni, icchādosā ayaṃ pajā; Tasmā hi vigaticchesu, dinnaṃ hoti mahapphalaṃ.", translation: "Rumput liar merupakan bencana bagi sawah dan ladang; iri hati merupakan bencana bagi mannusia. Karena itu, dana yang dipersembahkan kepada mereka yang telah bebas dari iri hati akan menghasilkan pahala yang besar." }
+    ]
+  },
+  {
+    id: 25,
+    title: "BHIKKHU VAGGA",
+    translation: "Bhikkhu",
+    verses: [
+      { number: 360, pali: "Cakkhunā saṃvaro sādhu, sādhu sotena saṃvaro; Ghānena saṃvaro sādhu, sādhu jivhāya saṃvaro.", translation: "Sungguh baik mengendalikan mata; sungguh baik mengendalikan telinga; sungguh baik mengendalikan hidung; sungguh baik mengendalikan lidah." },
+      { number: 361, pali: "Kāyena saṃvaro sādhu, sādhu vācāya saṃvaro; Manasā saṃvaro sādhu, sādhu sabbattha saṃvaro; Sabbattha saṃvuto bhikkhu, sabbadukkhā pamuccati.", translation: "Sungguh baik mengendalikan perbuatan; sungguh baik mengendalikan ucapan; sungguh baik mengendalikan pikiran; Seorang bhikkhu yang dapat mengendalikan semuanya akan terbebas dari semua penderitaan." },
+      { number: 362, pali: "Hatthasaṃyato pādasaṃyato, vācāsaṃyato saṃyatuttamo; Ajjhattarato samāhito, eko santusito tamāhu bhikkhuṃ.", translation: "Seseorang yang mengendalikan tangan dan kakinya, ucapan dan pikirannya, yang bergembira dalam samadhi dan memiliki batin yang tenang, yang puas berdiam seorang diri, maka orang lain menamakan dia seorang “bhikkhu”." },
+      { number: 363, pali: "Yo mukhasaṃyato bhikkhu, mantabhāṇī anuddhato; Atthaṃ dhammañca dīpeti, madhuraṃ tassa bhāsitaṃ.", translation: "Seorang bhikkhu yang mengendalikan lidahnya, yang berbicara dengan bijaksana dan tidak sombong, yang dapat menerangkan Dhamma beserta artinya, maka ia akan kedengaran indah ucapannya." },
+      { number: 364, pali: "Dhammārāmo dhammarato, dhammaṃ anuvicintayaṃ; Dhammaṃ anussaraṃ bhikkhu, saddhammā na parihāyati.", translation: "Seorang bhikkhu yang selalu berdiam dalam Dhamma dan bergembira dalam Dhamma, yang selalu merenungkan dan mengingat-ingat akan Dhamma, maka bhikkhu itu tidak akan tergelincir dari Jalan Benar Yang Mulia." },
+      { number: 365, pali: "Salābhaṃ nātimaññeyya, nāññesaṃ pihayaṃ care; Aññesaṃ pihayaṃ bhikkhu, samādhiṃ nādhigacchati.", translation: "Hendaklah ia tidak mencela apa-apa yang telah ia peroleh, juga hendaklah ia tidak merasa iri terhadap apa yang telah diperoleh orang lain." },
+      { number: 366, pali: "Appalābhopi ce bhikkhu, salābhaṃ nātimaññati; Taṃ ve devā pasaṃsanti, suddhājīviṃ atanditaṃ.", translation: "Walaupun hanya memperoleh sedikit, tetapi apabila seseorang bhikkhu tidak mencela apa yang telah diperolehnya, maka para dewa pun akan memuji orang seperti itu, yang memiliki kehidupan bersih serta tidak malas." },
+      { number: 367, pali: "Sabbaso nāmarūpasmiṃ, yassa natthi mamāyitaṃ; Asatā ca na socati, sa ve bhikkhūti vuccati.", translation: "Apabila seseorang tidak lagi melekat pada konsepsi “aku” atau “milikku”, baik yang berkenaan dengan batin maupun jasmani, dan tidak bersedih terhadap apa yang tidak dimilikinya, maka orang seperti itu layak disebut bhikkhu." },
+      { number: 368, pali: "Mettāvihārī yo bhikkhu, pasanno buddhasāsane; Adhigacche padaṃ santaṃ, saṅkhārūpasamaṃ sukhaṃ.", translation: "Apabila seorang bhikkhu hidup dalam cinta kasih, dan memiliki keyakinan terhadap ajaran Sang Buddha, maka ia akan sampai pada keadaan damai (nibbana), yang merupakan berhentinya hal-hal yang berkondisi (sankhara)." },
+      { number: 369, pali: "Siñca bhikkhu imaṃ nāvaṃ, sittā te lahumessati; Chetvā rāgañca dosañca, tato nibbānamehisi.", translation: "O bhikkhu, kosongkanlah perahu (tubuh) ini. Apabila telah dikosongkan maka perahu ini akan melaju pesat. Setelah memutuskan nafsu keinginan dan kebencian, maka engkau akan mencapai nibbana." },
+      { number: 370, pali: "Pañca chinde pañca jahe, pañca cuttari bhāvaye; Pañca saṅgātigo bhikkhu, oghatiṇṇoti vuccati.", translation: "Putuskanlah lima kelompok belenggu pertama, dan singkirkanlah lima kelompok kedua. Serta kembangkan lagi lima kekuatan secara sempurna. Apabila seorang bhikkhu telah bebas dari lima belenggu, maka ia disebut seorang ‘Penyeberang Arus’ (sotapanna)." },
+      { number: 371, pali: "Jhāya bhikkhu mā ca pāmado, mā te kāmaguṇe bhamassu cittaṃ; Mā lohaguḷaṃ gilī pamatto, mā kandi dukkhamidanti ḍayhamāno.", translation: "Bersamadhilah, O bhikkhu! Jangan lengah ! Jangan biarkan pikiranmu diseret oleh kesenangan-kesenangan indria! Jangan karena lengah maka engkau harus menelan bola besi yang membara!" },
+      { number: 372, pali: "Natthi jhānaṃ apaññassa, paññā natthi ajhāyato; Yamhi jhānañca paññā ca, sa ve nibbānasantike.", translation: "Tak ada samadhi dalam diri orang yang tidak memiliki kebijaksanaan. Dan tidak ada kebijaksanaan dalam diri orang yang tidak bersamadhi. Orang yang memiliki samadhi dan kebijaksanaan, sesungguhnya sudah berada di ambang pintu nibbana." },
+      { number: 373, pali: "Suññāgāraṃ paviṭṭhassa, santacittassa bhikkhuno; Amānusī rati hoti, sammā dhammaṃ vipassato.", translation: "Apabila seorang bhikkhu pergi ke tempat sepi, telah menenangkan pikirannya, dan telah dapat melihat Dhamma dengan jelas, akan merasakan kegembiraan yang belum pernah dirasakan oleh orang-orang biasa." },
+      { number: 374, pali: "Yato yato sammasati, khandhānaṃ udayabbayaṃ; Labhatī pītipāmojjaṃ, amataṃ taṃ vijānataṃ.", translation: "Bila seorang dapat melihat dengan jelas akan timbul dan lenyapnya kelompok kehidupan ( = khandha), maka ia akan merasakan kegembiraan dan ketentraman batin. Sesungguhnya, bagi mereka yang telah mengerti tidak ada lagi kematian." },
+      { number: 375, pali: "Tatrāyamādi bhavati, idha paññassa bhikkhuno; Indriyagutti santuṭṭhi, pātimokkhe ca saṃvaro; Mitte bhajassu kalyāṇe, suddhājīve atandite.", translation: "Pertama-tama inilah yang harus dikerjakan oleh seorang bhikkhu yang bijaksana, yaitu mengendalikan indria-indria, merasa puas dengan apa yang ada, menjalankan peraturan-peraturan ( = patimokha), serta bergaul dengan teman kehidupan suci ( = sabrahmacari) yang rajin dan bersemangat." },
+      { number: 376, pali: "Paṭisanthāravutyassa, ācārakusalo siyā; Tato pāmojjabahulo, dukkhassantaṃ karissati.", translation: "Hendaklah ia bersikap ramah dan sopan tingkah lakunya. Karena merasa gembira dalam menjalankan hal-hal tersebut, maka ia akan bebas dari penderitaan." },
+      { number: 377, pali: "Vassikā viya pupphāni, maddavāni pamuñcati; Evaṃ rāgañca dosañca, vippamuñcetha bhikkhavo.", translation: "Seperti tanaman Vassika ( = pohon melati yang merambat) menggugurkan bunga-bunganya sendiri yang layu kering, begitu pula hendaknya engkau, O bhikkhu, membuang nafsu dan dendam." },
+      { number: 378, pali: "Santakāyo santavāco, santavā susamāhito; Vantalokāmiso bhikkhu, upasantoti vuccati.", translation: "Seorang bhikkhu yang memiliki perbuatan, ucapan, serta pikiran yang tenang dan terpusat, yang telah dapat menyingkirkan hal-hal duniawi, maka ia adalah orang yang benar-benar damai." },
+      { number: 379, pali: "Attanā codayattānaṃ, paṭimaṃsetha attanā; So attagutto satimā, sukhaṃ bhikkhu vihāhisi.", translation: "Engkaulah yang harus mengingatkan dan memeriksa dirimu sendiri. O bhikkhu, bila engkau dapat menjaga dirimu sendiri, dan selalu sadar, maka engkau akan hidup dalam kebahagiaan." },
+      { number: 380, pali: "Attā hi attano nātho, attā hi attano gati; Tasmā saṃyamayattānaṃ, assaṃ bhadraṃva vāṇijo.", translation: "Sesungguhnya diri sendiri menjadi tuan bagi diri sendiri. Diri sendiri adalah pelindung bagi diri sendiri. Oleh karena itu, kendalikan dirimu sendiri, seperti pedagang kuda menguasai kuda yang baik." },
+      { number: 381, pali: "Pāmojjabahulo bhikkhu, pasanno buddhasāsane; Adhigacche padaṃ santaṃ, saṅkhārūpasamaṃ sukhaṃ.", translation: "Dengan penuh kegembiraan dan penuh keyakinan terhadap ajaran Sang Buddha, seorang bhikkhu akan sampai pada keadaan damai (nibbana) disebabkan oleh berakhirnya semua ikatan." },
+      { number: 382, pali: "Yo have daharo bhikkhu, yuñjati buddhasāsane; Somaṃ lokaṃ pabhāseti, abbhā muttova candimā.", translation: "Walaupun seorang bhikkhu masih berusia muda, namun bila ia tekun menghayati ajaran Sang Buddha, maka ia akan menerangi dunia ini, bagaikan bulan yang terbebas dari awan." }
+    ]
+  },
+  {
+    id: 26,
+    title: "BRAHMANA VAGGA",
+    translation: "Brahmana",
+    verses: [
+      { number: 383, pali: "Chinda sotaṃ parakkamma, kāme panuda brāhmaṇa; Saṅkhārānaṃ khayaṃ ñatvā, akataññūsi brāhmaṇa.", translation: "O, brahmana, berusahalah dengan tekun memotong arus keinginan dan singkirkanlah nafsu-nafsu indria. Setelah mengetahui penghancuran segala sesuatu yang berkondisi, O, brahmana, engkau akan merealisasi nibbana, ‘Yang Tak Terciptakan’." },
+      { number: 384, pali: "Yadā dvayesu dhammesu, pāragū hoti brāhmaṇo; Athassa sabbe saṃyogā, atthaṃ gacchanti jānato.", translation: "Bila seseorang brahmana telah mencapai akhir daripada dua jalan semadi (pelaksanaan Meditasi Ketenangan dan Pandangan Terang), maka semua belenggu akan terlepas dari dirinya." },
+      { number: 385, pali: "Yassa pāraṃ apāraṃ vā, pārāpāraṃ na vijjati; Vītabbayaṃ visaṃyuttaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak lagi memiliki pantai sini (enam landasan indria dalam) atau pantai sana (enam objek indria luar), ataupun kedua-duanya (pantai sini dan sana), tidak lagi bersedih dan tanpa ikatan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 386, pali: "Jhāyiṃ virajamāsīnaṃ, katakiccaṃ anāsavaṃ; Uttamatthamanuppattaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tekun bersemadi, bebas dari noda, tenang, telah mengerjakan apa yang harus dikerjakan, bebas dari kekotoran batin dan telah mencapai tujuan akhir (nibbana), maka ia Kusebut seorang ‘brahmana’." },
+      { number: 387, pali: "Divā tapati ādicco, rattimābhāti candimā; Sannaddho khattiyo tapati, jhāyī tapati brāhmaṇo; Atha sabbamahorattiṃ, buddho tapati tejasā.", translation: "Matahari bersinar di waktu siang. Bulan bercahaya di waktu malam. Ksatria gemerlapan dengan seragam perangnya. Brahmana bersinar terang dalam semadi. Tetapi, Sang Buddha bersinar dengan penuh kemuliaan sepanjang siang dan malam." },
+      { number: 388, pali: "Bāhitapāpoti brāhmaṇo, samacariyā samaṇoti vuccati; Pabbājayamattano malaṃ, tasmā pabbajitoti vuccati.", translation: "Karena telah membuang kejahatan, maka ia Kusebut seorang ‘brahmana’; karena tingkah lakunya tenang, maka ia Kusebut seorang ‘pertapa’ (samana); dan karena ia telah melenyapkan noda-noda batin, maka ia Kusebut seorang ‘pabbajjita’." },
+      { number: 389, pali: "Na brāhmaṇassa pahareyya, nāssa muñcetha brāhmaṇo; Dhī brāhmaṇassa hantāraṃ, tato dhī yassa muñcati.", translation: "Janganlah seseorang memukul brahmana, juga janganlah brahmana yang dipukul itu menjadi marah kepadanya. Sungguh memalukan perbuatan orang yang memukul brahmana." },
+      { number: 390, pali: "Na brāhmaṇassetadakiñci seyyo, yadā nisedho manaso piyehi; Yato yato hiṃsamano nivattati, tato tato sammatimeva dukkhaṃ.", translation: "Tak ada yang lebih baik bagi seorang ‘brahmana’ selain menarik pikirannya dari hal-hal yang menyenangkan. Lebih cepat ia dapat menyingkirkan itikad jahatnya, maka lebih cepat pula penderitaannya akan berakhir." },
+      { number: 391, pali: "Yassa kāyena vācāya, manasā natthi dukkaṭaṃ; Saṃvutaṃ tīhi ṭhānehi, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak lagi berbuat jahat melalui badan, ucapan, dan pikiran, serta dapat mengendalikan diri dalam tiga saluran perbuatan ini, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 392, pali: "Yamhā dhammaṃ vijāneyya, sammāsambuddhadesitaṃ; Sakkaccaṃ taṃ namasseyya, aggihuttaṃva brāhmaṇo.", translation: "Apabila melalui orang lain seseorang dapat mengenal Dhamma sebagaimana yang telah dibabarkan oleh Sang Buddha, maka hendaklah ia menghormati orang tersebut." },
+      { number: 393, pali: "Na jaṭāhi na gottena, na jaccā hoti brāhmaṇo; Yamhi saccañca dhammo ca, so sucī so ca brāhmaṇo.", translation: "Bukan karena rambut dijalin, keturunan, ataupun kelahiran, seseorang menjadi brahmana. Tetapi orang yang memiliki kejujuran dan kebajikan yang pantas menjadi seorang ‘brahmana’." },
+      { number: 394, pali: "Kiṃ te jaṭāhi dummedha, kiṃ te ajinasāṭiyā; Abbhantaraṃ te gahanaṃ, bāhiraṃ parimajjasi.", translation: "Wahai orang bodoh, apa gunanya engkau menjalin rambutmu serta mengenakan pakaian kulit menjangan? Engkau hanya membersihkan bagian luarmu, tetapi hatimu masih penuh dengan kekotoran." },
+      { number: 395, pali: "Paṃsukūladharaṃ jantuṃ, kisaṃ dhamanisanthataṃ; Ekaṃ vanasmiṃ jhāyantaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang mengenakan jubah kain bekas (pamsukula), kurus, otot-otot terlihat pada seluruh tubuhnya, bersemadi seorang diri dalam hutan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 396, pali: "Na cāhaṃ brāhmaṇaṃ brūmi, yonijaṃ mattisambhavaṃ; Bhovādi nāma so hoti, sace hoti sakiñcano; Akiñcanaṃ anādānaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Aku tidak menyebutnya seorang ‘brahmana’ hanya karena ia berasal dari keluarga brahmana. Apabila dirinya masih penuh dengan noda, maka ia hanyalah seorang brahmana karena keturunan. Tetapi orang yang tanpa noda, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 397, pali: "Sabbasaṃyojanaṃ chetvā, yo ve na paritassati; Saṅgātigaṃ visaṃyuttaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Ia telah memotiing semua belenggu, tidak lagi gemetar, yang bebas dan telah mematahkan semua ikatan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 398, pali: "Chetvā naddhiṃ varattañca, sandānaṃ sahanukkamaṃ; Ukkhittapalighaṃ buddhaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Ia yang telah memotong sabuk kebencian, tali kulit nafsu keinginan dan tali rami pandangan keliru serta semua kekotoran batin laten (anusaya); ia yang telah menyingkirkan kayu penghalang (kebodohan) dan menyadari kebenaran, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 399, pali: "Akkosaṃ vadhabandhañca, aduṭṭho yo titikkhati; Khantibalaṃ balānīkaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak marah, yang dapat menahan hinaan, penganiayaan, dan hukuman, yang memiliki senjata kesabaran, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 400, pali: "Akkodhanaṃ vatavantaṃ, sīlavantaṃ anussadaṃ; Dantaṃ antimasārīraṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang telah bebas dari kemarahan, taat, bajik, bebas dari nafsu keinginan, dan yang memiliki tubuh ini sebagai tubuh-akhir, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 401, pali: "Vāri pokkharapatteva, āraggeriva sāsapo; Yo na limpati kāmesu, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak lagi melekat pada kesenangan-kesenangan indria, seperti air di atas daun teratai atau seperti biji lada di ujung jarum, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 402, pali: "Yo dukkhassa pajānāti, idheva khayamattano; Pannabhāraṃ visaṃyuttaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Dalam dunia ini, seseorang yang telah menyadari penderitaannya sendiri, yang telah meletakkan beban dan tak terikat, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 403, pali: "Gambhīrapaññaṃ medhāviṃ, maggāmaggassa kovidaṃ; Uttamatthamanuppattaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang pengetahuannya dalam, pandai dan terlatih dalam membedakan jalan yang benar dan salah, yang telah mencapai tujuan tertinggi, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 404, pali: "Asaṃsaṭṭhaṃ gahaṭṭhehi, anāgārehi cūbhayaṃ; Anokasārimappicchaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Orang yang menjauhkan diri dari masyarakat umum maupun pertapa, yang mengembara tanpa tempat tinggal tertentu dan sedikit kebutuhannya, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 405, pali: "Nidhāya daṇḍaṃ bhūtesu, tasesu thāvaresu ca; Yo na hanti na ghāteti, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak lagi menganiaya makhluk-makhluk lain, baik yang kuat maupun yang lemah, yang tidak membunuh atau menganjurkan orang lain membunuh, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 406, pali: "Aviruddhaṃ viruddhesu, attadaṇḍesu nibbutaṃ; Sādānesu anādānaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Orang yang tidak membenci di antara mereka yang membenci; damai di antara mereka yang kejam; dan tidak melekat di antara yang melekat, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 407, pali: "Yassa rāgo ca doso ca, māno makkho ca pātito; Sāsaporiva āraggā, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang nafsunya, kebenciannya, kesombongannya dan kemunafikannya telah gugur, seperti biji lada yang telah jatuh dari ujung jarum, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 408, pali: "Akakkasaṃ viññāpaniṃ, giraṃ saccaṃ udīraye; Yāya nābhisaje kañci, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang mengucapkan kata-kata halus, yang mengandung Ajaran Kebenaran, yang tidak menyinggung siapapun juga, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 409, pali: "Yodha dīghaṃ va rassaṃ vā, aṇuṃ thūlaṃ subhāsubhaṃ; Loke adinnaṃ nādiyati, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Dalam dunia ini, seseorang yang tak mengambil apa yang tidak diberikan, baik yang panjang atau yang pendek, kecil atau besar, baik ataupun buruk, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 410, pali: "Āsā yassa na vijjanti, asmiṃ loke paramhi ca; Nirāsayaṃ visaṃyuttaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak mempunyai nafsu keinginan terhadap dunia ini maupun dunia selanjutnya, yang telah bebas dari keinginan, dan tidak lagi melekat, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 411, pali: "Yassālayā na vijjanti, aññāya akathaṅkathī; Amatogadhamanuppattaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tidak mempunyai nafsu keinginan lagi, yang telah bebas dari keragu-raguan karena memiliki Pengetahuan Sempurna, yang telah menyelami keadaan tanpa kematian (nibbana), maka ia Kusebut seorang ‘brahmana’." },
+      { number: 412, pali: "Yodha puññañca pāpañca, ubho saṅgamupaccagā; Asokaṃ virajaṃ suddhaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang telah mengatasi kebaikan, kejahatan dan kemelekatan, yang tidak lagi bersedih hati, tanpa noda, dan suci murni, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 413, pali: "Candaṃva vimalaṃ suddhaṃ, vippasannamanāvilaṃ; Nandībhavaparikkhīṇaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang tanpa noda, bersih, tenang, dan jernih batinnya seperti bulan purnama, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 414, pali: "Yo imaṃ palipathaṃ duggaṃ, saṃsāraṃ mohamaccagā; Tiṇṇo pāragato jhāyī, anejo akathaṅkathī; Anupādāya nibbuto, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Orang yang telah menyeberangi lautan kehidupan (samsara) yang kotor, berbahaya dan bersifat maya; yang telah menyeberang dan mencapai ‘Pantai Seberang’ (nibbana); yang selalu bersemadi, tenang, dan bebas dari keragu-raguan; maka ia Kusebut seorang ‘brahmana’." },
+      { number: 415, pali: "Yodha kāme pahatvāna, anāgāro paribbaje; Kābhavaparikkhīṇaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang dengan membuang nafsu keinginan kemudian meninggalkan kehidupan rumah-tangga dan menempuh kehidupan tanpa rumah, yang telah menghancurkan nafsu indria akan ujud yang baru, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 416, pali: "Yodha taṇhaṃ pahatvāna, anāgāro paribbaje; Taṇhābhavaparikkhīṇaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang dengan membuang nafsu keinginan kemudian meninggalkan kehidupan rumah-tangga, dan menempuh kehidupan tanpa rumah, yang telah menghancurkan kemelekatan dan kerinduan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 417, pali: "Hitvā mānusakaṃ yogaṃ, dibbaṃ yogaṃ upaccagā; Sabbayogavisaṃyuttaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang telah menyingkirkan ikatan-ikatan duniawi dan juga telah mengatasi ikatan-ikatan surgawi, yang benar-benar telah bebas dari semua ikatan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 418, pali: "Hitvā ratiñca aratiñca, sītibhūtaṃ nirūpadhiṃ; Sabbalokābhibhuṃ vīraṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang telah mengatasi rasa senang dan tidak senang dengan tidak menghiraukannya lagi, yang telah menghancurkan dasar-dasar bagi perwujudan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 419, pali: "Cutiṃ yo vedi sattānaṃ, upapattiñca sabbaso; Asattaṃ sugataṃ buddhaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang telah memiliki pengetahuan sempurna tentang timbul dan lenyapnya makhluk-makhluk, yang telah bebas dari ikatan, telah pergi dengan baik (Sugata) dan telah mencapai ‘Penerangan Sempurna’, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 420, pali: "Yassa gatiṃ na jānanti, devā gandhabbamānusā; Khīṇāsavaṃ arahantaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Orang yang jejaknya tak dapat dilacak, baik oleh para dewa, gandarwa, maupun manusia, yang telah menghancurkan semua kekotoran batin dan telah mencapai kesucian (arahat), maka ia Kusebut seorang ‘brahmana’." },
+      { number: 421, pali: "Yassa pure ca pacchā ca, majjhe ca natthi kiñcanaṃ; Akiñcanaṃ anādānaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Orang yang tidak lagi terikat pada apa yang telah lampau, apa yang sekarang maupun yang akan datang, yang tidak memegang ataupun melekat pada apapun juga, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 422, pali: "Usabhaṃ pavaraṃ vīraṃ, mahesiṃ vijitāvinaṃ; Anejaṃ nhātakaṃ buddhaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Ia yang mulia, agung, pahlawan, pertapa agung (mahesi), penakluk, orang tanpa nafsu, murni, telah mencapai penerangan, maka ia Kusebut seorang ‘brahmana’." },
+      { number: 423, pali: "Pubbenivāsaṃ yo vedi, saggāpāyañca passati; Atho jātikkhayaṃ patto, abhiññāvosito muni; Sabbavositavosānaṃ, tamahaṃ brūmi brāhmaṇaṃ.", translation: "Seseorang yang mengetahui semua kehidupannya yang lampau, yang dapat melihat keadaan surga dan neraka, yang telah mencapai akhir kelahiran, telah mencapai kesempurnaan pandangan terang, suci, murni, dan sempurna kebijaksanannya, maka ia Kusebut seorang ‘brahmana’." }
     ]
   }
 ];
