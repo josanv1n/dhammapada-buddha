@@ -13,8 +13,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView }) => {
 
   const navItems: { id: ViewState; label: string }[] = [
     { id: 'home', label: 'Utama' },
-    { id: 'syair', label: 'Syair' },
     { id: 'parita', label: 'Parita' },
+    { id: 'syair', label: 'Syair' },
+    { id: 'lagu', label: 'Lagu' },
     { id: 'kontak', label: 'Kontak' },
   ];
 

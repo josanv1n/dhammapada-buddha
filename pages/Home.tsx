@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DhammaWheel, LotusIcon } from '../components/Icons';
 import { ViewState } from '../types';
+import { BookOpen, Music } from 'lucide-react';
 
 interface HomeProps {
   setView: (view: ViewState) => void;
@@ -76,13 +77,29 @@ const Home: React.FC<HomeProps> = ({ setView }) => {
           Pikiran adalah pemimpin, pikiran adalah pembentuk."
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+          <button 
+            onClick={() => setView('parita')}
+            className="px-8 py-4 bg-gradient-to-r from-techno-gold to-orange-500 rounded-full font-bold text-black shadow-[0_0_20px_rgba(251,191,36,0.5)] hover:shadow-[0_0_30px_rgba(251,191,36,0.8)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <BookOpen className="w-5 h-5" />
+            BACA PARITA
+          </button>
+
           <button 
             onClick={() => setView('syair')}
             className="px-8 py-4 bg-gradient-to-r from-techno-primary to-blue-600 rounded-full font-bold text-white shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:shadow-[0_0_30px_rgba(6,182,212,0.8)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <LotusIcon className="w-5 h-5" />
             BACA SYAIR
+          </button>
+
+          <button 
+            onClick={() => setView('lagu')}
+            className="px-8 py-4 bg-gradient-to-r from-techno-accent to-purple-600 rounded-full font-bold text-white shadow-[0_0_20px_rgba(139,92,246,0.5)] hover:shadow-[0_0_30px_rgba(139,92,246,0.8)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <Music className="w-5 h-5" />
+            KUMPULAN LAGU
           </button>
           
           <button 

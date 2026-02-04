@@ -19,4 +19,10 @@ export interface ParitaItem {
   note?: string; // Instruksi tambahan (opsional)
 }
 
-export type ViewState = 'home' | 'syair' | 'parita' | 'kontak';
+export interface SongItem {
+  id: number;
+  title: string;
+  lyrics: string;
+}
+
+export type ViewState = 'home' | 'syair' | 'parita' | 'lagu' | 'kontak';

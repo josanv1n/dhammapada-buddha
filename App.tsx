@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Verses from './pages/Verses';
 import Parita from './pages/Parita';
+import Lagu from './pages/Lagu';
 import Contact from './pages/Contact';
 import { ViewState } from './types';
 
@@ -17,6 +18,8 @@ const App: React.FC = () => {
         return <Verses />;
       case 'parita':
         return <Parita />;
+      case 'lagu':
+        return <Lagu />;
       case 'kontak':
         return <Contact />;
       default:
