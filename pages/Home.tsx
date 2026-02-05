@@ -22,7 +22,7 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const musicUrl = "https://josanvin.github.io/josanvin/img/tri_ratna.mp3";
+  const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
 
   const handlePlay = () => {
     if (audioRef.current) {
