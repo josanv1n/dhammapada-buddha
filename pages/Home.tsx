@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { DhammaWheel, LotusIcon } from '../components/Icons';
 import { ViewState, ThemeMode } from '../types';
-import { BookOpen, Music, Mail } from 'lucide-react';
+import { BookOpen, Music, Volume2, VolumeX } from 'lucide-react';
 import { DHAMMAPADA_DATA } from '../data/dhammapada';
 
 interface HomeProps {
@@ -15,6 +15,34 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
   
   const [imgSrc, setImgSrc] = useState(initialImage);
   const [hasError, setHasError] = useState(false);
+  const [isMusicEnabled, setIsMusicEnabled] = useState(true);
+  const [musicKey, setMusicKey] = useState(0);
+
+  // Link Preview Google Drive lebih stabil daripada link download langsung
+  const musicUrl = "https://drive.google.com/file/d/1LZAKt5-VuhJnSaOhj5BIniaFDoURelZs/preview";
+
+  // Logika Smart Autoplay: Jika browser memblokir, musik akan dipicu saat klik pertama
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      // Mengubah key akan memaksa iframe untuk me-mount ulang 
+      // di bawah context "user-activation" sehingga audio bisa berputar
+      setMusicKey(prev => prev + 1);
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    };
+
+    document.addEventListener('click', handleFirstInteraction);
+    document.addEventListener('touchstart', handleFirstInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+    };
+  }, []);
+
+  const toggleMusic = () => {
+    setIsMusicEnabled(!isMusicEnabled);
+  };
 
   const handleImageError = () => {
     if (!hasError) {
@@ -43,22 +71,36 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       
       {/* 
-          BACKROUND MUSIC (HIDDEN IFRAME) 
-          Diletakkan di sini agar saat pindah menu (Home di-unmount), 
-          musik otomatis berhenti total.
+          MUSIC ENGINE (HIDDEN IFRAME) 
+          Menggunakan iframe untuk menghindari error 'media resource not suitable'.
+          Iframe diletakkan di luar layar agar tidak merusak visual.
       */}
-      <div className="hidden pointer-events-none opacity-0 invisible" aria-hidden="true">
-        <iframe 
-            src="https://drive.google.com/file/d/1LZAKt5-VuhJnSaOhj5BIniaFDoURelZs/preview?autoplay=1" 
-            width="640" 
-            height="360" 
+      {isMusicEnabled && (
+        <div className="absolute -top-[1000px] left-0 pointer-events-none opacity-0 overflow-hidden" aria-hidden="true">
+          <iframe 
+            key={musicKey}
+            src={`${musicUrl}?autoplay=1`} 
+            width="10" 
+            height="10" 
             allow="autoplay">
-        </iframe>
-      </div>
+          </iframe>
+        </div>
+      )}
+
+      {/* Music Toggle Control (Floating) */}
+      <button 
+        onClick={toggleMusic}
+        className={`fixed bottom-24 right-6 z-50 p-3 rounded-full backdrop-blur-md border shadow-lg transition-all hover:scale-110 md:bottom-10 ${
+          isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'
+        }`}
+        title={isMusicEnabled ? "Matikan Musik" : "Aktifkan Musik"}
+      >
+        {!isMusicEnabled ? <VolumeX size={22} /> : <Volume2 size={22} className="animate-pulse" />}
+      </button>
 
       <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center">
         
-        {/* Main 3D Visual */}
+        {/* Main Visual */}
         <div className="relative mb-10 group perspective-1000">
           {isDarkMode && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -72,7 +114,7 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
             <div className={`w-full h-full rounded-full overflow-hidden ${isDarkMode ? 'bg-slate-800 border-techno-primary/50' : 'bg-white border-slate-300'} border-2 shadow-[0_0_30px_rgba(6,182,212,0.5)]`}>
               <img 
                 src={imgSrc}
-                alt="Techno Buddha Meditation" 
+                alt="Buddha" 
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 onError={handleImageError}
               />
@@ -85,15 +127,17 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
         {/* Text Content */}
         <div className="max-w-3xl">
-          <p className={`text-sm md:text-base font-techno font-bold tracking-[0.2em] uppercase mb-1 ${isDarkMode ? 'text-techno-gold' : 'text-slate-500'}`}>
-            {greeting}
-          </p>
+          <div className="mb-2 animate-bounce-slow">
+            <span className={`px-4 py-1 rounded-full text-xs font-techno font-bold tracking-[0.2em] uppercase border ${isDarkMode ? 'text-techno-gold border-techno-gold/30 bg-techno-gold/5' : 'text-slate-600 border-slate-300 bg-slate-100'}`}>
+              {greeting}
+            </span>
+          </div>
 
           <h1 className={`text-3xl md:text-5xl font-techno font-bold mb-6 ${isDarkMode ? 'bg-clip-text text-transparent bg-gradient-to-r from-white via-techno-primary to-techno-accent' : 'text-slate-800'}`}>
             SYAIR DHAMMAPADA
           </h1>
           
-          <div className="relative px-6">
+          <div className="relative px-6 py-4">
             <div className={`absolute top-0 left-0 text-6xl opacity-20 font-serif ${isDarkMode ? 'text-techno-primary' : 'text-slate-400'}`}>“</div>
             <p className={`text-lg md:text-xl font-classic italic leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-slate-600 font-semibold'}`}>
               {randomVerse.translation}
@@ -106,10 +150,10 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-10">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8">
           <button 
             onClick={() => setView('parita')}
-            className="px-8 py-3 bg-gradient-to-r from-techno-gold to-orange-500 rounded-full font-bold text-black shadow-[0_0_15px_rgba(251,191,36,0.3)] hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+            className="px-8 py-3 bg-gradient-to-r from-techno-gold to-orange-500 rounded-full font-bold text-black shadow-lg hover:shadow-techno-gold/40 hover:scale-105 transition-all flex items-center justify-center gap-2"
           >
             <BookOpen className="w-5 h-5" />
             BACA PARITA
@@ -117,7 +161,7 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
           <button 
             onClick={() => setView('syair')}
-            className="px-8 py-3 bg-gradient-to-r from-techno-primary to-blue-600 rounded-full font-bold text-white shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_25px_rgba(6,182,212,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+            className="px-8 py-3 bg-gradient-to-r from-techno-primary to-blue-600 rounded-full font-bold text-white shadow-lg hover:shadow-techno-primary/40 hover:scale-105 transition-all flex items-center justify-center gap-2"
           >
             <LotusIcon className="w-5 h-5" />
             BACA SYAIR
@@ -125,18 +169,10 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
           <button 
             onClick={() => setView('lagu')}
-            className="px-8 py-3 bg-gradient-to-r from-techno-accent to-purple-600 rounded-full font-bold text-white shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+            className="px-8 py-3 bg-gradient-to-r from-techno-accent to-purple-600 rounded-full font-bold text-white shadow-lg hover:shadow-techno-accent/40 hover:scale-105 transition-all flex items-center justify-center gap-2"
           >
             <Music className="w-5 h-5" />
             KUMPULAN LAGU
-          </button>
-          
-          <button 
-            onClick={() => setView('kontak')}
-            className="px-8 py-3 bg-gradient-to-r from-slate-600 to-slate-800 rounded-full font-bold text-white shadow-[0_0_15px_rgba(71,85,105,0.3)] hover:shadow-[0_0_25px_rgba(71,85,105,0.6)] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <Mail className="w-5 h-5" />
-            HUBUNGI KAMI
           </button>
         </div>
       </div>
