@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { DhammaWheel, LotusIcon } from '../components/Icons';
 import { ViewState, ThemeMode } from '../types';
 import { BookOpen, Music, Volume2, VolumeX } from 'lucide-react';
@@ -15,33 +15,54 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
   
   const [imgSrc, setImgSrc] = useState(initialImage);
   const [hasError, setHasError] = useState(false);
-  const [isMusicEnabled, setIsMusicEnabled] = useState(true);
-  const [musicKey, setMusicKey] = useState(0);
+  const [isMuted, setIsMuted] = useState(false);
+  
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Link Preview Google Drive lebih stabil daripada link download langsung
-  const musicUrl = "https://drive.google.com/file/d/1LZAKt5-VuhJnSaOhj5BIniaFDoURelZs/preview";
+  // Link MP3 Langsung (Sangat stabil)
+  const musicUrl = "https://josanvin.github.io/josanvin/img/tri_ratna.mp3";
 
-  // Logika Smart Autoplay: Jika browser memblokir, musik akan dipicu saat klik pertama
+  // Logika Autoplay & Interaksi
   useEffect(() => {
-    const handleFirstInteraction = () => {
-      // Mengubah key akan memaksa iframe untuk me-mount ulang 
-      // di bawah context "user-activation" sehingga audio bisa berputar
-      setMusicKey(prev => prev + 1);
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const startAudio = () => {
+      audio.play().catch((err) => {
+        console.log("Autoplay ditunda: Menunggu interaksi user.");
+        // Jika gagal autoplay (kebijakan browser), tunggu klik pertama di mana saja
+        const playOnInteraction = () => {
+          audio.play().catch(e => console.error("Gagal putar:", e));
+          document.removeEventListener('click', playOnInteraction);
+          document.removeEventListener('touchstart', playOnInteraction);
+        };
+        document.addEventListener('click', playOnInteraction);
+        document.addEventListener('touchstart', playOnInteraction);
+      });
     };
 
-    document.addEventListener('click', handleFirstInteraction);
-    document.addEventListener('touchstart', handleFirstInteraction);
+    // Coba putar langsung
+    startAudio();
 
+    // Cleanup saat pindah halaman
     return () => {
-      document.removeEventListener('click', handleFirstInteraction);
-      document.removeEventListener('touchstart', handleFirstInteraction);
+      if (audio) {
+        audio.pause();
+      }
     };
   }, []);
 
-  const toggleMusic = () => {
-    setIsMusicEnabled(!isMusicEnabled);
+  const toggleMute = () => {
+    if (audioRef.current) {
+      const newMutedState = !isMuted;
+      audioRef.current.muted = newMutedState;
+      setIsMuted(newMutedState);
+      
+      // Jika sebelumnya gagal karena kebijakan, coba play lagi saat klik tombol mute
+      if (!newMutedState && audioRef.current.paused) {
+        audioRef.current.play();
+      }
+    }
   };
 
   const handleImageError = () => {
@@ -71,31 +92,26 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       
       {/* 
-          MUSIC ENGINE (HIDDEN IFRAME) 
-          Menggunakan iframe untuk menghindari error 'media resource not suitable'.
-          Iframe diletakkan di luar layar agar tidak merusak visual.
+          AUDIO ENGINE (HTML5)
+          Menggunakan tag audio langsung untuk kontrol volume dan autoplay yang lebih baik.
       */}
-      {isMusicEnabled && (
-        <div className="absolute -top-[1000px] left-0 pointer-events-none opacity-0 overflow-hidden" aria-hidden="true">
-          <iframe 
-            key={musicKey}
-            src={`${musicUrl}?autoplay=1`} 
-            width="10" 
-            height="10" 
-            allow="autoplay">
-          </iframe>
-        </div>
-      )}
+      <audio 
+        ref={audioRef}
+        src={musicUrl}
+        loop
+        autoPlay
+        preload="auto"
+      />
 
       {/* Music Toggle Control (Floating) */}
       <button 
-        onClick={toggleMusic}
+        onClick={toggleMute}
         className={`fixed bottom-24 right-6 z-50 p-3 rounded-full backdrop-blur-md border shadow-lg transition-all hover:scale-110 md:bottom-10 ${
           isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'
         }`}
-        title={isMusicEnabled ? "Matikan Musik" : "Aktifkan Musik"}
+        title={isMuted ? "Aktifkan Suara" : "Matikan Suara"}
       >
-        {!isMusicEnabled ? <VolumeX size={22} /> : <Volume2 size={22} className="animate-pulse" />}
+        {isMuted ? <VolumeX size={22} /> : <Volume2 size={22} className="animate-pulse" />}
       </button>
 
       <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center">
