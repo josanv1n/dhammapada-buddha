@@ -50,46 +50,53 @@ const App: React.FC = () => {
 
   const handleSetView = useCallback((view: ViewState) => {
     setCurrentView(view);
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    // Auto scroll ke atas dengan mode instant untuk performa
+    window.scrollTo(0, 0);
   }, []);
 
-  // Fungsi kontrol audio
+  // Manajemen Audio yang sangat ketat
   const updateAudioState = useCallback(() => {
     if (!audioRef.current) return;
     
-    if (currentView === 'home' && isInteracted.current) {
-      audioRef.current.play().catch(() => {
-        // Autoplay policy block
-      });
+    if (currentView === 'home') {
+      if (isInteracted.current) {
+        audioRef.current.play().catch(() => {
+          // Gagal play biasanya karena interaksi belum terdeteksi sempurna
+        });
+      }
     } else {
+      // Pause seketika jika bukan di halaman Home
       audioRef.current.pause();
     }
   }, [currentView]);
 
-  // Pantau perubahan view untuk play/pause musik
   useEffect(() => {
     updateAudioState();
   }, [currentView, updateAudioState]);
 
-  // Listener interaksi pertama untuk mengaktifkan audio context browser
+  // Listener Gesture (Scroll & Touch) untuk Android Autoplay
   useEffect(() => {
-    const handleFirstTouch = () => {
+    const unlockAudio = () => {
       if (!isInteracted.current) {
         isInteracted.current = true;
         updateAudioState();
+        
+        // Hapus listener segera setelah audio terbuka (unlocked)
+        window.removeEventListener('scroll', unlockAudio);
+        window.removeEventListener('touchstart', unlockAudio);
+        window.removeEventListener('pointerdown', unlockAudio);
       }
-      // Kita bisa hapus listener setelah interaksi pertama, 
-      // tapi membiarkannya juga tidak masalah untuk memastikan play state.
     };
 
-    window.addEventListener('click', handleFirstTouch, { once: true });
-    window.addEventListener('touchstart', handleFirstTouch, { once: true });
-    window.addEventListener('scroll', handleFirstTouch, { once: true });
+    // Deteksi gesture sentuh, geser (scroll), atau klik
+    window.addEventListener('scroll', unlockAudio, { passive: true });
+    window.addEventListener('touchstart', unlockAudio, { passive: true });
+    window.addEventListener('pointerdown', unlockAudio, { passive: true });
 
     return () => {
-      window.removeEventListener('click', handleFirstTouch);
-      window.removeEventListener('touchstart', handleFirstTouch);
-      window.removeEventListener('scroll', handleFirstTouch);
+      window.removeEventListener('scroll', unlockAudio);
+      window.removeEventListener('touchstart', unlockAudio);
+      window.removeEventListener('pointerdown', unlockAudio);
     };
   }, [updateAudioState]);
 
@@ -125,7 +132,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`relative min-h-screen font-sans transition-colors duration-200 overflow-x-hidden ${isLightMode ? 'theme-light-active' : ''}`}>
+    <div className={`relative min-h-screen font-sans transition-colors duration-150 overflow-x-hidden ${isLightMode ? 'theme-light-active' : ''}`}>
       <audio ref={audioRef} src={musicUrl} loop preload="auto" crossOrigin="anonymous" />
       
       <style>{LIGHT_MODE_STYLES}</style>
