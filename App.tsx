@@ -8,7 +8,6 @@ import Lagu from './pages/Lagu';
 import Contact from './pages/Contact';
 import { ViewState, ThemeMode } from './types';
 
-// Gaya statis dipisahkan untuk performa maksimal
 const LIGHT_MODE_STYLES = `
   .theme-light-active .text-white { color: #1e293b !important; }
   .theme-light-active .text-slate-200 { color: #334155 !important; }
@@ -40,9 +39,8 @@ const App: React.FC = () => {
   });
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const audioStarted = useRef(false);
+  const isInteracted = useRef(false);
 
-  // Link yang lebih stabil untuk Audio Streaming
   const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
 
   const setThemeMode = (mode: ThemeMode) => {
@@ -52,39 +50,48 @@ const App: React.FC = () => {
 
   const handleSetView = useCallback((view: ViewState) => {
     setCurrentView(view);
-    // Langsung arahkan scroll ke atas saat navigasi
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, []);
 
-  const startMusic = useCallback(() => {
-    if (audioRef.current && !audioStarted.current) {
-      audioRef.current.play()
-        .then(() => {
-          audioStarted.current = true;
-        })
-        .catch(() => {
-          // Gagal autoplay, akan dicoba lagi pada interaksi berikutnya
-        });
+  // Fungsi kontrol audio
+  const updateAudioState = useCallback(() => {
+    if (!audioRef.current) return;
+    
+    if (currentView === 'home' && isInteracted.current) {
+      audioRef.current.play().catch(() => {
+        // Autoplay policy block
+      });
+    } else {
+      audioRef.current.pause();
     }
-  }, []);
+  }, [currentView]);
 
+  // Pantau perubahan view untuk play/pause musik
   useEffect(() => {
-    const handleInteraction = () => {
-      startMusic();
-      if (audioStarted.current) {
-        document.removeEventListener('click', handleInteraction);
-        document.removeEventListener('touchstart', handleInteraction);
+    updateAudioState();
+  }, [currentView, updateAudioState]);
+
+  // Listener interaksi pertama untuk mengaktifkan audio context browser
+  useEffect(() => {
+    const handleFirstTouch = () => {
+      if (!isInteracted.current) {
+        isInteracted.current = true;
+        updateAudioState();
       }
+      // Kita bisa hapus listener setelah interaksi pertama, 
+      // tapi membiarkannya juga tidak masalah untuk memastikan play state.
     };
 
-    document.addEventListener('click', handleInteraction);
-    document.addEventListener('touchstart', handleInteraction);
+    window.addEventListener('click', handleFirstTouch, { once: true });
+    window.addEventListener('touchstart', handleFirstTouch, { once: true });
+    window.addEventListener('scroll', handleFirstTouch, { once: true });
 
     return () => {
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('click', handleFirstTouch);
+      window.removeEventListener('touchstart', handleFirstTouch);
+      window.removeEventListener('scroll', handleFirstTouch);
     };
-  }, [startMusic]);
+  }, [updateAudioState]);
 
   const isLightMode = ['light', 'gray', 'green', 'blue', 'pink', 'yellow'].includes(themeMode);
 
@@ -118,7 +125,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`relative min-h-screen font-sans transition-colors duration-300 overflow-x-hidden ${isLightMode ? 'theme-light-active' : ''}`}>
+    <div className={`relative min-h-screen font-sans transition-colors duration-200 overflow-x-hidden ${isLightMode ? 'theme-light-active' : ''}`}>
       <audio ref={audioRef} src={musicUrl} loop preload="auto" crossOrigin="anonymous" />
       
       <style>{LIGHT_MODE_STYLES}</style>

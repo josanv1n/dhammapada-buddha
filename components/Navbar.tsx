@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ViewState, ThemeMode } from '../types';
 import { DhammaWheel, LotusIcon } from './Icons';
 import { Palette, Check, Home, BookOpen, Music, Mail, Menu, X } from 'lucide-react';
@@ -35,12 +35,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
     { id: 'yellow', label: 'Kuning', color: 'bg-yellow-400' }, 
   ];
 
-  const handleNavClick = (view: ViewState) => {
-    // Spontanitas: Langsung tutup menu dan ubah view
+  const handleNavClick = useCallback((view: ViewState) => {
     setIsMenuOpen(false);
     setIsPaletteOpen(false);
-    setView(view);
-  };
+    // RequestAnimationFrame memastikan state ditutup dulu sebelum beban render view baru dimulai
+    requestAnimationFrame(() => {
+      setView(view);
+    });
+  }, [setView]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -122,7 +124,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
               <Palette size={24} />
             </button>
             {isPaletteOpen && (
-              <div className="absolute top-12 right-0 w-64 glass-panel border border-white/20 rounded-xl p-3 shadow-2xl grid grid-cols-4 gap-2 z-[130] animate-in fade-in zoom-in duration-150">
+              <div className="absolute top-12 right-0 w-64 glass-panel border border-white/20 rounded-xl p-3 shadow-2xl grid grid-cols-4 gap-2 z-[130]">
                  {themeOptions.map((option) => (
                    <button key={option.id} onClick={() => { setThemeMode(option.id); setIsPaletteOpen(false); }} className={`w-10 h-10 rounded-full ${option.color} border ${themeMode === option.id ? 'ring-2 ring-techno-primary' : 'border-slate-500'} flex items-center justify-center`}>
                      {themeMode === option.id && <Check size={16} className={['light', 'yellow', 'gray'].includes(option.id) ? 'text-black' : 'text-white'} />}
@@ -136,8 +138,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
       {/* MOBILE SIDE DRAWER */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[120] md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onClick={() => setIsMenuOpen(false)}></div>
-          <div className={`absolute top-0 left-0 w-72 h-full shadow-2xl transition-transform duration-200 ease-out border-r ${isDarkMode ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'}`}>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)}></div>
+          <div className={`absolute top-0 left-0 w-72 h-full shadow-2xl border-r ${isDarkMode ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'}`}>
             <div className={`p-6 border-b flex items-center gap-3 ${isDarkMode ? 'border-white/10' : 'border-slate-100'}`}>
               <DhammaWheel className="h-8 w-8 text-techno-gold" />
               <span className={`font-techno font-bold tracking-widest text-xs ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>MENU UTAMA</span>
