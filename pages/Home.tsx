@@ -22,15 +22,19 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Link MP3 yang benar (Diperbarui sesuai instruksi: Triratna_Puja.mp3)
   const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
 
   const handlePlay = () => {
     if (audioRef.current) {
+      // Teknik warming up untuk mobile
+      audioRef.current.muted = false;
       audioRef.current.play()
         .then(() => {
           setIsPlaying(true);
           setAudioError(false);
           setNeedsManualPlay(false);
+          setIsMuted(false);
         })
         .catch((err) => {
           console.error("Gagal putar manual:", err);
@@ -43,6 +47,7 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    // Deteksi jika browser memblokir autoplay
     const attemptAutoplay = () => {
       audio.play()
         .then(() => {
@@ -55,10 +60,13 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
         });
     };
 
+    // Listener interaksi global untuk HP Android
     const globalInteraction = () => {
-      if (!isPlaying) handlePlay();
-      document.removeEventListener('click', globalInteraction);
-      document.removeEventListener('touchstart', globalInteraction);
+      if (!isPlaying) {
+        handlePlay();
+        document.removeEventListener('click', globalInteraction);
+        document.removeEventListener('touchstart', globalInteraction);
+      }
     };
 
     document.addEventListener('click', globalInteraction);
@@ -109,15 +117,34 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <audio ref={audioRef} src={musicUrl} loop preload="auto" onPlay={() => setIsPlaying(true)} onError={() => setAudioError(true)} />
+      <audio 
+        ref={audioRef} 
+        src={musicUrl} 
+        loop 
+        preload="auto" 
+        crossOrigin="anonymous"
+        onPlay={() => { setIsPlaying(true); setAudioError(false); }}
+        onError={(e) => { 
+          console.error("Audio Load Error", e);
+          setAudioError(true); 
+        }} 
+      />
 
+      {/* Floating Audio Controls */}
       <div className="fixed bottom-24 right-6 z-50 flex flex-col gap-4 md:bottom-10">
         {needsManualPlay && !audioError && (
-          <button onClick={handlePlay} className="p-4 rounded-full bg-techno-gold text-black shadow-[0_0_20px_rgba(251,191,36,0.5)] animate-bounce">
+          <button 
+            onClick={handlePlay} 
+            className="p-4 rounded-full bg-techno-gold text-black shadow-[0_0_20px_rgba(251,191,36,0.5)] animate-bounce"
+            aria-label="Putar Musik"
+          >
             <Play size={24} fill="currentColor" />
           </button>
         )}
-        <button onClick={toggleMute} className={`p-3 rounded-full backdrop-blur-md border shadow-lg ${isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'} ${audioError ? 'border-red-500 text-red-500 opacity-50' : ''}`}>
+        <button 
+          onClick={toggleMute} 
+          className={`p-3 rounded-full backdrop-blur-md border shadow-lg ${isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'} ${audioError ? 'border-red-500 text-red-500 opacity-50' : ''}`}
+        >
           {audioError ? <AlertCircle size={22} /> : (isMuted ? <VolumeX size={22} /> : <Volume2 size={22} className={isPlaying ? "animate-pulse" : ""} />)}
         </button>
       </div>
@@ -154,20 +181,27 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8 mb-12">
-          <button onClick={() => setView('parita')} className="px-8 py-3 bg-gradient-to-r from-techno-gold to-orange-500 rounded-full font-bold text-black shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+        {/* Action Buttons Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 mb-16 w-full max-w-lg">
+          <button onClick={() => setView('parita')} className="px-6 py-4 bg-gradient-to-r from-techno-gold to-orange-500 rounded-xl font-bold text-black shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-3">
             <BookOpen className="w-5 h-5" /> BACA PARITA
           </button>
-          <button onClick={() => setView('syair')} className="px-8 py-3 bg-gradient-to-r from-techno-primary to-blue-600 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+          <button onClick={() => setView('syair')} className="px-6 py-4 bg-gradient-to-r from-techno-primary to-blue-600 rounded-xl font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-3">
             <LotusIcon className="w-5 h-5" /> BACA SYAIR
           </button>
-          <button onClick={() => setView('lagu')} className="px-8 py-3 bg-gradient-to-r from-techno-accent to-purple-600 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+          <button onClick={() => setView('lagu')} className="px-6 py-4 bg-gradient-to-r from-techno-accent to-purple-600 rounded-xl font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-3">
             <Music className="w-5 h-5" /> KUMPULAN LAGU
           </button>
-          <button onClick={() => setView('kontak')} className="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+          <button onClick={() => setView('kontak')} className="px-6 py-4 bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-3">
             <Mail className="w-5 h-5" /> KONTAK KAMI
           </button>
         </div>
+
+        {audioError && (
+          <p className="mb-10 text-red-400 text-[10px] font-techno uppercase tracking-widest bg-red-500/10 py-2 px-4 rounded border border-red-500/20">
+            Audio tidak dapat diputar. Silakan periksa koneksi atau browser Anda.
+          </p>
+        )}
       </div>
     </div>
   );

@@ -56,10 +56,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const isDarkMode = themeMode === 'default' || themeMode === 'black';
+
   return (
     <>
       {/* --- DESKTOP NAVBAR --- */}
-      <nav className="fixed top-0 left-0 w-full z-50 glass-panel border-b border-techno-primary/30 hidden md:block">
+      <nav className="fixed top-0 left-0 w-full z-[100] glass-panel border-b border-techno-primary/30 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3 cursor-pointer group" onClick={() => handleNavClick('home')}>
@@ -106,24 +108,28 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
       </nav>
 
       {/* --- MOBILE NAVBAR (Top) --- */}
-      <nav className="fixed top-0 left-0 w-full z-50 glass-panel border-b border-techno-primary/30 md:hidden flex items-center justify-between px-4 h-14">
-         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-white">
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      <nav className={`fixed top-0 left-0 w-full z-[100] border-b md:hidden flex items-center justify-between px-4 h-14 ${isDarkMode ? 'bg-slate-900/90 border-techno-primary/30' : 'bg-white/90 border-slate-200'} backdrop-blur-md`}>
+         <button 
+           onClick={() => setIsMenuOpen(!isMenuOpen)} 
+           className={`p-2 rounded-lg transition-colors z-[110] ${isDarkMode ? 'text-techno-primary bg-white/5 hover:bg-techno-primary/10' : 'text-slate-800 bg-slate-100 hover:bg-slate-200'}`}
+           aria-label="Buka Menu"
+         >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
          </button>
          
-         <div className="flex items-center gap-2">
+         <div className="flex items-center gap-2" onClick={() => handleNavClick('home')}>
             <DhammaWheel className="h-6 w-6 text-techno-gold animate-spin-slow" />
-            <span className="font-techno font-bold text-lg tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-techno-gold to-techno-primary">
+            <span className="font-techno font-bold text-base tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-techno-gold to-techno-primary">
               DHAMMAPADA
             </span>
          </div>
          
          <div className="relative" ref={paletteRef}>
-           <button onClick={() => setIsPaletteOpen(!isPaletteOpen)} className="p-2 text-white">
-              <Palette className="h-5 w-5" />
+           <button onClick={() => setIsPaletteOpen(!isPaletteOpen)} className={`p-2 rounded-lg ${isDarkMode ? 'text-techno-primary' : 'text-slate-800'}`}>
+              <Palette className="h-6 w-6" />
             </button>
             {isPaletteOpen && (
-              <div className="absolute top-12 right-0 w-64 glass-panel border border-white/20 rounded-xl p-3 shadow-2xl grid grid-cols-4 gap-2 z-50 animate-fade-in">
+              <div className="absolute top-12 right-0 w-64 glass-panel border border-white/20 rounded-xl p-3 shadow-2xl grid grid-cols-4 gap-2 z-[70] animate-fade-in">
                  {themeOptions.map((option) => (
                    <button key={option.id} onClick={() => { setThemeMode(option.id); setIsPaletteOpen(false); }} className={`w-10 h-10 rounded-full ${option.color} border ${themeMode === option.id ? 'border-white ring-1 ring-techno-primary' : 'border-slate-500'} flex items-center justify-center`}>
                      {themeMode === option.id && <Check className={`w-4 h-4 ${getCheckColor(option.id)}`} />}
@@ -136,24 +142,27 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
 
       {/* --- MOBILE SIDE DRAWER --- */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-[60] md:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)}></div>
-          <div className="absolute top-0 left-0 w-64 h-full bg-slate-900 shadow-2xl animate-slide-in-left border-r border-white/10">
-            <div className="p-6 border-b border-white/10 flex items-center gap-3">
+        <div className="fixed inset-0 z-[120] md:hidden">
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)}></div>
+          <div className={`absolute top-0 left-0 w-72 h-full shadow-2xl animate-slide-in-left border-r ${isDarkMode ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'}`}>
+            <div className={`p-6 border-b flex items-center gap-3 ${isDarkMode ? 'border-white/10' : 'border-slate-100'}`}>
               <DhammaWheel className="h-8 w-8 text-techno-gold" />
-              <span className="font-techno font-bold text-white tracking-widest text-sm">MENU</span>
+              <span className={`font-techno font-bold tracking-widest text-sm ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>MENU UTAMA</span>
             </div>
             <div className="py-4">
               {navItems.map((item) => {
                 const Icon = item.icon;
+                const isActive = currentView === item.id;
                 return (
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id as ViewState)}
-                    className={`flex items-center gap-4 w-full px-6 py-4 transition-colors ${currentView === item.id ? 'bg-techno-primary/20 text-techno-primary border-r-4 border-techno-primary' : 'text-slate-300'}`}
+                    className={`flex items-center gap-4 w-full px-6 py-4 transition-all ${isActive 
+                      ? (isDarkMode ? 'bg-techno-primary/20 text-techno-primary border-r-4 border-techno-primary' : 'bg-slate-100 text-techno-primary border-r-4 border-techno-primary') 
+                      : (isDarkMode ? 'text-slate-300 hover:bg-white/5' : 'text-slate-600 hover:bg-slate-50')}`}
                   >
-                    <Icon size={20} />
-                    <span className="font-medium">{item.label}</span>
+                    <Icon size={22} className={isActive ? 'animate-pulse' : ''} />
+                    <span className="font-bold text-lg">{item.label}</span>
                   </button>
                 );
               })}
@@ -163,15 +172,21 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
       )}
 
       {/* --- MOBILE BOTTOM NAVIGATION --- */}
-      <div className="fixed bottom-0 left-0 w-full z-50 glass-panel border-t border-white/10 md:hidden pb-safe">
+      <div className={`fixed bottom-0 left-0 w-full z-50 border-t md:hidden pb-safe ${isDarkMode ? 'bg-slate-900/95 border-white/10' : 'bg-white/95 border-slate-200'} backdrop-blur-md`}>
         <div className="grid grid-cols-5 h-16">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = currentView === item.id;
             return (
-              <button key={item.id} onClick={() => handleNavClick(item.id as ViewState)} className={`flex flex-col items-center justify-center space-y-1 ${isActive ? 'text-techno-primary' : 'text-slate-400'}`}>
-                <div className={`p-1 rounded-full ${isActive ? 'bg-techno-primary/20' : ''}`}><Icon className="w-5 h-5" /></div>
-                <span className="text-[10px]">{item.label}</span>
+              <button 
+                key={item.id} 
+                onClick={() => handleNavClick(item.id as ViewState)} 
+                className={`flex flex-col items-center justify-center space-y-1 transition-all ${isActive ? 'text-techno-primary' : (isDarkMode ? 'text-slate-400' : 'text-slate-500')}`}
+              >
+                <div className={`p-1.5 rounded-full transition-colors ${isActive ? (isDarkMode ? 'bg-techno-primary/20' : 'bg-slate-100') : ''}`}>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <span className={`text-[10px] font-bold ${isActive ? 'opacity-100' : 'opacity-70'}`}>{item.label}</span>
               </button>
             );
           })}
