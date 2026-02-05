@@ -36,10 +36,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
   ];
 
   const handleNavClick = useCallback((view: ViewState) => {
-    // Menutup menu mobile seketika
+    // Tutup UI overlay seketika
     setIsMenuOpen(false);
     setIsPaletteOpen(false);
-    // Berpindah view tanpa delay frame
+    // Pindah halaman tanpa jeda
     setView(view);
   }, [setView]);
 
@@ -165,7 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
         </div>
       )}
 
-      {/* MOBILE BOTTOM NAVIGATION (Optimized with onPointerDown) */}
+      {/* MOBILE BOTTOM NAVIGATION (Optimized with onPointerDown untuk Respon Spontan) */}
       <div className={`fixed bottom-0 left-0 w-full z-50 border-t md:hidden pb-safe ${isDarkMode ? 'bg-slate-900/95 border-white/10' : 'bg-white/95 border-slate-200'} backdrop-blur-md`}>
         <div className="grid grid-cols-5 h-16">
           {navItems.map((item) => {
@@ -175,9 +175,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
               <button 
                 key={item.id} 
                 onPointerDown={() => handleNavClick(item.id as ViewState)} 
-                className={`flex flex-col items-center justify-center space-y-1 transition-all duration-75 active:scale-90 ${isActive ? 'text-techno-primary' : (isDarkMode ? 'text-slate-400' : 'text-slate-500')}`}
+                className={`flex flex-col items-center justify-center space-y-1 transition-all duration-75 active:scale-90 touch-none ${isActive ? 'text-techno-primary' : (isDarkMode ? 'text-slate-400' : 'text-slate-500')}`}
               >
-                <Icon size={22} className={isActive ? 'scale-110 text-techno-primary' : 'text-slate-400'} />
+                <Icon size={24} className={isActive ? 'scale-110 text-techno-primary' : 'text-slate-400'} />
                 <span className={`text-[10px] font-bold tracking-tight ${isActive ? 'opacity-100' : 'opacity-70'}`}>{item.label}</span>
               </button>
             );

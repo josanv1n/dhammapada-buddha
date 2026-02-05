@@ -50,22 +50,22 @@ const App: React.FC = () => {
 
   const handleSetView = useCallback((view: ViewState) => {
     setCurrentView(view);
-    // Auto scroll ke atas dengan mode instant untuk performa
+    // Langsung pindahkan scroll tanpa animasi untuk kecepatan
     window.scrollTo(0, 0);
   }, []);
 
-  // Manajemen Audio yang sangat ketat
+  // Update status audio berdasarkan halaman dan interaksi
   const updateAudioState = useCallback(() => {
     if (!audioRef.current) return;
     
-    if (currentView === 'home') {
-      if (isInteracted.current) {
-        audioRef.current.play().catch(() => {
-          // Gagal play biasanya karena interaksi belum terdeteksi sempurna
+    if (currentView === 'home' && isInteracted.current) {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Gagal autoplay (masalah kebijakan browser)
         });
       }
     } else {
-      // Pause seketika jika bukan di halaman Home
       audioRef.current.pause();
     }
   }, [currentView]);
@@ -74,29 +74,32 @@ const App: React.FC = () => {
     updateAudioState();
   }, [currentView, updateAudioState]);
 
-  // Listener Gesture (Scroll & Touch) untuk Android Autoplay
+  // Listener interaksi agresif untuk Android
   useEffect(() => {
     const unlockAudio = () => {
-      if (!isInteracted.current) {
-        isInteracted.current = true;
-        updateAudioState();
-        
-        // Hapus listener segera setelah audio terbuka (unlocked)
-        window.removeEventListener('scroll', unlockAudio);
-        window.removeEventListener('touchstart', unlockAudio);
-        window.removeEventListener('pointerdown', unlockAudio);
-      }
+      if (isInteracted.current) return;
+      
+      // Tandai interaksi sudah terjadi
+      isInteracted.current = true;
+      
+      // Langsung jalankan fungsi audio
+      updateAudioState();
+      
+      // Bersihkan semua event listener pengunci
+      window.removeEventListener('touchend', unlockAudio);
+      window.removeEventListener('mouseup', unlockAudio);
+      window.removeEventListener('scroll', unlockAudio);
     };
 
-    // Deteksi gesture sentuh, geser (scroll), atau klik
+    // 'touchend' adalah saat yang paling tepat untuk membuka kunci audio di mobile
+    window.addEventListener('touchend', unlockAudio, { passive: true });
+    window.addEventListener('mouseup', unlockAudio, { passive: true });
     window.addEventListener('scroll', unlockAudio, { passive: true });
-    window.addEventListener('touchstart', unlockAudio, { passive: true });
-    window.addEventListener('pointerdown', unlockAudio, { passive: true });
 
     return () => {
+      window.removeEventListener('touchend', unlockAudio);
+      window.removeEventListener('mouseup', unlockAudio);
       window.removeEventListener('scroll', unlockAudio);
-      window.removeEventListener('touchstart', unlockAudio);
-      window.removeEventListener('pointerdown', unlockAudio);
     };
   }, [updateAudioState]);
 
