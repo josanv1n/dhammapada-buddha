@@ -1,11 +1,15 @@
+
 import React from 'react';
 
-export const DhammaWheel: React.FC<{ className?: string }> = ({ className }) => (
+// Added size prop to support being used in components that expect standard icon props
+export const DhammaWheel: React.FC<{ className?: string; size?: string | number }> = ({ className, size }) => (
   <svg 
     viewBox="0 0 100 100" 
     className={className} 
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
   >
     <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none" />
     <circle cx="50" cy="50" r="5" fill="currentColor" />
@@ -18,7 +22,8 @@ export const DhammaWheel: React.FC<{ className?: string }> = ({ className }) => 
   </svg>
 );
 
-export const LotusIcon: React.FC<{ className?: string }> = ({ className }) => (
+// Added size prop to match Lucide icon prop signature for use in navigation loops
+export const LotusIcon: React.FC<{ className?: string; size?: string | number }> = ({ className, size }) => (
   <svg 
     viewBox="0 0 24 24" 
     className={className}
@@ -27,6 +32,8 @@ export const LotusIcon: React.FC<{ className?: string }> = ({ className }) => (
     strokeWidth="2" 
     strokeLinecap="round" 
     strokeLinejoin="round"
+    width={size}
+    height={size}
   >
     <path d="M12 2.5s-4.5 4.5-4.5 9c0 2.5 2 4.5 4.5 4.5s4.5-2 4.5-4.5c0-4.5-4.5-9-4.5-9Z" />
     <path d="M12 16v6" />

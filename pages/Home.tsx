@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { DhammaWheel, LotusIcon } from '../components/Icons';
 import { ViewState, ThemeMode } from '../types';
-import { BookOpen, Music, Volume2, VolumeX, AlertCircle } from 'lucide-react';
+import { BookOpen, Music, Volume2, VolumeX, AlertCircle, Play, Mail } from 'lucide-react';
 import { DHAMMAPADA_DATA } from '../data/dhammapada';
 
 interface HomeProps {
@@ -18,101 +18,69 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [audioError, setAudioError] = useState(false);
+  const [needsManualPlay, setNeedsManualPlay] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Link MP3 Langsung
-  const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
+  const musicUrl = "https://josanvin.github.io/josanvin/img/tri_ratna.mp3";
+
+  const handlePlay = () => {
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+          setAudioError(false);
+          setNeedsManualPlay(false);
+        })
+        .catch((err) => {
+          console.error("Gagal putar manual:", err);
+          setAudioError(true);
+        });
+    }
+  };
 
   useEffect(() => {
-    // Gunakan konstruktor Audio() asli untuk fleksibilitas lebih tinggi di berbagai browser
-    const audio = new Audio();
-    audio.src = musicUrl;
-    audio.loop = true;
-    audio.preload = "auto";
-    audioRef.current = audio;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    const attemptPlay = () => {
-      if (!audio) return;
+    const attemptAutoplay = () => {
       audio.play()
         .then(() => {
           setIsPlaying(true);
           setAudioError(false);
+          setNeedsManualPlay(false);
         })
         .catch(() => {
-          // Autoplay dicegah, ini normal. Kita tunggu interaksi.
-          console.log("Menunggu interaksi pengguna untuk memutar audio.");
+          setNeedsManualPlay(true);
         });
     };
 
-    // Handler untuk error loading media
-    const handleError = (e: any) => {
-      console.error("Audio error:", e);
-      setAudioError(true);
-      setIsPlaying(false);
+    const globalInteraction = () => {
+      if (!isPlaying) handlePlay();
+      document.removeEventListener('click', globalInteraction);
+      document.removeEventListener('touchstart', globalInteraction);
     };
 
-    audio.addEventListener('error', handleError);
-    
-    // Coba putar setelah sedikit jeda
-    const timeout = setTimeout(attemptPlay, 1000);
+    document.addEventListener('click', globalInteraction);
+    document.addEventListener('touchstart', globalInteraction);
 
-    // Listener global untuk memulai musik pada klik pertama di mana saja
-    const handleGlobalClick = () => {
-      if (audio && !isPlaying && !audioError) {
-        audio.play()
-          .then(() => {
-            setIsPlaying(true);
-            setAudioError(false);
-            removeListeners();
-          })
-          .catch(err => {
-            console.error("Gagal putar pada klik:", err);
-            setAudioError(true);
-          });
-      }
-    };
-
-    const removeListeners = () => {
-      document.removeEventListener('click', handleGlobalClick);
-      document.removeEventListener('touchstart', handleGlobalClick);
-    };
-
-    document.addEventListener('click', handleGlobalClick);
-    document.addEventListener('touchstart', handleGlobalClick);
+    const timer = setTimeout(attemptAutoplay, 1500);
 
     return () => {
-      clearTimeout(timeout);
-      removeListeners();
-      audio.removeEventListener('error', handleError);
-      audio.pause();
-      audio.src = "";
-      audioRef.current = null;
+      clearTimeout(timer);
+      document.removeEventListener('click', globalInteraction);
+      document.removeEventListener('touchstart', globalInteraction);
+      if (audio) audio.pause();
     };
-  }, [musicUrl]);
+  }, []);
 
   const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Jangan picu event listener global
+    e.stopPropagation();
     if (audioRef.current) {
-      if (audioError) {
-        // Jika error, coba muat ulang
-        audioRef.current.load();
-        audioRef.current.play()
-          .then(() => {
-            setAudioError(false);
-            setIsPlaying(true);
-          })
-          .catch(() => setAudioError(true));
-        return;
-      }
-
       const newMuted = !isMuted;
       audioRef.current.muted = newMuted;
       setIsMuted(newMuted);
-      
-      if (!newMuted && !isPlaying) {
-        audioRef.current.play().then(() => setIsPlaying(true));
-      }
+      if (!newMuted && !isPlaying) handlePlay();
     }
   };
 
@@ -141,25 +109,20 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      
-      {/* Music Toggle Control (Floating) */}
-      <button 
-        onClick={toggleMute}
-        className={`fixed bottom-24 right-6 z-50 p-3 rounded-full backdrop-blur-md border shadow-lg transition-all hover:scale-110 md:bottom-10 ${
-          isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'
-        } ${audioError ? 'border-red-500 text-red-500 animate-pulse' : ''}`}
-        title={audioError ? "Gagal memuat musik - Klik untuk coba lagi" : (isMuted ? "Aktifkan Suara" : "Matikan Suara")}
-      >
-        {audioError ? (
-          <AlertCircle size={22} />
-        ) : (
-          isMuted ? <VolumeX size={22} /> : <Volume2 size={22} className={isPlaying ? "animate-pulse" : ""} />
+      <audio ref={audioRef} src={musicUrl} loop preload="auto" onPlay={() => setIsPlaying(true)} onError={() => setAudioError(true)} />
+
+      <div className="fixed bottom-24 right-6 z-50 flex flex-col gap-4 md:bottom-10">
+        {needsManualPlay && !audioError && (
+          <button onClick={handlePlay} className="p-4 rounded-full bg-techno-gold text-black shadow-[0_0_20px_rgba(251,191,36,0.5)] animate-bounce">
+            <Play size={24} fill="currentColor" />
+          </button>
         )}
-      </button>
+        <button onClick={toggleMute} className={`p-3 rounded-full backdrop-blur-md border shadow-lg ${isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'} ${audioError ? 'border-red-500 text-red-500 opacity-50' : ''}`}>
+          {audioError ? <AlertCircle size={22} /> : (isMuted ? <VolumeX size={22} /> : <Volume2 size={22} className={isPlaying ? "animate-pulse" : ""} />)}
+        </button>
+      </div>
 
       <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center">
-        
-        {/* Main Visual */}
         <div className="relative mb-10 group perspective-1000">
           {isDarkMode && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -167,83 +130,42 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
                <div className="absolute w-[280px] h-[280px] md:w-[430px] md:h-[430px] border border-techno-accent/30 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '25s' }}></div>
             </div>
           )}
-
           <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float transition-transform duration-700 transform hover:scale-105">
             <div className={`absolute inset-0 bg-gradient-to-b ${isDarkMode ? 'from-techno-primary/20 to-techno-accent/20' : 'from-slate-400/20 to-slate-600/20'} rounded-full blur-2xl`}></div>
             <div className={`w-full h-full rounded-full overflow-hidden ${isDarkMode ? 'bg-slate-800 border-techno-primary/50' : 'bg-white border-slate-300'} border-2 shadow-[0_0_30px_rgba(6,182,212,0.5)]`}>
-              <img 
-                src={imgSrc}
-                alt="Buddha" 
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-                onError={handleImageError}
-              />
+              <img src={imgSrc} alt="Buddha" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" onError={handleImageError} />
             </div>
-            <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 ${isDarkMode ? 'bg-techno-dark/90 border-techno-primary' : 'bg-white/90 border-slate-300'} backdrop-blur-md p-3 rounded-full border shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:scale-110 transition-transform`}>
+            <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 ${isDarkMode ? 'bg-techno-dark/90 border-techno-primary' : 'bg-white/90 border-slate-300'} backdrop-blur-md p-3 rounded-full border shadow-[0_0_15px_rgba(6,182,212,0.4)]`}>
                 <DhammaWheel className={`w-8 h-8 ${isDarkMode ? 'text-techno-primary' : 'text-slate-800'} animate-spin-slow`} />
             </div>
           </div>
         </div>
 
-        {/* Text Content */}
         <div className="max-w-3xl">
           <div className="mb-2 animate-bounce-slow">
             <span className={`px-4 py-1 rounded-full text-xs font-techno font-bold tracking-[0.2em] uppercase border ${isDarkMode ? 'text-techno-gold border-techno-gold/30 bg-techno-gold/5' : 'text-slate-600 border-slate-300 bg-slate-100'}`}>
               {greeting}
             </span>
           </div>
-
-          <h1 className={`text-3xl md:text-5xl font-techno font-bold mb-6 ${isDarkMode ? 'bg-clip-text text-transparent bg-gradient-to-r from-white via-techno-primary to-techno-accent' : 'text-slate-800'}`}>
-            SYAIR DHAMMAPADA
-          </h1>
-          
+          <h1 className={`text-3xl md:text-5xl font-techno font-bold mb-6 ${isDarkMode ? 'bg-clip-text text-transparent bg-gradient-to-r from-white via-techno-primary to-techno-accent' : 'text-slate-800'}`}>SYAIR DHAMMAPADA</h1>
           <div className="relative px-6 py-4">
-            <div className={`absolute top-0 left-0 text-6xl opacity-20 font-serif ${isDarkMode ? 'text-techno-primary' : 'text-slate-400'}`}>“</div>
-            <p className={`text-lg md:text-xl font-classic italic leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-slate-600 font-semibold'}`}>
-              {randomVerse.translation}
-            </p>
-            <p className={`text-xs md:text-sm font-techno tracking-widest ${isDarkMode ? 'text-techno-primary/70' : 'text-slate-500'}`}>
-              — DHAMMAPADA AYAT {randomVerse.number}
-            </p>
-            <div className={`absolute bottom-0 right-0 text-6xl opacity-20 font-serif ${isDarkMode ? 'text-techno-primary' : 'text-slate-400'}`}>”</div>
+            <p className={`text-lg md:text-xl font-classic italic leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-slate-600 font-semibold'}`}>{randomVerse.translation}</p>
+            <p className={`text-xs md:text-sm font-techno tracking-widest ${isDarkMode ? 'text-techno-primary/70' : 'text-slate-500'}`}>— DHAMMAPADA AYAT {randomVerse.number}</p>
           </div>
-
-          {audioError && (
-            <p className="mt-4 text-red-400 text-xs font-techno animate-pulse bg-red-500/10 py-2 px-4 rounded-lg border border-red-500/30">
-              Format audio tidak didukung oleh browser Anda atau file tidak ditemukan.<br/>
-              Silakan periksa koneksi internet Anda.
-            </p>
-          )}
-          {!isPlaying && !audioError && (
-            <p className={`mt-4 text-xs font-techno opacity-60 animate-pulse ${isDarkMode ? 'text-techno-primary' : 'text-slate-500'}`}>
-              Ketuk di mana saja untuk memutar musik pengiring.
-            </p>
-          )}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8">
-          <button 
-            onClick={() => setView('parita')}
-            className="px-8 py-3 bg-gradient-to-r from-techno-gold to-orange-500 rounded-full font-bold text-black shadow-lg hover:shadow-techno-gold/40 hover:scale-105 transition-all flex items-center justify-center gap-2"
-          >
-            <BookOpen className="w-5 h-5" />
-            BACA PARITA
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-8 mb-12">
+          <button onClick={() => setView('parita')} className="px-8 py-3 bg-gradient-to-r from-techno-gold to-orange-500 rounded-full font-bold text-black shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+            <BookOpen className="w-5 h-5" /> BACA PARITA
           </button>
-
-          <button 
-            onClick={() => setView('syair')}
-            className="px-8 py-3 bg-gradient-to-r from-techno-primary to-blue-600 rounded-full font-bold text-white shadow-lg hover:shadow-techno-primary/40 hover:scale-105 transition-all flex items-center justify-center gap-2"
-          >
-            <LotusIcon className="w-5 h-5" />
-            BACA SYAIR
+          <button onClick={() => setView('syair')} className="px-8 py-3 bg-gradient-to-r from-techno-primary to-blue-600 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+            <LotusIcon className="w-5 h-5" /> BACA SYAIR
           </button>
-
-          <button 
-            onClick={() => setView('lagu')}
-            className="px-8 py-3 bg-gradient-to-r from-techno-accent to-purple-600 rounded-full font-bold text-white shadow-lg hover:shadow-techno-accent/40 hover:scale-105 transition-all flex items-center justify-center gap-2"
-          >
-            <Music className="w-5 h-5" />
-            KUMPULAN LAGU
+          <button onClick={() => setView('lagu')} className="px-8 py-3 bg-gradient-to-r from-techno-accent to-purple-600 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+            <Music className="w-5 h-5" /> KUMPULAN LAGU
+          </button>
+          <button onClick={() => setView('kontak')} className="px-8 py-3 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2">
+            <Mail className="w-5 h-5" /> KONTAK KAMI
           </button>
         </div>
       </div>
