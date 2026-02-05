@@ -10,10 +10,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
-  // Menggunakan link GitHub Pages yang baru
   const initialImage = "https://josanvin.github.io/josanvin/img/buddha.jpg";
-  
-  // Gambar Cadangan (Fallback)
   const fallbackImage = "https://images.pexels.com/photos/3642337/pexels-photo-3642337.jpeg?auto=compress&cs=tinysrgb&w=800";
   
   const [imgSrc, setImgSrc] = useState(initialImage);
@@ -23,11 +20,9 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
     if (!hasError) {
       setImgSrc(fallbackImage);
       setHasError(true);
-      console.log("Gambar utama gagal dimuat, mengalihkan ke gambar cadangan...");
     }
   };
 
-  // Logika Ucapan Salam Berbasis Waktu
   const greeting = useMemo(() => {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 10) return "Selamat Pagi";
@@ -36,24 +31,35 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
     return "Selamat Malam";
   }, []);
 
-  // Logika Mengambil Ayat Secara Random
   const randomVerse = useMemo(() => {
     const allVerses = DHAMMAPADA_DATA.flatMap(vagga => vagga.verses);
     const randomIndex = Math.floor(Math.random() * allVerses.length);
     return allVerses[randomIndex];
   }, []);
 
-  // Cek apakah mode gelap (Default atau Black) untuk menentukan style teks
   const isDarkMode = themeMode === 'default' || themeMode === 'black';
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       
+      {/* 
+          BACKROUND MUSIC (HIDDEN IFRAME) 
+          Diletakkan di sini agar saat pindah menu (Home di-unmount), 
+          musik otomatis berhenti total.
+      */}
+      <div className="hidden pointer-events-none opacity-0 invisible" aria-hidden="true">
+        <iframe 
+            src="https://drive.google.com/file/d/1LZAKt5-VuhJnSaOhj5BIniaFDoURelZs/preview?autoplay=1" 
+            width="640" 
+            height="360" 
+            allow="autoplay">
+        </iframe>
+      </div>
+
       <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center">
         
-        {/* Main 3D Visual - Buddha/Wheel Composition */}
+        {/* Main 3D Visual */}
         <div className="relative mb-10 group perspective-1000">
-          {/* Rotating Halo - hanya tampil jika mode gelap agar tidak mengganggu di background terang */}
           {isDarkMode && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                <div className="w-[300px] h-[300px] md:w-[450px] md:h-[450px] border-2 border-techno-primary/30 rounded-full animate-spin-slow"></div>
@@ -61,12 +67,8 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
             </div>
           )}
 
-          {/* Buddha Image (Techno Style) */}
           <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float transition-transform duration-700 transform hover:scale-105">
-            {/* Glow effect behind the image - Rounded Full */}
             <div className={`absolute inset-0 bg-gradient-to-b ${isDarkMode ? 'from-techno-primary/20 to-techno-accent/20' : 'from-slate-400/20 to-slate-600/20'} rounded-full blur-2xl`}></div>
-            
-            {/* The Image Wrapper - Rounded Full for circle shape */}
             <div className={`w-full h-full rounded-full overflow-hidden ${isDarkMode ? 'bg-slate-800 border-techno-primary/50' : 'bg-white border-slate-300'} border-2 shadow-[0_0_30px_rgba(6,182,212,0.5)]`}>
               <img 
                 src={imgSrc}
@@ -75,8 +77,6 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
                 onError={handleImageError}
               />
             </div>
-            
-            {/* Overlay Icon */}
             <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 ${isDarkMode ? 'bg-techno-dark/90 border-techno-primary' : 'bg-white/90 border-slate-300'} backdrop-blur-md p-3 rounded-full border shadow-[0_0_15px_rgba(6,182,212,0.4)] hover:scale-110 transition-transform`}>
                 <DhammaWheel className={`w-8 h-8 ${isDarkMode ? 'text-techno-primary' : 'text-slate-800'} animate-spin-slow`} />
             </div>
@@ -85,7 +85,6 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
         {/* Text Content */}
         <div className="max-w-3xl">
-          {/* Greeting Text */}
           <p className={`text-sm md:text-base font-techno font-bold tracking-[0.2em] uppercase mb-1 ${isDarkMode ? 'text-techno-gold' : 'text-slate-500'}`}>
             {greeting}
           </p>
@@ -95,17 +94,13 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
           </h1>
           
           <div className="relative px-6">
-            {/* Quote Mark Decoration */}
             <div className={`absolute top-0 left-0 text-6xl opacity-20 font-serif ${isDarkMode ? 'text-techno-primary' : 'text-slate-400'}`}>“</div>
-            
             <p className={`text-lg md:text-xl font-classic italic leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-slate-600 font-semibold'}`}>
               {randomVerse.translation}
             </p>
-            
             <p className={`text-xs md:text-sm font-techno tracking-widest ${isDarkMode ? 'text-techno-primary/70' : 'text-slate-500'}`}>
               — DHAMMAPADA AYAT {randomVerse.number}
             </p>
-
             <div className={`absolute bottom-0 right-0 text-6xl opacity-20 font-serif ${isDarkMode ? 'text-techno-primary' : 'text-slate-400'}`}>”</div>
           </div>
         </div>
