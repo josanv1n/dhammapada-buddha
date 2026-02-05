@@ -8,27 +8,53 @@ import Lagu from './pages/Lagu';
 import Contact from './pages/Contact';
 import { ViewState, ThemeMode } from './types';
 
-const LIGHT_MODE_STYLES = `
-  .theme-light-active .text-white { color: #1e293b !important; }
-  .theme-light-active .text-slate-200 { color: #334155 !important; }
-  .theme-light-active .text-slate-300 { color: #475569 !important; }
-  .theme-light-active .text-slate-400 { color: #475569 !important; }
-  .theme-light-active .text-gray-300 { color: #334155 !important; }
-  .theme-light-active .text-gray-400 { color: #475569 !important; }
-  .theme-light-active .text-cyan-400 { color: #0891b2 !important; } 
-  .theme-light-active .glass-panel {
-    background: rgba(255, 255, 255, 0.7) !important;
-    border-color: rgba(0,0,0,0.1) !important;
+const THEME_STYLES = `
+  /* Global Transition */
+  .theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
   }
-  .theme-light-active nav.glass-panel, 
-  .theme-light-active .glass-panel.fixed {
-    background: rgba(30, 41, 59, 0.95) !important; 
+
+  /* Logic for Light Themes (Light, Gray, Green, Blue, Pink, Yellow) */
+  .theme-is-light .text-white { color: #0f172a !important; } /* Slate-900 */
+  .theme-is-light .text-slate-200 { color: #1e293b !important; } /* Slate-800 */
+  .theme-is-light .text-slate-300 { color: #334155 !important; } /* Slate-700 */
+  .theme-is-light .text-slate-400 { color: #475569 !important; } /* Slate-600 */
+  .theme-is-light .text-gray-300 { color: #334155 !important; }
+  .theme-is-light .text-cyan-400 { color: #0e7490 !important; } /* Cyan-700 */
+  
+  .theme-is-light .glass-panel {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: rgba(15, 23, 42, 0.1) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* Navbar specific for light themes to keep it readable */
+  .theme-is-light nav.glass-panel {
+    background: #0f172a !important; /* Keep navbar dark for contrast */
     border-color: rgba(255, 255, 255, 0.1) !important;
   }
-  .theme-light-active nav .nav-link, 
-  .theme-light-active nav span, 
-  .theme-light-active nav button { color: white !important; }
-  .theme-light-active input { background-color: white !important; color: black !important; }
+  .theme-is-light nav .text-white, 
+  .theme-is-light nav span, 
+  .theme-is-light nav button { 
+    color: white !important; 
+  }
+
+  /* Theme Specific Backgrounds */
+  .bg-theme-default { background-color: #020617; }
+  .bg-theme-light { background-color: #ffffff; }
+  .bg-theme-gray { background-color: #f1f5f9; }
+  .bg-theme-green { background-color: #ecfdf5; }
+  .bg-theme-blue { background-color: #f0f9ff; }
+  .bg-theme-pink { background-color: #fff1f2; }
+  .bg-theme-black { background-color: #000000; }
+  .bg-theme-yellow { background-color: #fffbeb; }
+
+  /* Adjust inputs for light themes */
+  .theme-is-light input {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
 `;
 
 const App: React.FC = () => {
@@ -41,7 +67,6 @@ const App: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isUnlocked = useRef(false);
 
-  // Direct Link lebih cepat dan ringan
   const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
 
   const setThemeMode = (mode: ThemeMode) => {
@@ -54,18 +79,12 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Manajemen Audio (Hanya di Home, Volume 20%)
   const updateAudioState = useCallback(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    
-    // Set Volume ke 20%
     audio.volume = 0.2;
-
     if (currentView === 'home' && isUnlocked.current) {
-      audio.play().catch(() => {
-        // Autoplay diblokir browser sampai interaksi terjadi
-      });
+      audio.play().catch(() => {});
     } else {
       audio.pause();
     }
@@ -75,32 +94,19 @@ const App: React.FC = () => {
     updateAudioState();
   }, [currentView, updateAudioState]);
 
-  // Audio Warming Logic - Membuka kunci audio pada interaksi pertama
   useEffect(() => {
     const handleUserInteraction = () => {
       if (isUnlocked.current) return;
-      
-      const audio = audioRef.current;
-      if (audio) {
-        isUnlocked.current = true;
-        // Langsung coba play untuk unlock context
-        updateAudioState();
-        
-        // Hapus listener agar tidak boros resource
-        window.removeEventListener('click', handleUserInteraction);
-        window.removeEventListener('touchend', handleUserInteraction);
-        window.removeEventListener('scroll', handleUserInteraction);
-      }
+      isUnlocked.current = true;
+      updateAudioState();
+      window.removeEventListener('click', handleUserInteraction);
+      window.removeEventListener('touchend', handleUserInteraction);
     };
-
     window.addEventListener('click', handleUserInteraction, { passive: true });
     window.addEventListener('touchend', handleUserInteraction, { passive: true });
-    window.addEventListener('scroll', handleUserInteraction, { passive: true });
-
     return () => {
       window.removeEventListener('click', handleUserInteraction);
       window.removeEventListener('touchend', handleUserInteraction);
-      window.removeEventListener('scroll', handleUserInteraction);
     };
   }, [updateAudioState]);
 
@@ -117,40 +123,36 @@ const App: React.FC = () => {
     }
   };
 
-  const renderBackground = () => {
-    if (themeMode === 'light') return <div className="absolute inset-0 bg-white"></div>;
-    if (themeMode === 'black') return <div className="absolute inset-0 bg-black"></div>;
-    if (themeMode === 'gray') return <div className="absolute inset-0 bg-gray-100"></div>;
-    if (themeMode === 'green') return <div className="absolute inset-0 bg-green-100"></div>;
-    if (themeMode === 'blue') return <div className="absolute inset-0 bg-blue-100"></div>;
-    if (themeMode === 'pink') return <div className="absolute inset-0 bg-pink-100"></div>;
-    if (themeMode === 'yellow') return <div className="absolute inset-0 bg-yellow-100"></div>;
-    
-    return (
-      <>
-         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-techno-primary/10 rounded-full blur-3xl animate-pulse"></div>
-         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-techno-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-      </>
-    );
+  const renderBackgroundElements = () => {
+    if (themeMode === 'default') {
+      return (
+        <>
+           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-techno-primary/10 rounded-full blur-3xl animate-pulse"></div>
+           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-techno-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        </>
+      );
+    }
+    return null;
   };
 
   return (
-    <div className={`relative min-h-screen font-sans transition-colors duration-150 overflow-x-hidden ${isLightMode ? 'theme-light-active' : ''}`}>
+    <div className={`relative min-h-screen font-sans theme-transition overflow-x-hidden ${isLightMode ? 'theme-is-light' : 'theme-is-dark'}`}>
       <audio ref={audioRef} src={musicUrl} loop preload="auto" crossOrigin="anonymous" />
       
-      <style>{LIGHT_MODE_STYLES}</style>
+      <style>{THEME_STYLES}</style>
 
-      <div className={`fixed inset-0 z-0 overflow-hidden ${themeMode === 'default' || themeMode === 'black' ? 'bg-techno-dark' : 'bg-white'}`}>
-         {renderBackground()}
+      {/* Dynamic Background Layer */}
+      <div className={`fixed inset-0 z-0 bg-theme-${themeMode} transition-colors duration-500`}>
+         {renderBackgroundElements()}
       </div>
 
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar currentView={currentView} setView={handleSetView} themeMode={themeMode} setThemeMode={setThemeMode} />
-        <main className={`flex-grow relative pb-20 md:pb-0 ${themeMode === 'default' || themeMode === 'black' ? 'text-white' : 'text-slate-900'}`}>
+        <main className={`flex-grow relative pb-20 md:pb-0 ${isLightMode ? 'text-slate-900' : 'text-white'}`}>
           {renderView()}
           
-          <footer className="w-full text-center py-6 opacity-40 font-techno text-[10px] tracking-[0.2em] mb-16 md:mb-4">
+          <footer className={`w-full text-center py-6 opacity-40 font-techno text-[10px] tracking-[0.2em] mb-16 md:mb-4 ${isLightMode ? 'text-slate-500' : 'text-slate-400'}`}>
              Copyright©2026 Johan - 081341300100
           </footer>
         </main>
