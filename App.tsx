@@ -11,7 +11,7 @@ import { ViewState, ThemeMode } from './types';
 const THEME_STYLES = `
   /* Global Transition */
   .theme-transition * {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
   }
 
   /* Logic for Light Themes (Light, Gray, Green, Blue, Pink, Yellow) */
@@ -20,26 +20,42 @@ const THEME_STYLES = `
   .theme-is-light .text-slate-300 { color: #334155 !important; } /* Slate-700 */
   .theme-is-light .text-slate-400 { color: #475569 !important; } /* Slate-600 */
   .theme-is-light .text-gray-300 { color: #334155 !important; }
-  .theme-is-light .text-cyan-400 { color: #0e7490 !important; } /* Cyan-700 */
+  .theme-is-light .text-cyan-400 { color: #0891b2 !important; } /* Cyan-600/700 */
   
   .theme-is-light .glass-panel {
-    background: rgba(255, 255, 255, 0.8) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
     border-color: rgba(15, 23, 42, 0.1) !important;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
   }
 
-  /* Navbar specific for light themes to keep it readable */
-  .theme-is-light nav.glass-panel {
-    background: #0f172a !important; /* Keep navbar dark for contrast */
-    border-color: rgba(255, 255, 255, 0.1) !important;
+  /* Force Navbar to ALWAYS stay dark regardless of theme */
+  nav.glass-panel, 
+  nav.fixed,
+  .mobile-menu-drawer {
+    background: rgba(2, 6, 23, 0.95) !important;
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    color: white !important;
   }
-  .theme-is-light nav .text-white, 
-  .theme-is-light nav span, 
-  .theme-is-light nav button { 
-    color: white !important; 
+  
+  nav .text-white, 
+  nav span, 
+  nav button,
+  .mobile-bottom-nav button,
+  .mobile-bottom-nav span { 
+    color: rgba(255, 255, 255, 0.8) !important; 
+  }
+  
+  nav .text-techno-primary,
+  .mobile-bottom-nav .text-techno-primary {
+    color: #06b6d4 !important;
   }
 
-  /* Theme Specific Backgrounds */
+  .mobile-bottom-nav {
+    background: rgba(15, 23, 42, 0.98) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Theme Backgrounds */
   .bg-theme-default { background-color: #020617; }
   .bg-theme-light { background-color: #ffffff; }
   .bg-theme-gray { background-color: #f1f5f9; }
@@ -49,7 +65,7 @@ const THEME_STYLES = `
   .bg-theme-black { background-color: #000000; }
   .bg-theme-yellow { background-color: #fffbeb; }
 
-  /* Adjust inputs for light themes */
+  /* Input overrides for light themes */
   .theme-is-light input {
     background-color: rgba(255, 255, 255, 0.9) !important;
     color: #0f172a !important;

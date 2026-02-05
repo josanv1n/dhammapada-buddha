@@ -38,7 +38,6 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
   const handleNavClick = useCallback((view: ViewState) => {
     setIsMenuOpen(false);
     setIsPaletteOpen(false);
-    // Berpindah view seketika
     setView(view);
   }, [setView]);
 
@@ -52,12 +51,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isDarkMode = themeMode === 'default' || themeMode === 'black';
+  // Navbar components are now explicitly styled with dark classes to ensure permanence
+  const darkNavClasses = "bg-slate-900/95 border-techno-primary/30 text-white";
 
   return (
     <>
       {/* DESKTOP NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full z-[100] glass-panel border-b border-techno-primary/30 hidden md:block">
+      <nav className={`fixed top-0 left-0 w-full z-[100] glass-panel border-b hidden md:block ${darkNavClasses}`}>
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onPointerDown={() => handleNavClick('home')}>
             <DhammaWheel className="h-8 w-8 text-techno-gold animate-spin-slow" />
@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
                 <Palette size={20} />
               </button>
               {isPaletteOpen && (
-                <div className="absolute top-12 right-0 w-72 glass-panel border border-white/20 rounded-xl p-4 shadow-2xl grid grid-cols-4 gap-3 z-[110]">
+                <div className="absolute top-12 right-0 w-72 glass-panel border border-white/20 rounded-xl p-4 shadow-2xl grid grid-cols-4 gap-3 z-[110] bg-slate-900/98">
                   {themeOptions.map((option) => (
                     <button
                       key={option.id}
@@ -102,10 +102,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
       </nav>
 
       {/* MOBILE NAVBAR (Top) */}
-      <nav className={`fixed top-0 left-0 w-full z-[100] border-b md:hidden flex items-center justify-between px-4 h-14 ${isDarkMode ? 'bg-slate-900/95 border-techno-primary/30' : 'bg-white/95 border-slate-200'} backdrop-blur-md transition-colors`}>
+      <nav className={`fixed top-0 left-0 w-full z-[100] border-b md:hidden flex items-center justify-between px-4 h-14 bg-slate-900/95 border-techno-primary/30 backdrop-blur-md transition-colors text-white`}>
          <button 
            onPointerDown={() => setIsMenuOpen(!isMenuOpen)} 
-           className={`p-2 rounded-lg z-[110] ${isDarkMode ? 'text-techno-primary bg-white/5' : 'text-slate-800 bg-slate-100'}`}
+           className="p-2 rounded-lg z-[110] text-techno-primary bg-white/5"
          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
          </button>
@@ -118,11 +118,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
          </div>
          
          <div className="relative" ref={paletteRef}>
-           <button onPointerDown={() => setIsPaletteOpen(!isPaletteOpen)} className={`p-2 rounded-lg ${isDarkMode ? 'text-techno-primary' : 'text-slate-800'}`}>
+           <button onPointerDown={() => setIsPaletteOpen(!isPaletteOpen)} className="p-2 rounded-lg text-techno-primary">
               <Palette size={24} />
             </button>
             {isPaletteOpen && (
-              <div className="absolute top-12 right-0 w-64 glass-panel border border-white/20 rounded-xl p-3 shadow-2xl grid grid-cols-4 gap-2 z-[130]">
+              <div className="absolute top-12 right-0 w-64 glass-panel border border-white/20 rounded-xl p-3 shadow-2xl grid grid-cols-4 gap-2 z-[130] bg-slate-900/98">
                  {themeOptions.map((option) => (
                    <button key={option.id} onPointerDown={() => { setThemeMode(option.id); setIsPaletteOpen(false); }} className={`w-10 h-10 rounded-full ${option.color} border ${themeMode === option.id ? 'ring-2 ring-techno-primary' : 'border-slate-500'} flex items-center justify-center`}>
                      {themeMode === option.id && <Check size={16} className={['light', 'yellow', 'gray'].includes(option.id) ? 'text-black' : 'text-white'} />}
@@ -137,10 +137,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
       {isMenuOpen && (
         <div className="fixed inset-0 z-[120] md:hidden">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onPointerDown={() => setIsMenuOpen(false)}></div>
-          <div className={`absolute top-0 left-0 w-72 h-full shadow-2xl border-r ${isDarkMode ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'}`}>
-            <div className={`p-6 border-b flex items-center gap-3 ${isDarkMode ? 'border-white/10' : 'border-slate-100'}`}>
+          <div className="absolute top-0 left-0 w-72 h-full shadow-2xl border-r bg-slate-900 border-white/10 mobile-menu-drawer">
+            <div className="p-6 border-b flex items-center gap-3 border-white/10">
               <DhammaWheel className="h-8 w-8 text-techno-gold" />
-              <span className={`font-techno font-bold tracking-widest text-xs ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>MENU UTAMA</span>
+              <span className="font-techno font-bold tracking-widest text-xs text-white">MENU UTAMA</span>
             </div>
             <div className="py-2">
               {navItems.map((item) => {
@@ -151,8 +151,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
                     key={item.id}
                     onPointerDown={() => handleNavClick(item.id as ViewState)}
                     className={`flex items-center gap-4 w-full px-6 py-4 transition-colors ${isActive 
-                      ? (isDarkMode ? 'bg-techno-primary/20 text-techno-primary' : 'bg-slate-100 text-techno-primary') 
-                      : (isDarkMode ? 'text-slate-300 hover:bg-white/5' : 'text-slate-600 hover:bg-slate-50')}`}
+                      ? 'bg-techno-primary/20 text-techno-primary' 
+                      : 'text-slate-300 hover:bg-white/5'}`}
                   >
                     <Icon size={20} />
                     <span className="font-bold text-base">{item.label}</span>
@@ -164,8 +164,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
         </div>
       )}
 
-      {/* MOBILE BOTTOM NAVIGATION (Sangat cepat dengan onPointerDown) */}
-      <div className={`fixed bottom-0 left-0 w-full z-50 border-t md:hidden pb-safe ${isDarkMode ? 'bg-slate-900/95 border-white/10' : 'bg-white/95 border-slate-200'} backdrop-blur-md`}>
+      {/* MOBILE BOTTOM NAVIGATION */}
+      <div className="fixed bottom-0 left-0 w-full z-50 border-t md:hidden pb-safe bg-slate-900/98 border-white/10 backdrop-blur-md mobile-bottom-nav">
         <div className="grid grid-cols-5 h-16">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -174,7 +174,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, setView, themeMode, setThe
               <button 
                 key={item.id} 
                 onPointerDown={() => handleNavClick(item.id as ViewState)} 
-                className={`flex flex-col items-center justify-center space-y-1 transition-all duration-75 active:scale-90 touch-none ${isActive ? 'text-techno-primary' : (isDarkMode ? 'text-slate-400' : 'text-slate-500')}`}
+                className={`flex flex-col items-center justify-center space-y-1 transition-all duration-75 active:scale-90 touch-none ${isActive ? 'text-techno-primary' : 'text-slate-400'}`}
               >
                 <Icon size={24} className={isActive ? 'scale-110 text-techno-primary' : 'text-slate-400'} />
                 <span className={`text-[10px] font-bold tracking-tight ${isActive ? 'opacity-100' : 'opacity-70'}`}>{item.label}</span>
