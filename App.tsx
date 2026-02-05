@@ -41,7 +41,7 @@ const App: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const isUnlocked = useRef(false);
 
-  // Direct Link lebih cepat
+  // Direct Link lebih cepat dan ringan
   const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
 
   const setThemeMode = (mode: ThemeMode) => {
@@ -54,23 +54,20 @@ const App: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Update status audio berdasarkan halaman dan interaksi
+  // Manajemen Audio (Hanya di Home, Volume 20%)
   const updateAudioState = useCallback(() => {
-    if (!audioRef.current) return;
+    const audio = audioRef.current;
+    if (!audio) return;
     
-    // Setting Volume 20%
-    audioRef.current.volume = 0.2;
+    // Set Volume ke 20%
+    audio.volume = 0.2;
 
     if (currentView === 'home' && isUnlocked.current) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Gagal autoplay (masalah kebijakan browser jika interaksi belum cukup)
-        });
-      }
+      audio.play().catch(() => {
+        // Autoplay diblokir browser sampai interaksi terjadi
+      });
     } else {
-      // Pause otomatis di halaman lain
-      audioRef.current.pause();
+      audio.pause();
     }
   }, [currentView]);
 
@@ -78,21 +75,24 @@ const App: React.FC = () => {
     updateAudioState();
   }, [currentView, updateAudioState]);
 
-  // Listener interaksi agresif (Audio Warming)
+  // Audio Warming Logic - Membuka kunci audio pada interaksi pertama
   useEffect(() => {
     const handleUserInteraction = () => {
       if (isUnlocked.current) return;
       
-      isUnlocked.current = true;
-      updateAudioState();
-      
-      // Hapus listener setelah unlock berhasil
-      window.removeEventListener('click', handleUserInteraction);
-      window.removeEventListener('touchend', handleUserInteraction);
-      window.removeEventListener('scroll', handleUserInteraction);
+      const audio = audioRef.current;
+      if (audio) {
+        isUnlocked.current = true;
+        // Langsung coba play untuk unlock context
+        updateAudioState();
+        
+        // Hapus listener agar tidak boros resource
+        window.removeEventListener('click', handleUserInteraction);
+        window.removeEventListener('touchend', handleUserInteraction);
+        window.removeEventListener('scroll', handleUserInteraction);
+      }
     };
 
-    // 'touchend' adalah kunci utama di Android (lepas jari langsung play)
     window.addEventListener('click', handleUserInteraction, { passive: true });
     window.addEventListener('touchend', handleUserInteraction, { passive: true });
     window.addEventListener('scroll', handleUserInteraction, { passive: true });
