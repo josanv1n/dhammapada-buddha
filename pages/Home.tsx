@@ -1,7 +1,8 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+
+import React, { useState, useMemo } from 'react';
 import { DhammaWheel, LotusIcon } from '../components/Icons';
 import { ViewState, ThemeMode } from '../types';
-import { BookOpen, Music, Volume2, VolumeX, AlertCircle, Play, Mail } from 'lucide-react';
+import { BookOpen, Music, Mail } from 'lucide-react';
 import { DHAMMAPADA_DATA } from '../data/dhammapada';
 
 interface HomeProps {
@@ -15,82 +16,6 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
   
   const [imgSrc, setImgSrc] = useState(initialImage);
   const [hasError, setHasError] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [audioError, setAudioError] = useState(false);
-  const [needsManualPlay, setNeedsManualPlay] = useState(false);
-  
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  // Link MP3 yang benar (Diperbarui sesuai instruksi: Triratna_Puja.mp3)
-  const musicUrl = "https://josanvin.github.io/josanvin/img/Triratna_Puja.mp3";
-
-  const handlePlay = () => {
-    if (audioRef.current) {
-      // Teknik warming up untuk mobile
-      audioRef.current.muted = false;
-      audioRef.current.play()
-        .then(() => {
-          setIsPlaying(true);
-          setAudioError(false);
-          setNeedsManualPlay(false);
-          setIsMuted(false);
-        })
-        .catch((err) => {
-          console.error("Gagal putar manual:", err);
-          setAudioError(true);
-        });
-    }
-  };
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    // Deteksi jika browser memblokir autoplay
-    const attemptAutoplay = () => {
-      audio.play()
-        .then(() => {
-          setIsPlaying(true);
-          setAudioError(false);
-          setNeedsManualPlay(false);
-        })
-        .catch(() => {
-          setNeedsManualPlay(true);
-        });
-    };
-
-    // Listener interaksi global untuk HP Android
-    const globalInteraction = () => {
-      if (!isPlaying) {
-        handlePlay();
-        document.removeEventListener('click', globalInteraction);
-        document.removeEventListener('touchstart', globalInteraction);
-      }
-    };
-
-    document.addEventListener('click', globalInteraction);
-    document.addEventListener('touchstart', globalInteraction);
-
-    const timer = setTimeout(attemptAutoplay, 1500);
-
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener('click', globalInteraction);
-      document.removeEventListener('touchstart', globalInteraction);
-      if (audio) audio.pause();
-    };
-  }, []);
-
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (audioRef.current) {
-      const newMuted = !isMuted;
-      audioRef.current.muted = newMuted;
-      setIsMuted(newMuted);
-      if (!newMuted && !isPlaying) handlePlay();
-    }
-  };
 
   const handleImageError = () => {
     if (!hasError) {
@@ -117,39 +42,8 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <audio 
-        ref={audioRef} 
-        src={musicUrl} 
-        loop 
-        preload="auto" 
-        crossOrigin="anonymous"
-        onPlay={() => { setIsPlaying(true); setAudioError(false); }}
-        onError={(e) => { 
-          console.error("Audio Load Error", e);
-          setAudioError(true); 
-        }} 
-      />
-
-      {/* Floating Audio Controls */}
-      <div className="fixed bottom-24 right-6 z-50 flex flex-col gap-4 md:bottom-10">
-        {needsManualPlay && !audioError && (
-          <button 
-            onClick={handlePlay} 
-            className="p-4 rounded-full bg-techno-gold text-black shadow-[0_0_20px_rgba(251,191,36,0.5)] animate-bounce"
-            aria-label="Putar Musik"
-          >
-            <Play size={24} fill="currentColor" />
-          </button>
-        )}
-        <button 
-          onClick={toggleMute} 
-          className={`p-3 rounded-full backdrop-blur-md border shadow-lg ${isDarkMode ? 'bg-techno-dark/80 border-techno-primary text-techno-primary' : 'bg-white/80 border-slate-300 text-slate-600'} ${audioError ? 'border-red-500 text-red-500 opacity-50' : ''}`}
-        >
-          {audioError ? <AlertCircle size={22} /> : (isMuted ? <VolumeX size={22} /> : <Volume2 size={22} className={isPlaying ? "animate-pulse" : ""} />)}
-        </button>
-      </div>
-
       <div className="container mx-auto px-4 z-10 relative flex flex-col items-center text-center">
+        {/* Profile/Image Section */}
         <div className="relative mb-10 group perspective-1000">
           {isDarkMode && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -160,7 +54,7 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
           <div className="relative w-64 h-64 md:w-80 md:h-80 animate-float transition-transform duration-700 transform hover:scale-105">
             <div className={`absolute inset-0 bg-gradient-to-b ${isDarkMode ? 'from-techno-primary/20 to-techno-accent/20' : 'from-slate-400/20 to-slate-600/20'} rounded-full blur-2xl`}></div>
             <div className={`w-full h-full rounded-full overflow-hidden ${isDarkMode ? 'bg-slate-800 border-techno-primary/50' : 'bg-white border-slate-300'} border-2 shadow-[0_0_30px_rgba(6,182,212,0.5)]`}>
-              <img src={imgSrc} alt="Buddha" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" onError={handleImageError} />
+              <img src={imgSrc} alt="Buddha" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" onError={handleImageError} loading="lazy" />
             </div>
             <div className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 ${isDarkMode ? 'bg-techno-dark/90 border-techno-primary' : 'bg-white/90 border-slate-300'} backdrop-blur-md p-3 rounded-full border shadow-[0_0_15px_rgba(6,182,212,0.4)]`}>
                 <DhammaWheel className={`w-8 h-8 ${isDarkMode ? 'text-techno-primary' : 'text-slate-800'} animate-spin-slow`} />
@@ -168,6 +62,7 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
           </div>
         </div>
 
+        {/* Text Section */}
         <div className="max-w-3xl">
           <div className="mb-2 animate-bounce-slow">
             <span className={`px-4 py-1 rounded-full text-xs font-techno font-bold tracking-[0.2em] uppercase border ${isDarkMode ? 'text-techno-gold border-techno-gold/30 bg-techno-gold/5' : 'text-slate-600 border-slate-300 bg-slate-100'}`}>
@@ -196,12 +91,6 @@ const Home: React.FC<HomeProps> = ({ setView, themeMode }) => {
             <Mail className="w-5 h-5" /> KONTAK KAMI
           </button>
         </div>
-
-        {audioError && (
-          <p className="mb-10 text-red-400 text-[10px] font-techno uppercase tracking-widest bg-red-500/10 py-2 px-4 rounded border border-red-500/20">
-            Audio tidak dapat diputar. Silakan periksa koneksi atau browser Anda.
-          </p>
-        )}
       </div>
     </div>
   );
